@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Liên hệ</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/header-footer.css">
+    <link rel="stylesheet" href="css/contact.css">
+    <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+
+    <header class="main-header">
+        <div class="container">
+            <a href="index.html" class="logo">
+                <img src="image/anh2.png" alt="PLT Logo">
+            </a>
+            <nav class="main-nav">
+                <ul class="nav-list">
+                    <li><a href="index.html">Trang chủ</a></li>
+                    <li class="has-dropdown">
+                        <a href="#">Khóa học <i class="fas fa-chevron-down"></i></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="courses.html">Tất cả khóa học</a></li>
+                            <li><a href="./courses-detail/digital-marketing-detail.html">Marketing</a></li>
+                            <li><a href="./courses-detail/web-detail.html">Phát triển Web</a></li>
+                            <li><a href="./courses-detail/graphic-design-detail.html">Thiết kế đồ họa</a></li>
+                            <li><a href="./courses-detail/data-science-detail.html">Khoa học dữ liệu</a></li>
+                            <li><a href="./courses-detail/photography-detail.html">Nhiếp ảnh</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="about.html">Về chúng tôi</a></li>
+                    <li><a href="blog.html">Blog</a></li>
+                    <li><a href="contact.html" class="active">Liên hệ</a></li> </ul>
+            </nav>
+            <div class="header-actions">
+                <a href="cart.html" class="cart-icon">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span class="cart-count">0</span> </a>
+                <div id="auth-buttons" class="auth-buttons">
+                    <a href="register.html" class="btn btn-primary" id="register-btn">Đăng ký</a> 
+                    <a href="login.html" class="btn btn-secondary" id="login-btn">Đăng nhập</a>
+                    <a href="#" class="btn btn-primary" id="logout-btn" style="display: none;">Đăng xuất</a> 
+                </div>
+                <button class="menu-toggle" aria-label="Mở Menu">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <section class="page-hero-section section-padding bg-light">
+        <div class="container text-center">
+            <h1 class="section-title">Liên hệ với chúng tôi</h1>
+            <p class="hero-description" style="margin-top: 15px; color: #555;">Chúng tôi luôn sẵn lòng lắng nghe và hỗ trợ bạn.</p>
+        </div>
+    </section>
+
+    <section class="contact-section section-padding">
+        <div class="container">
+            <div class="contact-grid">
+                <div class="contact-info">
+                    <div class="info-item">
+                        <div class="icon-wrapper"><i class="fas fa-map-marker-alt"></i></div>
+                        <div>
+                            <h4>Địa chỉ</h4>
+                            <p>123 Đường ABC, Phường BCD, Quận 1, TP. Hồ Chí Minh</p>
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <div class="icon-wrapper"><i class="fas fa-phone-alt"></i></div>
+                        <div>
+                            <h4>Số điện thoại</h4>
+                            <p>+84 123 456 789</p>
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <div class="icon-wrapper"><i class="fas fa-envelope"></i></div>
+                        <div>
+                            <h4>Email</h4>
+                            <p>info@edrio.com</p>
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <div class="icon-wrapper"><i class="fas fa-clock"></i></div>
+                        <div>
+                            <h4>Giờ làm việc</h4>
+                            <p>Thứ 2 - Thứ 6: 9:00 AM - 5:00 PM</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="contact-form-wrapper">
+                    <h3 class="form-title">Gửi tin nhắn cho chúng tôi</h3>
+                    <form class="contact-form">
+                        <div class="form-group">
+                            <input type="text" id="name" name="name" placeholder="Họ và tên" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" id="email" name="email" placeholder="Email của bạn" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" id="subject" name="subject" placeholder="Chủ đề">
+                        </div>
+                        <div class="form-group">
+                            <textarea id="message" name="message" rows="5" placeholder="Tin nhắn của bạn" required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary btn-block">Gửi tin nhắn</button>
+                    </form>
+                </div>
+            </div>
+            <div class="map-container mt-5">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3919.495244585141!2d106.69748687425121!3d10.773727689369986!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31752f360a87f171%3A0x6e76cf20a3249764!2sBitexco%20Financial%20Tower!5e0!3m2!1svi!2svn!4v1701345600000!5m2!1svi!2svn" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+        </div>
+    </section>
+
+    <footer class="main-footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col about-col">
+                    <a href="index.html" class="footer-logo">
+                        <img src="image/anh1.png" alt="PLT Logo">
+                    </a>
+                    <p>Chúng tôi là nền tảng học tập trực tuyến hàng đầu, mang đến những khóa học chất lượng cao từ các chuyên gia.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                <div class="footer-col links-col">
+                    <h4>Khóa học</h4>
+                    <ul>
+                        <li><a href="./courses-detail/web-detail.html">Phát triển Web</a></li>
+                        <li><a href="./courses-detail/digital-marketing-detail.html">Marketing số</a></li>
+                        <li><a href="./courses-detail/graphic-design-detail.html">Thiết kế đồ họa</a></li>
+                        <li><a href="./courses-detail/data-science-detail.html">Khoa học dữ liệu</a></li>
+                        <li><a href="./courses-detail/photography-detail.html">Nhiếp ảnh</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col links-col">
+                    <h4>Liên kết nhanh</h4>
+                    <ul>
+                        <li><a href="about.html">Về chúng tôi</a></li>
+                        <li><a href="courses.html">Khóa học</a></li>
+                        <li><a href="blog.html">Blog</a></li>
+                        <li><a href="privacy-policy.html">Chính sách bảo mật</a></li>
+                        <li><a href="terms-of-service.html">Điều khoản sử dụng</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col contact-col">
+                    <h4>Liên hệ</h4>
+                    <p><i class="fas fa-map-marker-alt"></i> 123 Đường ABC, Quận 1, TP.HCM</p>
+                    <p><i class="fas fa-phone-alt"></i> +84 123 456 789</p>
+                    <p><i class="fas fa-envelope"></i> info@edrio.com</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 PLT Solutions. Tất cả quyền được bảo lưu.</p>
+                <p>Được thiết kế bởi PLT Team</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+    <script src="js/cart.js"></script>
+</body>
+</html>

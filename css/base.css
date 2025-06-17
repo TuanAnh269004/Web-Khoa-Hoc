@@ -1,0 +1,199 @@
+/* --- 1. Biến CSS (CSS Variables) --- */
+:root {
+    --primary-color: #007bff; /* Màu xanh dương chủ đạo */
+    --primary-hover-color: #0056b3;
+    --primary-rgb: 0, 123, 255;
+    --secondary-color: #28a745; /* Màu xám thứ cấp */
+    --heading-color: #333;
+    --success-color: #28a745; /* Màu xanh lá cây (thành công) */
+    --warning-color: #fdd835; /* Màu vàng (cảnh báo/sao) */
+    --light-bg: #f8f9fa; /* Nền xám nhẹ */
+    --dark-bg: #222; /* Nền tối */
+    --text-color: #555;
+    --light-text-color: #777;
+    --light-bg-color: #f8f9fa;
+    --border-color: #dee2e6;
+    --shadow-light: 0 2px 5px rgba(0,0,0,0.05);
+    --shadow-medium: 0 5px 15px rgba(0, 0, 0, 0.1);
+    --shadow-strong: 0 10px 30px rgba(0, 0, 0, 0.1);
+
+    /* Có thể thêm các biến khác như font-family, font-size, v.v. */
+    --font-poppins: 'Poppins', sans-serif;
+    --font-open-sans: 'Open Sans', sans-serif;
+}
+
+/* --- 2. Thiết lập CSS cơ bản và Reset --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; /* Rất quan trọng để tính toán kích thước phần tử */
+}
+
+body {
+    font-family: var(--font-open-sans); /* Font chữ mặc định cho body */
+    line-height: 1.6;
+    color: var(--text-color);
+    background-color: var(--light-bg); /* Màu nền nhẹ cho toàn trang */
+}
+
+.container {
+    max-width: 1200px; /* Chiều rộng tối đa của nội dung */
+    margin: 0 auto; /* Căn giữa container */
+    padding: 0 20px; /* Khoảng đệm hai bên */
+}
+
+a {
+    text-decoration: none; /* Bỏ gạch chân link */
+    color: inherit; /* Kế thừa màu chữ từ phần tử cha */
+}
+
+ul {
+    list-style: none; /* Bỏ dấu chấm đầu dòng của list */
+}
+
+/* --- 3. Các kiểu nút chung --- */
+.btn {
+    display: inline-block;
+    padding: 12px 25px;
+    border-radius: 5px;
+    font-weight: 600;
+    text-align: center;
+    transition: all 0.3s ease; /* Hiệu ứng chuyển động mượt mà */
+    cursor: pointer;
+    font-family: var(--font-poppins);
+}
+
+.btn-primary {
+    background-color: var(--primary-color); /* Màu xanh dương chủ đạo */
+    color: #fff;
+    border: 1px solid var(--primary-color);
+}
+
+.btn-primary:hover {
+    background-color: var(--primary-hover-color);
+    border-color: var(--primary-hover-color);
+}
+
+.btn-secondary {
+    background-color: transparent;
+    color: var(--primary-color); /* Màu chữ primary */
+    border: 1px solid var(--primary-color); /* Viền màu primary */
+    padding: 10px 20px; /* Giữ padding này hoặc đồng bộ với btn-primary */
+    border-radius: 5px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    display: inline-flex; /* Để căn giữa icon và text nếu có */
+    align-items: center;
+    gap: 10px; /* Khoảng cách giữa icon và text */
+}
+
+.btn-secondary:hover {
+    background-color: var(--primary-color);
+    color: #fff;
+}
+
+.btn-sm {
+    padding: 8px 18px;
+    font-size: 0.9em;
+}
+
+.btn-outline-primary {
+    background-color: transparent;
+    color: var(--primary-color);
+    border: 1px solid var(--primary-color);
+}
+
+.btn-outline-primary:hover {
+    background-color: var(--primary-color);
+    color: #fff;
+}
+
+/* --- Các kiểu chung cho Section --- */
+.section-padding {
+    padding: 80px 0; /* Khoảng đệm trên dưới cho các section */
+}
+
+.section-padding-small {
+    padding: 60px 0; /* Khoảng đệm nhỏ hơn */
+}
+
+.section-heading {
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+.section-tagline {
+    font-size: 1.1em;
+    font-weight: 500;
+    color: var(--primary-color); /* Màu chủ đạo */
+    margin-bottom: 10px;
+    display: block;
+    font-family: var(--font-poppins);
+}
+
+.section-title {
+    font-family: var(--font-poppins);
+    font-size: 2.8em;
+    font-weight: 700;
+    color: var(--text-color);
+    line-height: 1.2;
+    margin-top: 5px;
+    margin-bottom: 0;
+}
+
+/* --- Flexbox utilities --- */
+.flex-between {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* --- Tiện ích khác --- */
+.bg-light {
+    background-color: var(--light-bg); /* Màu nền xám nhẹ */
+}
+
+.text-center {
+    text-align: center;
+}
+
+.mt-5 {
+    margin-top: 3rem; /* Khoảng cách trên 3rem (khoảng 48px) */
+}
+
+/* Page Hero (chung cho các trang con) */
+.page-hero {
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('../img/page-hero-bg.jpg') no-repeat center center/cover;
+    color: #fff;
+    padding: 80px 0;
+    text-align: center;
+    margin-top: -1px; /* Đảm bảo dính vào header */
+    position: relative;
+    z-index: 1; /* Đảm bảo nội dung nằm trên lớp nền ảo */
+}
+
+.page-hero-title {
+    font-family: var(--font-poppins);
+    font-size: 3em;
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+
+.page-hero-breadcrumb {
+    font-size: 1.1em;
+}
+
+.page-hero-breadcrumb a {
+    color: #fff;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.page-hero-breadcrumb a:hover {
+    color: var(--primary-color);
+}
+
+.page-hero-breadcrumb span {
+    margin: 0 8px;
+    color: #ccc;
+}

@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Khóa học</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="css/header-footer.css">
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/courses.css">
+    <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+
+    <header class="main-header">
+        <div class="container">
+            <a href="index.html" class="logo">
+                <img src="image/anh2.png" alt="PLT Logo">
+            </a>
+            <nav class="main-nav">
+                <ul class="nav-list">
+                    <li><a href="index.html">Trang chủ</a></li>
+                    <li class="has-dropdown">
+                        <a href="#" class="active">Khóa học <i class="fas fa-chevron-down"></i></a> <ul class="dropdown-menu">
+                            <li><a href="courses.html">Tất cả khóa học</a></li>
+                            <li><a href="./courses-detail/digital-marketing-detail.html">Marketing</a></li>
+                            <li><a href="./courses-detail/web-detail.html">Phát triển Web</a></li>
+                            <li><a href="./courses-detail/graphic-design-detail.html">Thiết kế đồ họa</a></li>
+                            <li><a href="./courses-detail/data-science-detail.html">Khoa học dữ liệu</a></li>
+                            <li><a href="./courses-detail/photography-detail.html">Nhiếp ảnh</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="about.html">Về chúng tôi</a></li>
+                    <li><a href="blog.html">Blog</a></li>
+                    <li><a href="contact.html">Liên hệ</a></li>
+                </ul>
+            </nav>
+            <div class="header-actions">
+                <a href="cart.html" class="cart-icon">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span class="cart-count">0</span> </a>
+                <div id="auth-buttons" class="auth-buttons">
+                    <a href="register.html" class="btn btn-primary" id="register-btn">Đăng ký</a> 
+                    <a href="login.html" class="btn btn-secondary" id="login-btn">Đăng nhập</a>
+                    <a href="#" class="btn btn-primary" id="logout-btn" style="display: none;">Đăng xuất</a> 
+                </div>
+                <button class="menu-toggle" aria-label="Mở Menu">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <section class="page-hero-section section-padding bg-light">
+        <div class="container text-center">
+            <h1 class="section-title">Tất cả các khóa học của chúng tôi</h1>
+            <p class="hero-description" style="margin-top: 15px; color: #555;">Khám phá thư viện khóa học phong phú để nâng cao kỹ năng của bạn.</p>
+        </div>
+    </section>
+
+    <section class="popular-courses-section section-padding">
+        <div class="container">
+            <div class="section-heading" style="margin-bottom: 40px;">
+                <h2 class="section-title" style="font-size: 2.2em;">Khóa học phổ biến hiện nay</h2>
+            </div>
+            <div class="courses-grid">
+                <div class="course-item">
+                    <div class="course-thumbnail">
+                        <img src="image/anh4.jpg" alt="Web Development Course">
+                        <div class="course-category">
+                            <a href="#">Phát triển Web</a>
+                        </div>
+                    </div>
+                    <div class="course-content">
+                        <div class="course-meta">
+                            <span class="course-author"><i class="fas fa-user"></i> John Doe</span>
+                            <span class="course-rating">
+                                <i class="fas fa-star"></i> 4.9 (250)
+                            </span>
+                        </div>
+                        <h3 class="course-title"><a href="courses-detail/web-detail.html">Khóa học Phát triển Web Toàn diện từ A-Z</a></h3>
+                        <p class="course-description">
+                            Học cách xây dựng các trang web và ứng dụng web hiện đại.
+                        </p>
+                        <div class="course-footer">
+                            <span class="course-price">$49.99</span>
+                            <a href="courses-detail/web-detail.html" class="btn btn-sm btn-outline-primary">Xem chi tiết</a>
+                            <button class="btn btn-sm btn-success add-to-cart-btn"
+                                data-course-id="web-dev-fullstack"
+                                data-course-name="Khóa học Phát triển Web Toàn diện từ A-Z"
+                                data-course-price="49.99">Thêm vào giỏ hàng</button>
+                        </div>
+                    </div>
+                    <div class="course-item">
+                    <div class="course-thumbnail">
+                        <img src="image/anh10.jpg" alt="Data Science Course">
+                        <div class="course-category">
+                            <a href="#">Khoa học dữ liệu</a>
+                        </div>
+                    </div>
+                    <div class="course-content">
+                        <div class="course-meta">
+                            <span class="course-author"><i class="fas fa-user"></i> Michael Brown</span>
+                            <span class="course-rating">
+                                <i class="fas fa-star"></i> 4.9 (300)
+                            </span>
+                        </div>
+                        <h3 class="course-title"><a href="#">Giới thiệu về Khoa học Dữ liệu với Python</a></h3>
+                        <p class="course-description">
+                            Bắt đầu hành trình của bạn trong thế giới dữ liệu lớn và phân tích.
+                        </p>
+                        <div class="course-footer">
+                            <span class="course-price">$79.99</span>
+                            <a href="courses-detail/data-science-detail.html" class="btn btn-sm btn-outline-primary">Xem chi tiết</a>
+                            <button class="btn btn-sm btn-success add-to-cart-btn"
+                                data-course-id="data-science-intro"
+                                data-course-name="Giới thiệu về Khoa học Dữ liệu với Python"
+                                data-course-price="79.99">Thêm vào giỏ hàng</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="course-item">
+                    <div class="course-thumbnail">
+                        <img src="image/anh9.jpg" alt="Photography Course">
+                        <div class="course-category">
+                            <a href="#">Nhiếp ảnh</a>
+                        </div>
+                    </div>
+                    <div class="course-content">
+                        <div class="course-meta">
+                            <span class="course-author"><i class="fas fa-user"></i> Sarah Lee</span>
+                            <span class="course-rating">
+                                <i class="fas fa-star"></i> 4.6 (150)
+                            </span>
+                        </div>
+                        <h3 class="course-title"><a href="#">Nghệ thuật Nhiếp ảnh: Từ Cơ bản đến Nâng cao</a></h3>
+                        <p class="course-description">
+                            Học các kỹ thuật chụp ảnh chuyên nghiệp và chỉnh sửa ảnh.
+                        </p>
+                        <div class="course-footer">
+                            <span class="course-price">$39.99</span>
+                            <a href="courses-detail/photography-detail.html" class="btn btn-sm btn-outline-primary">Xem chi tiết</a>
+                            <button class="btn btn-sm btn-success add-to-cart-btn"
+                                data-course-id="photography-art"
+                                data-course-name="Nghệ thuật Nhiếp ảnh: Từ Cơ bản đến Nâng cao"
+                                data-course-price="39.99">Thêm vào giỏ hàng</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="course-item">
+                    <div class="course-thumbnail">
+                        <img src="image/anh8.png" alt="Business Management Course">
+                        <div class="course-category">
+                            <a href="#">Kinh doanh</a>
+                        </div>
+                    </div>
+                    <div class="course-content">
+                        <div class="course-meta">
+                            <span class="course-author"><i class="fas fa-user"></i> Robert Green</span>
+                            <span class="course-rating">
+                                <i class="fas fa-star"></i> 4.7 (200)
+                            </span>
+                        </div>
+                        <h3 class="course-title"><a href="#">Quản lý Dự án cho Người Mới Bắt đầu</a></h3>
+                        <p class="course-description">
+                            Tìm hiểu các nguyên tắc cơ bản của quản lý dự án hiệu quả.
+                        </p>
+                        <div class="course-footer">
+                            <span class="course-price">$44.99</span>
+                            <a href="courses-detail/business-management-detail.html" class="btn btn-sm btn-outline-primary">Xem chi tiết</a>
+                            <button class="btn btn-sm btn-success add-to-cart-btn"
+                                data-course-id="web-dev-fullstack"
+                                data-course-name="Khóa học Phát triển Web Toàn diện từ A-Z"
+                                data-course-price="49.99">Thêm vào giỏ hàng</button>
+                        </div>
+                    </div>
+                    <div class="course-item">
+                    <div class="course-thumbnail">
+                        <img src="image/anh5.jpg" alt="Digital Marketing Course">
+                        <div class="course-category">
+                            <a href="#">Marketing</a>
+                        </div>
+                    </div>
+                    <div class="course-content">
+                        <div class="course-meta">
+                            <span class="course-author"><i class="fas fa-user"></i> Jane Smith</span>
+                            <span class="course-rating">
+                                <i class="fas fa-star"></i> 4.8 (180)
+                            </span>
+                        </div>
+                        <h3 class="course-title"><a href="#">Chiến lược Digital Marketing hiệu quả</a></h3>
+                        <p class="course-description">
+                            Nắm vững các công cụ và chiến lược marketing trực tuyến.
+                        </p>
+                        <div class="course-footer">
+                            <span class="course-price">$59.99</span>
+                            <a href="courses-detail/digital-marketing-detail.html" class="btn btn-sm btn-outline-primary">Xem chi tiết</a>
+                            <button class="btn btn-sm btn-success add-to-cart-btn"
+                                data-course-id="web-dev-fullstack"
+                                data-course-name="Khóa học Phát triển Web Toàn diện từ A-Z"
+                                data-course-price="49.99">Thêm vào giỏ hàng</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="course-item">
+                    <div class="course-thumbnail">
+                        <img src="image/anh6.jpg" alt="Graphic Design Course">
+                        <div class="course-category">
+                            <a href="#">Thiết kế đồ họa</a>
+                        </div>
+                    </div>
+                    <div class="course-content">
+                        <div class="course-meta">
+                            <span class="course-author"><i class="fas fa-user"></i> Emily White</span>
+                            <span class="course-rating">
+                                <i class="fas fa-star"></i> 4.7 (210)
+                            </span>
+                        </div>
+                        <h3 class="course-title"><a href="#">Mastering Adobe Photoshop & Illustrator</a></h3>
+                        <p class="course-description">
+                            Thiết kế đồ họa chuyên nghiệp với bộ công cụ Adobe.
+                        </p>
+                        <div class="course-footer">
+                            <span class="course-price">$69.99</span>
+                            <a href="courses-detail/graphic-design-detail.html" class="btn btn-sm btn-outline-primary">Xem chi tiết</a>
+                            <button class="btn btn-sm btn-success add-to-cart-btn"
+                                data-course-id="web-dev-fullstack"
+                                data-course-name="Khóa học Phát triển Web Toàn diện từ A-Z"
+                                data-course-price="49.99">Thêm vào giỏ hàng</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    </section>
+
+    <footer class="main-footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col about-col">
+                    <a href="index.html" class="footer-logo">
+                        <img src="image/anh1.png" alt="PLT Logo">
+                    </a>
+                    <p>Chúng tôi là nền tảng học tập trực tuyến hàng đầu, mang đến những khóa học chất lượng cao từ các chuyên gia.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                <div class="footer-col links-col">
+                    <h4>Khóa học</h4>
+                    <ul>
+                        <li><a href="./courses-detail/web-detail.html">Phát triển Web</a></li>
+                        <li><a href="./courses-detail/digital-marketing-detail.html">Marketing số</a></li>
+                        <li><a href="./courses-detail/graphic-design-detail.html">Thiết kế đồ họa</a></li>
+                        <li><a href="./courses-detail/data-science-detail.html">Khoa học dữ liệu</a></li>
+                        <li><a href="./courses-detail/photography-detail.html">Nhiếp ảnh</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col links-col">
+                    <h4>Liên kết nhanh</h4>
+                    <ul>
+                        <li><a href="about.html">Về chúng tôi</a></li>
+                        <li><a href="courses.html">Khóa học</a></li>
+                        <li><a href="blog.html">Blog</a></li>
+                        <li><a href="privacy-policy.html">Chính sách bảo mật</a></li>
+                        <li><a href="terms-of-service.html">Điều khoản sử dụng</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col contact-col">
+                    <h4>Liên hệ</h4>
+                    <p><i class="fas fa-map-marker-alt"></i> 123 Đường ABC, Quận 1, TP.HCM</p>
+                    <p><i class="fas fa-phone-alt"></i> +84 123 456 789</p>
+                    <p><i class="fas fa-envelope"></i> info@edrio.com</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 PLT Solutions. Tất cả quyền được bảo lưu.</p>
+                <p>Được thiết kế bởi PLT Team</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+    <script src="js/cart.js"></script>
+</body>
+</html>

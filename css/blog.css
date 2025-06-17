@@ -1,0 +1,54 @@
+/* --- Blog Listing Section --- */
+.blog-listing-section {
+    background-color: #fff;
+    padding: 60px 0;
+}
+
+.blog-grid { /* Sử dụng lại class đã có trong index.css */
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+/* Các style chung cho blog-item đã có trong index.css, không cần lặp lại ở đây */
+
+/* Pagination (có thể sử dụng lại từ courses.css nếu giống nhau) */
+.pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 60px;
+    gap: 10px;
+}
+
+.pagination a,
+.pagination span {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 5px;
+    border: 1px solid var(--border-color);
+    color: var(--text-color);
+    font-size: 1em;
+    transition: all 0.3s ease;
+}
+
+.pagination a:hover {
+    background-color: var(--primary-color);
+    color: #fff;
+    border-color: var(--primary-color);
+}
+
+.pagination span.current {
+    background-color: var(--primary-color);
+    color: #fff;
+    border-color: var(--primary-color);
+    font-weight: 600;
+}
+
+.pagination .disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}

@@ -1,0 +1,177 @@
+/* --- Auth Section (Register/Login Forms) --- */
+.auth-section {
+    background-color: #f0f2f5; /* Nền xám nhẹ cho trang auth */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: calc(100vh - 120px); /* Khoảng cách ước tính cho header/footer */
+    padding: 80px 0; /* Để đảm bảo có đủ khoảng trống */
+}
+
+.auth-form-wrapper {
+    background-color: #fff;
+    padding: 50px;
+    border-radius: 10px;
+    box-shadow: var(--shadow-medium);
+    max-width: 500px; /* Chiều rộng tối đa của form */
+    width: 100%;
+    text-align: center;
+}
+
+.auth-title {
+    font-family: var(--font-poppins);
+    font-size: 2.2em;
+    font-weight: 700;
+    color: var(--text-color);
+    margin-bottom: 15px;
+}
+
+.auth-subtitle {
+    font-size: 1.1em;
+    color: #666;
+    margin-bottom: 30px;
+}
+
+.auth-form {
+    text-align: left; /* Để label và input căn trái */
+}
+
+.auth-form .form-group {
+    margin-bottom: 20px;
+}
+
+.auth-form label {
+    display: block;
+    font-size: 0.95em;
+    color: var(--light-text-color);
+    margin-bottom: 8px;
+    font-weight: 500;
+}
+
+.auth-form input[type="text"],
+.auth-form input[type="email"],
+.auth-form input[type="password"] {
+    width: 100%;
+    padding: 15px;
+    border: 1px solid var(--border-color);
+    border-radius: 5px;
+    font-size: 1em;
+    font-family: var(--font-open-sans);
+    color: var(--text-color);
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.auth-form input[type="text"]:focus,
+.auth-form input[type="email"]:focus,
+.auth-form input[type="password"]:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.25);
+    outline: none;
+}
+
+.form-checkbox {
+    display: flex;
+    align-items: center;
+    margin-top: -10px; /* Điều chỉnh vị trí so với input cuối */
+    margin-bottom: 25px; /* Khoảng cách với nút submit */
+}
+
+.form-checkbox input[type="checkbox"] {
+    margin-right: 10px;
+    width: 16px;
+    height: 16px;
+    cursor: pointer;
+}
+
+.form-checkbox label {
+    margin-bottom: 0;
+    font-size: 0.95em;
+    color: #666;
+    cursor: pointer;
+    display: inline; /* Để text và checkbox trên cùng 1 dòng */
+}
+
+.form-checkbox .text-primary {
+    font-weight: 600;
+    color: var(--primary-color); /* Đảm bảo màu từ biến */
+}
+
+.btn-block {
+    margin-top: 20px; /* Điều chỉnh khoảng cách nút */
+}
+
+.auth-footer-text {
+    margin-top: 30px;
+    font-size: 1em;
+    color: #666;
+}
+
+.auth-footer-text .text-primary {
+    font-weight: 600;
+    color: var(--primary-color); /* Đảm bảo màu từ biến */
+}
+
+/* Social Login Divider */
+.social-login-divider {
+    display: flex;
+    align-items: center;
+    text-align: center;
+    margin: 30px 0;
+    color: #999;
+}
+
+.social-login-divider::before,
+.social-login-divider::after {
+    content: '';
+    flex: 1;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.social-login-divider:not(:empty)::before {
+    margin-right: .5em;
+}
+
+.social-login-divider:not(:empty)::after {
+    margin-left: .5em;
+}
+
+/* Social Login Buttons */
+.social-login {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+}
+
+.social-login .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 12px 20px;
+    border-radius: 5px;
+    font-size: 1em;
+    gap: 10px;
+    width: 100%; /* Chiếm toàn bộ chiều rộng */
+    max-width: 200px; /* Chiều rộng tối đa */
+}
+
+.social-login .btn-google {
+    background-color: #db4437; /* Google red */
+    color: #fff;
+    border-color: #db4437;
+}
+
+.social-login .btn-google:hover {
+    background-color: #c32d20;
+    border-color: #c32d20;
+}
+
+.social-login .btn-facebook {
+    background-color: #4267b2; /* Facebook blue */
+    color: #fff;
+    border-color: #4267b2;
+}
+
+.social-login .btn-facebook:hover {
+    background-color: #365899;
+    border-color: #365899;
+}

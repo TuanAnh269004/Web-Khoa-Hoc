@@ -1,0 +1,516 @@
+/* --- Course Detail Header Section --- */
+.page-hero-detail-section {
+    background-color: var(--light-bg); /* Nền nhẹ nhàng */
+    padding-top: 50px; /* Đệm trên để tránh header */
+    padding-bottom: 30px;
+}
+
+.breadcrumb {
+    font-size: 0.9em;
+    color: #666;
+    margin-bottom: 20px;
+}
+
+.breadcrumb a {
+    color: var(--primary-color);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.breadcrumb a:hover {
+    color: var(--primary-hover-color);
+}
+
+.breadcrumb span {
+    margin: 0 5px;
+}
+
+.course-detail-header {
+    text-align: center;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.course-detail-meta {
+    margin-bottom: 10px;
+}
+
+.course-category-pill {
+    background-color: #e6f2ff;
+    color: var(--primary-color);
+    padding: 5px 15px;
+    border-radius: 20px;
+    font-size: 0.9em;
+    font-weight: 600;
+    margin-right: 10px;
+    display: inline-block;
+}
+
+.course-level {
+    font-size: 0.9em;
+    color: var(--light-text-color);
+    font-weight: 500;
+}
+
+.course-detail-title {
+    font-family: var(--font-poppins);
+    font-size: 2.8em;
+    font-weight: 700;
+    color: var(--text-color);
+    line-height: 1.2;
+    margin-bottom: 15px;
+}
+
+.course-detail-tagline {
+    font-size: 1.2em;
+    color: var(--light-text-color);
+    margin-bottom: 25px;
+}
+
+.course-detail-info {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap;
+    margin-bottom: 20px;
+}
+
+.course-detail-info .info-item {
+    display: flex;
+    align-items: center;
+    font-size: 1em;
+    color: #666;
+}
+
+.course-detail-info .info-item .fas {
+    color: var(--primary-color);
+    margin-right: 8px;
+}
+
+.course-detail-info .info-item .fa-star {
+    color: var(--warning-color); /* Màu vàng cho sao */
+}
+
+/* --- Course Detail Main Content Grid --- */
+.course-detail-main-content {
+    background-color: #fff;
+}
+
+.course-detail-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr; /* Cột nội dung lớn hơn cột sidebar */
+    gap: 50px;
+    align-items: flex-start; /* Căn trên các phần */
+}
+
+.course-left-col, .course-right-col {
+    /* Mặc định chiều rộng dựa trên grid-template-columns */
+}
+
+.course-image-hero {
+    margin-bottom: 40px;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: var(--shadow-strong);
+}
+
+.course-image-hero img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.course-section {
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: var(--shadow-light);
+    margin-bottom: 30px; /* Khoảng cách giữa các section con */
+}
+
+.course-section h3 {
+    font-family: var(--font-poppins);
+    font-size: 1.8em;
+    font-weight: 700;
+    color: var(--text-color);
+    margin-bottom: 25px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid var(--border-color);
+}
+
+/* What you'll learn Section */
+.learn-list {
+    list-style: none;
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* 2 cột cho danh sách */
+    gap: 15px;
+}
+
+.learn-list li {
+    font-size: 1em;
+    color: var(--light-text-color);
+    display: flex;
+    align-items: flex-start;
+}
+
+.learn-list li .fas {
+    color: var(--success-color);
+    margin-right: 10px;
+    font-size: 1.1em;
+    margin-top: 3px; /* Căn chỉnh icon với text */
+}
+
+/* Course Content - Accordion */
+.accordion-item {
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    margin-bottom: 15px;
+    overflow: hidden;
+}
+
+.accordion-header {
+    background-color: #f0f8ff;
+    padding: 18px 25px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    border: none;
+    text-align: left;
+    font-family: var(--font-poppins);
+    font-size: 1.1em;
+    font-weight: 600;
+    color: var(--text-color);
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.accordion-header:hover {
+    background-color: #e6f2ff;
+}
+
+.accordion-icon {
+    transition: transform 0.3s ease;
+}
+
+.accordion-header.active .accordion-icon {
+    transform: rotate(180deg);
+}
+
+.accordion-body {
+    padding: 0 25px;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease-out, padding 0.4s ease-out;
+    background-color: #fff;
+}
+
+.accordion-body.active {
+    max-height: 500px; /* Đủ lớn để chứa nội dung, sẽ tự co lại */
+    padding-top: 15px;
+    padding-bottom: 15px;
+}
+
+.accordion-body ul {
+    list-style: none;
+    padding-left: 0;
+}
+
+.accordion-body ul li {
+    padding: 8px 0;
+    border-bottom: 1px dashed var(--border-color);
+    color: var(--light-text-color);
+    font-size: 0.95em;
+}
+
+.accordion-body ul li:last-child {
+    border-bottom: none;
+}
+
+/* Instructor Section */
+.instructor-card {
+    display: flex;
+    align-items: flex-start;
+    gap: 25px;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05); /* Tương tự shadow-light nhưng nhẹ hơn */
+}
+
+.instructor-avatar {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid var(--primary-color);
+    box-shadow: var(--shadow-light);
+}
+
+.instructor-details h4 {
+    font-family: var(--font-poppins);
+    font-size: 1.5em;
+    font-weight: 700;
+    color: var(--text-color);
+    margin-bottom: 5px;
+}
+
+.instructor-details .instructor-title {
+    font-size: 1em;
+    color: var(--primary-color);
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+
+.instructor-details .instructor-bio {
+    font-size: 0.95em;
+    color: var(--light-text-color);
+    line-height: 1.6;
+    margin-bottom: 15px;
+}
+
+.instructor-stats {
+    display: flex;
+    gap: 20px;
+    font-size: 0.9em;
+    color: #777;
+    flex-wrap: wrap;
+}
+
+.instructor-stats .fas {
+    margin-right: 5px;
+    color: var(--primary-color);
+}
+
+/* Reviews Section */
+.review-summary {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #f0f8ff;
+    padding: 25px;
+    border-radius: 8px;
+    margin-bottom: 30px;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.overall-rating {
+    flex-basis: 30%; /* Khoảng 1/3 cho rating tổng */
+    min-width: 150px;
+    text-align: center;
+}
+
+.overall-rating span:first-child {
+    font-family: var(--font-poppins);
+    font-size: 3.5em;
+    font-weight: 700;
+    color: var(--primary-color);
+    line-height: 1;
+}
+
+.overall-rating .stars {
+    font-size: 1.2em;
+    color: var(--warning-color);
+    margin: 5px 0 10px;
+}
+
+.overall-rating p {
+    font-size: 0.9em;
+    color: #666;
+}
+
+.rating-breakdown {
+    flex-basis: 65%; /* Khoảng 2/3 cho chi tiết rating */
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    min-width: 200px;
+}
+
+.rating-bar-item {
+    display: flex;
+    align-items: center;
+    font-size: 0.9em;
+    color: var(--light-text-color);
+}
+
+.rating-bar-item span:first-child {
+    width: 60px;
+    text-align: right;
+    margin-right: 10px;
+}
+
+.rating-bar-item .bar-fill {
+    height: 8px;
+    background-color: var(--primary-color);
+    border-radius: 5px;
+    flex-grow: 1;
+    margin-right: 10px;
+}
+
+.student-reviews-list {
+    margin-top: 30px;
+}
+
+.review-item {
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 20px;
+    margin-bottom: 20px;
+}
+
+.review-item:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+}
+
+.review-header {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 10px;
+}
+
+.review-avatar {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.reviewer-name {
+    font-family: var(--font-poppins);
+    font-weight: 600;
+    color: var(--text-color);
+    font-size: 1.1em;
+}
+
+.review-stars {
+    color: var(--warning-color);
+    font-size: 0.9em;
+    margin-top: 3px;
+}
+
+.review-date {
+    font-size: 0.85em;
+    color: #888;
+    margin-left: 10px;
+}
+
+.review-text {
+    font-size: 0.95em;
+    color: var(--light-text-color);
+    line-height: 1.6;
+    margin-top: 10px;
+}
+
+/* --- Course Sidebar (Right Column) --- */
+.course-sidebar {
+    background-color: var(--light-bg);
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: var(--shadow-light);
+    position: sticky; /* Giúp sidebar dính khi cuộn */
+    top: 30px; /* Khoảng cách từ trên cùng khi dính */
+}
+
+.sidebar-price {
+    text-align: center;
+    margin-bottom: 30px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.sidebar-price .current-price {
+    font-family: var(--font-poppins);
+    font-size: 2.8em;
+    font-weight: 700;
+    color: var(--primary-color);
+    display: block;
+    line-height: 1;
+}
+
+.sidebar-price .original-price {
+    font-size: 1.2em;
+    color: #888;
+    text-decoration: line-through;
+    margin-right: 10px;
+    display: inline-block;
+}
+
+.sidebar-price .discount {
+    background-color: var(--success-color);
+    color: #fff;
+    padding: 4px 10px;
+    border-radius: 5px;
+    font-size: 0.9em;
+    font-weight: 600;
+    display: inline-block;
+}
+
+.sidebar-features {
+    margin-top: 30px;
+    padding-top: 20px;
+    border-top: 1px solid var(--border-color);
+}
+
+.sidebar-features h4 {
+    font-family: var(--font-poppins);
+    font-size: 1.2em;
+    font-weight: 600;
+    color: var(--text-color);
+    margin-bottom: 15px;
+}
+
+.sidebar-features ul {
+    list-style: none;
+    padding-left: 0;
+}
+
+.sidebar-features ul li {
+    margin-bottom: 12px;
+    font-size: 0.95em;
+    color: var(--light-text-color);
+    display: flex;
+    align-items: center;
+}
+
+.sidebar-features ul li .fas {
+    color: var(--primary-color);
+    margin-right: 10px;
+    font-size: 1.1em;
+}
+
+.share-course {
+    margin-top: 30px;
+    padding-top: 20px;
+    border-top: 1px solid var(--border-color);
+    text-align: center;
+}
+
+.share-course h4 {
+    font-family: var(--font-poppins);
+    font-size: 1.2em;
+    font-weight: 600;
+    color: var(--text-color);
+    margin-bottom: 15px;
+}
+
+.social-share-links a {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 45px;
+    height: 45px;
+    background-color: #e6f2ff;
+    color: var(--primary-color);
+    border-radius: 50%;
+    margin: 0 8px;
+    font-size: 1.3em;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.social-share-links a:hover {
+    background-color: var(--primary-color);
+    color: #fff;
+}

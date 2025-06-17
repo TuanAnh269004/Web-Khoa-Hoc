@@ -1,0 +1,247 @@
+/* --- 4. Phần Header --- */
+.main-header {
+    background-color: #fff;
+    padding: 10px 0;
+    box-shadow: var(--shadow-light); /* Đổ bóng nhẹ cho header */
+    position: sticky; /* Giúp header dính khi cuộn trang */
+    top: 0;
+    z-index: 1000; /* Đảm bảo header nằm trên các phần tử khác */
+}
+
+.main-header .container {
+    display: flex; /* Sử dụng Flexbox để căn chỉnh các mục */
+    justify-content: space-between; /* Đẩy logo sang trái, nav sang phải */
+    align-items: center; /* Căn giữa theo chiều dọc */
+}
+
+.logo img {
+    height: 80px; /* Chiều cao của logo */
+    vertical-align: middle; /* Căn chỉnh hình ảnh */
+}
+
+/* Thanh điều hướng chính */
+.main-nav .nav-list {
+    display: flex; /* Sử dụng Flexbox cho các mục menu */
+    gap: 30px; /* Khoảng cách giữa các mục menu */
+    font-family: var(--font-poppins); /* Font chữ cho menu */
+    font-weight: 500;
+}
+
+.main-nav .nav-list li a {
+    color: var(--text-color);
+    padding: 5px 0;
+    position: relative; /* Để tạo hiệu ứng gạch chân */
+    transition: color 0.3s ease;
+}
+
+.main-nav .nav-list li a:hover,
+.main-nav .nav-list li a.active {
+    color: var(--primary-color); /* Màu khi hover hoặc active */
+}
+
+/* Hiệu ứng gạch chân dưới cho menu item */
+.main-nav .nav-list li a::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0; /* Đặt gạch chân ở dưới */
+    width: 0;
+    height: 2px;
+    background-color: var(--primary-color);
+    transition: width 0.3s ease;
+}
+
+.main-nav .nav-list li a:hover::after,
+.main-nav .nav-list li a.active::after {
+    width: 100%; /* Kéo dài gạch chân khi hover/active */
+}
+
+/* Dropdown menu */
+.main-nav .nav-list li.has-dropdown {
+    position: relative; /* Quan trọng để dropdown nằm trong luồng */
+}
+
+.main-nav .nav-list li.has-dropdown .dropdown-menu {
+    display: none; /* Ẩn mặc định */
+    position: absolute;
+    top: 100%; /* Xuất hiện ngay dưới mục cha */
+    left: 0;
+    background-color: #fff;
+    box-shadow: var(--shadow-medium);
+    min-width: 200px;
+    border-radius: 5px;
+    padding: 10px 0;
+    z-index: 999;
+    opacity: 0; /* Ẩn ban đầu */
+    visibility: hidden; /* Ẩn khỏi cây DOM để không tương tác */
+    transform: translateY(10px); /* Dịch chuyển nhẹ xuống */
+    transition: opacity 0.3s ease, transform 0.3s ease, visibility 0.3s ease;
+}
+
+.main-nav .nav-list li.has-dropdown:hover .dropdown-menu {
+    display: block; /* Hiển thị khi hover */
+    opacity: 1; /* Hiển thị hoàn toàn */
+    visibility: visible; /* Cho phép tương tác */
+    transform: translateY(0); /* Trở về vị trí ban đầu */
+}
+
+.main-nav .nav-list li.has-dropdown .dropdown-menu li a {
+    padding: 10px 20px;
+    display: block; /* Để mỗi mục dropdown chiếm toàn bộ chiều rộng */
+    color: var(--light-text-color);
+}
+
+.main-nav .nav-list li.has-dropdown .dropdown-menu li a:hover {
+    background-color: #f0f0f0;
+    color: var(--primary-color);
+}
+
+.main-nav .nav-list li.has-dropdown .dropdown-menu li a::after {
+    display: none; /* Bỏ gạch chân cho các mục dropdown */
+}
+
+/* Các hành động ở Header (nút Đăng ký, menu toggle) */
+.header-actions {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.main-header .header-actions .auth-buttons {
+    display: flex;
+    gap: 10px; /* Khoảng cách giữa các nút */
+    align-items: center;
+}
+
+.menu-toggle {
+    display: none; /* Ẩn nút toggle menu mặc định trên desktop */
+    background: none;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+    color: var(--text-color);
+}
+
+/* --- Ẩn nút Đăng ký/Đăng nhập trên trang Auth (được kích hoạt bởi class trên body) --- */
+body.register-page #register-btn,
+body.login-page #login-btn,
+body.register-page #logout-btn,
+body.login-page #logout-btn {
+    display: none !important;
+}
+
+body.register-page #login-btn,
+body.login-page #register-btn {
+    display: none !important;
+}
+
+/* --- Phần Footer --- */
+.main-footer {
+    background-color: var(--dark-bg); /* Màu nền tối */
+    color: #ddd;
+    padding: 40px 0 10px 0; /* Khoảng đệm trên dưới */
+}
+
+.main-footer .container {
+    /* Đảm bảo flex hoặc grid hoạt động đúng */
+}
+
+.footer-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); /* Các cột tự động */
+    gap: 30px;
+    margin-bottom: 40px;
+}
+
+.footer-col h4 {
+    font-family: var(--font-poppins);
+    font-size: 1.3em;
+    color: #fff;
+    margin-bottom: 25px;
+    position: relative;
+}
+
+.footer-col h4::after { /* Gạch chân dưới tiêu đề footer */
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -10px;
+    width: 50px;
+    height: 2px;
+    background-color: var(--primary-color);
+}
+
+.footer-col p {
+    font-size: 0.95em;
+    line-height: 1.7;
+    margin-bottom: 15px;
+}
+
+.footer-col ul {
+    list-style: none;
+}
+
+.footer-col ul li {
+    margin-bottom: 10px;
+}
+
+.footer-col ul li a {
+    color: #ddd;
+    transition: color 0.3s ease;
+    font-size: 0.95em;
+}
+
+.footer-col ul li a:hover {
+    color: var(--primary-color);
+}
+
+/* Column About */
+.footer-col.about-col .footer-logo img {
+    height: 80px;
+    margin-bottom: 20px;
+}
+
+.social-links {
+    margin-top: 20px;
+}
+
+.social-links a {
+    display: inline-flex; /* Dùng flexbox để căn giữa icon */
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    height: 40px;
+    background-color: rgba(255, 255, 255, 0.1);
+    color: #fff;
+    border-radius: 50%;
+    margin-right: 10px;
+    font-size: 1.1em;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.social-links a:hover {
+    background-color: var(--primary-color);
+    color: #fff;
+}
+
+/* Contact Column */
+.footer-col.contact-col p .fas {
+    margin-right: 10px;
+    color: var(--primary-color);
+}
+
+.footer-bottom {
+    border-top: 1px solid #333;
+    padding-top: 20px;
+    text-align: center;
+    font-size: 0.9em;
+    color: #aaa;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap; /* Cho phép xuống dòng */
+}
+
+.footer-bottom p {
+    margin: 5px 0;
+}

@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Đăng Nhập - Xưởng Thực Tập PLT Solutions</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&family=Poppins:wght@500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/header-footer.css">
+    <link rel="stylesheet" href="css/auth.css">
+    <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body class="login-page">
+
+    <header class="main-header">
+        <div class="container">
+            <a href="index.html" class="logo">
+                <img src="image/anh2.png" alt="PLT Logo">
+            </a>
+            <nav class="main-nav">
+                <ul class="nav-list">
+                    <li><a href="index.html">Trang chủ</a></li>
+                    <li class="has-dropdown">
+                        <a href="#">Khóa học <i class="fas fa-chevron-down"></i></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="courses.html">Tất cả khóa học</a></li>
+                            <li><a href="#">Marketing</a></li>
+                            <li><a href="#">Phát triển Web</a></li>
+                            <li><a href="#">Thiết kế đồ họa</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="about.html">Về chúng tôi</a></li>
+                    <li><a href="blog.html">Blog</a></li>
+                    <li><a href="contact.html">Liên hệ</a></li>
+                </ul>
+            </nav>
+    </header>
+
+    <section class="auth-section section-padding">
+        <div class="container">
+            <div class="auth-form-wrapper">
+                <h2 class="auth-title">Đăng nhập tài khoản của bạn</h2>
+                <p class="auth-subtitle">Chào mừng trở lại! Hãy đăng nhập để tiếp tục học tập.</p>
+                <form id="loginForm" class="auth-form" action="#" method="POST"> 
+                    <div class="form-group">
+                        <label for="login-email">Email hoặc Tên người dùng</label>
+                        <input type="text" id="login-email" name="email_username" placeholder="Nhập email hoặc tên người dùng" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="login-password">Mật khẩu</label>
+                        <input type="password" id="login-password" name="password" placeholder="Nhập mật khẩu của bạn" required>
+                    </div>
+                    <div class="form-group form-checkbox flex-between">
+                        <div>
+                            <input type="checkbox" id="remember-me" name="remember_me">
+                            <label for="remember-me">Ghi nhớ tôi</label>
+                        </div>
+                        <a href="#" class="text-primary forgot-password">Quên mật khẩu?</a>
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-block">Đăng nhập</button>
+                </form>
+                <div class="auth-footer-text">
+                    Chưa có tài khoản? <a href="register.html" class="text-primary">Đăng ký ngay</a>
+                </div>
+                <div class="social-login-divider">
+                    <span>Hoặc đăng nhập với</span>
+                </div>
+                <div class="social-login">
+                    <a href="#" class="social-btn facebook"><i class="fab fa-facebook-f"></i> Facebook</a>
+                    <a href="#" class="social-btn google"><i class="fab fa-google"></i> Google</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="main-footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col about-col">
+                    <a href="index.html" class="footer-logo">
+                        <img src="image/anh1.png" alt="PLT Logo">
+                    </a>
+                    <p>Chúng tôi là nền tảng học tập trực tuyến hàng đầu, mang đến những khóa học chất lượng cao từ các chuyên gia.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                <div class="footer-col links-col">
+                    <h4>Khóa học</h4>
+                    <ul>
+                        <li><a href="./courses-detail/web-detail.html">Phát triển Web</a></li>
+                        <li><a href="./courses-detail/digital-marketing-detail.html">Marketing số</a></li>
+                        <li><a href="./courses-detail/graphic-design-detail.html">Thiết kế đồ họa</a></li>
+                        <li><a href="./courses-detail/data-science-detail.html">Khoa học dữ liệu</a></li>
+                        <li><a href="./courses-detail/photography-detail.html">Nhiếp ảnh</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col links-col">
+                    <h4>Liên kết nhanh</h4>
+                    <ul>
+                        <li><a href="about.html">Về chúng tôi</a></li>
+                        <li><a href="courses.html">Khóa học</a></li>
+                        <li><a href="blog.html">Blog</a></li>
+                        <li><a href="#">Chính sách bảo mật</a></li>
+                        <li><a href="#">Điều khoản sử dụng</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col contact-col">
+                    <h4>Liên hệ</h4>
+                    <p><i class="fas fa-map-marker-alt"></i> 123 Đường ABC, Quận 1, TP.HCM</p>
+                    <p><i class="fas fa-phone-alt"></i> +84 123 456 789</p>
+                    <p><i class="fas fa-envelope"></i> info@edrio.com</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 PLT Solutions. Tất cả quyền được bảo lưu.</p>
+                <p>Được thiết kế bởi PLT Team</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+</body>
+</html>

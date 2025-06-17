@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Giỏ hàng của bạn</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="css/header-footer.css">
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/cart.css"> <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+
+    <header class="main-header">
+        <div class="container">
+            <a href="index.html" class="logo">
+                <img src="image/anh2.png" alt="PLT Logo">
+            </a>
+            <nav class="main-nav">
+                <ul class="nav-list">
+                    <li><a href="index.html">Trang chủ</a></li>
+                    <li class="has-dropdown">
+                        <a href="courses.html">Khóa học <i class="fas fa-chevron-down"></i></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="courses.html">Tất cả khóa học</a></li>
+                            <li><a href="./courses-detail/digital-marketing-detail.html">Marketing</a></li>
+                            <li><a href="./courses-detail/web-detail.html">Phát triển Web</a></li>
+                            <li><a href="./courses-detail/graphic-design-detail.html">Thiết kế đồ họa</a></li>
+                            <li><a href="./courses-detail/data-science-detail.html">Khoa học dữ liệu</a></li>
+                            <li><a href="./courses-detail/photography-detail.html">Nhiếp ảnh</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="about.html">Về chúng tôi</a></li>
+                    <li><a href="blog.html">Blog</a></li>
+                    <li><a href="contact.html">Liên hệ</a></li>
+                </ul>
+            </nav>
+            <div class="header-actions">
+                <a href="cart.html" class="cart-icon">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span class="cart-count">0</span>
+                </a>
+                <div id="auth-buttons" class="auth-buttons">
+                    <a href="register.html" class="btn btn-primary" id="register-btn">Đăng ký</a> 
+                    <a href="login.html" class="btn btn-secondary" id="login-btn">Đăng nhập</a>
+                    <a href="#" class="btn btn-primary" id="logout-btn" style="display: none;">Đăng xuất</a> 
+                </div>
+                <button class="menu-toggle" aria-label="Mở Menu">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <main class="main-content section-padding">
+        <div class="container">
+            <h1 class="section-title text-center">Giỏ hàng của bạn</h1>
+            <div id="cart-items" class="cart-items-list">
+                <p class="text-center" id="empty-cart-message" style="display: none;">Giỏ hàng của bạn đang trống.</p>
+            </div>
+            <div class="cart-summary">
+                <div class="cart-total">
+                    <span>Tổng cộng:</span>
+                    <span id="cart-total-price">$0.00</span>
+                </div>
+                <button id="checkout-btn" class="btn btn-primary btn-block" disabled>Tiến hành thanh toán</button>
+                <button id="clear-cart-btn" class="btn btn-secondary btn-block mt-2" disabled>Xóa giỏ hàng</button>
+            </div>
+        </div>
+    </main>
+
+    <footer class="main-footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col about-col">
+                    <a href="index.html" class="footer-logo">
+                        <img src="image/anh1.png" alt="PLT Logo">
+                    </a>
+                    <p>Chúng tôi là nền tảng học tập trực tuyến hàng đầu, mang đến những khóa học chất lượng cao từ các chuyên gia.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                <div class="footer-col links-col">
+                    <h4>Khóa học</h4>
+                    <ul>
+                        <li><a href="./courses-detail/web-detail.html">Phát triển Web</a></li>
+                        <li><a href="./courses-detail/digital-marketing-detail.html">Marketing số</a></li>
+                        <li><a href="./courses-detail/graphic-design-detail.html">Thiết kế đồ họa</a></li>
+                        <li><a href="./courses-detail/data-science-detail.html">Khoa học dữ liệu</a></li>
+                        <li><a href="./courses-detail/photography-detail.html">Nhiếp ảnh</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col links-col">
+                    <h4>Liên kết nhanh</h4>
+                    <ul>
+                        <li><a href="about.html">Về chúng tôi</a></li>
+                        <li><a href="courses.html">Khóa học</a></li>
+                        <li><a href="blog.html">Blog</a></li>
+                        <li><a href="privacy-policy.html">Chính sách bảo mật</a></li>
+                        <li><a href="terms-of-service.html">Điều khoản sử dụng</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col contact-col">
+                    <h4>Liên hệ</h4>
+                    <p><i class="fas fa-map-marker-alt"></i> 123 Đường ABC, Quận 1, TP.HCM</p>
+                    <p><i class="fas fa-phone-alt"></i> +84 123 456 789</p>
+                    <p><i class="fas fa-envelope"></i> info@edrio.com</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 PLT Solutions. Tất cả quyền được bảo lưu.</p>
+                <p>Được thiết kế bởi PLT Team</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+    <script src="js/cart.js"></script> </body>
+</html>

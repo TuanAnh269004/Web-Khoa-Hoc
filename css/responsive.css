@@ -1,0 +1,248 @@
+/* --- Responsive CSS --- */
+
+/* Tablet và màn hình nhỏ hơn (max-width: 992px) */
+@media (max-width: 992px) {
+    .container {
+        padding: 0 15px;
+    }
+
+    .main-header {
+        padding: 15px 0;
+    }
+
+    .main-nav .nav-list {
+        display: none; /* Ẩn menu navigation trên mobile */
+        flex-direction: column;
+        width: 100%;
+        background-color: #fff;
+        position: absolute;
+        top: 70px; /* Dưới header */
+        left: 0;
+        box-shadow: var(--shadow-medium);
+        padding: 20px;
+        border-radius: 5px;
+        gap: 15px;
+    }
+
+    .main-nav .nav-list.active {
+        display: flex; /* Hiển thị menu khi có class 'active' */
+    }
+
+    .main-nav .nav-list li a {
+        padding: 10px 0;
+        border-bottom: 1px solid var(--border-color);
+        font-size: 1.1em;
+    }
+
+    .main-nav .nav-list li:last-child a {
+        border-bottom: none;
+    }
+
+    .menu-toggle {
+        display: block; /* Hiển thị nút toggle menu */
+    }
+
+    .main-header .header-actions .auth-buttons {
+        display: none; /* Ẩn nút đăng nhập/đăng ký trên mobile, có thể chuyển vào menu toggle */
+    }
+
+    .hero-section {
+        padding: 80px 0;
+    }
+
+    .hero-title {
+        font-size: 2.8em;
+    }
+
+    .hero-description {
+        font-size: 1.1em;
+    }
+
+    .hero-stats {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .stat-item {
+        max-width: 100%; /* Cho phép item chiếm toàn bộ chiều rộng */
+    }
+
+    .section-padding {
+        padding: 60px 0;
+    }
+
+    .section-title {
+        font-size: 2.2em;
+    }
+
+    .about-content-grid-home,
+    .about-section .container,
+    .contact-content-grid {
+        grid-template-columns: 1fr; /* Chuyển sang 1 cột */
+    }
+
+    .about-image-home,
+    .about-image {
+        order: 2; /* Đặt hình ảnh xuống dưới nội dung trên mobile */
+        text-align: center;
+    }
+
+    .about-text-home,
+    .about-text {
+        order: 1; /* Đặt nội dung lên trên hình ảnh */
+        padding-right: 0;
+    }
+
+    .course-listing-content,
+    .course-detail-grid {
+        grid-template-columns: 1fr; /* Chuyển sang 1 cột */
+    }
+
+    .course-sidebar-filter,
+    .course-sidebar {
+        position: static; /* Bỏ sticky trên mobile */
+        margin-bottom: 30px;
+    }
+
+    .auth-form-wrapper {
+        padding: 30px;
+    }
+
+    .social-login .btn {
+        max-width: none; /* Cho phép nút chiếm toàn bộ chiều rộng */
+    }
+}
+
+/* Mobile nhỏ hơn (max-width: 768px) */
+@media (max-width: 768px) {
+    .main-header .header-actions {
+        gap: 15px;
+    }
+
+    .page-hero-title {
+        font-size: 2.5em;
+    }
+
+    .hero-title {
+        font-size: 2.2em;
+    }
+
+    .hero-description {
+        font-size: 1em;
+    }
+
+    .hero-buttons {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .btn {
+        width: 100%; /* Nút chiếm toàn bộ chiều rộng */
+    }
+
+    .footer-grid {
+        grid-template-columns: 1fr; /* Chuyển footer thành 1 cột */
+        text-align: center;
+    }
+
+    .footer-col h4::after {
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+    .social-links {
+        justify-content: center;
+    }
+
+    .footer-bottom {
+        flex-direction: column;
+    }
+
+    .course-detail-info {
+        flex-direction: column;
+        align-items: center;
+        gap: 15px;
+    }
+
+    .learn-list {
+        grid-template-columns: 1fr; /* Danh sách học được chuyển thành 1 cột */
+    }
+
+    .instructor-card {
+        flex-direction: column;
+        text-align: center;
+        align-items: center;
+    }
+
+    .review-summary {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .overall-rating {
+        flex-basis: 100%;
+        margin-bottom: 20px;
+    }
+
+    .rating-breakdown {
+        flex-basis: 100%;
+    }
+
+    .contact-content-grid {
+        gap: 30px;
+    }
+
+    .contact-info-item {
+        flex-direction: column;
+        text-align: center;
+        gap: 10px;
+    }
+
+    .contact-info-item .icon {
+        margin-bottom: 10px;
+    }
+}
+
+/* Mobile nhỏ nhất (max-width: 576px) */
+@media (max-width: 576px) {
+    .main-header {
+        padding: 10px 0;
+    }
+
+    .logo img {
+        height: 35px;
+    }
+
+    .hero-title {
+        font-size: 1.8em;
+    }
+
+    .hero-description {
+        font-size: 0.95em;
+    }
+
+    .section-title {
+        font-size: 1.8em;
+    }
+
+    .auth-form-wrapper {
+        padding: 25px;
+    }
+
+    .auth-title {
+        font-size: 1.8em;
+    }
+
+    .auth-subtitle {
+        font-size: 1em;
+    }
+
+    .social-login {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .social-login .btn {
+        max-width: none;
+    }
+}

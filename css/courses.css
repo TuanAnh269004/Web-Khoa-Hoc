@@ -1,0 +1,427 @@
+/* --- Course Listing Section --- */
+/* Đây là phần bao bọc toàn bộ nội dung chính của trang khóa học, bao gồm cả sidebar và lưới khóa học */
+.course-listing-section {
+    background-color: var(--light-bg-color); /* Sử dụng biến màu nền nhẹ từ base.css */
+    padding: 80px 0; /* Tăng khoảng cách đệm trên/dưới để tạo sự thoáng đãng */
+}
+
+/* --- Container cho Sidebar và Nội dung chính --- */
+/* Thiết lập layout dạng lưới với sidebar ở bên trái và nội dung khóa học ở bên phải */
+.course-listing-content {
+    display: grid;
+    grid-template-columns: 1fr 3fr; /* Cột sidebar chiếm 1 phần, cột nội dung chính chiếm 3 phần */
+    gap: 50px; /* Tăng khoảng cách giữa hai cột */
+    align-items: flex-start; /* Căn các phần tử con theo đỉnh của chúng */
+}
+
+/* --- Sidebar Lọc Khóa học --- */
+.course-sidebar-filter {
+    background-color: #fff; /* Nền trắng tinh khôi cho sidebar, giúp nổi bật */
+    padding: 30px; /* Tăng khoảng cách đệm bên trong sidebar */
+    border-radius: 12px; /* Bo góc mềm mại, hiện đại hơn */
+    box-shadow: rgba(0, 0, 0, 0.08) 0px 4px 12px; /* Bóng đổ nhẹ nhàng, tạo hiệu ứng nổi bật */
+    position: sticky; /* Giữ sidebar cố định khi cuộn trang */
+    top: 30px; /* Khoảng cách từ đỉnh viewport khi dính */
+    z-index: 10; /* Đảm bảo sidebar nằm trên các nội dung khác nếu có */
+}
+
+.sidebar-filter-group {
+    margin-bottom: 35px; /* Khoảng cách lớn hơn giữa các nhóm bộ lọc */
+    padding-bottom: 25px; /* Khoảng cách đệm dưới cho mỗi nhóm */
+    border-bottom: 1px solid var(--border-color); /* Đường phân cách mảnh giữa các nhóm */
+}
+
+.sidebar-filter-group:last-child {
+    border-bottom: none; /* Loại bỏ đường phân cách cho nhóm cuối cùng */
+    margin-bottom: 0;
+    padding-bottom: 0;
+}
+
+.sidebar-filter-group h4 {
+    font-family: var(--font-poppins); /* Sử dụng font Poppins cho tiêu đề */
+    font-size: 1.35em; /* Kích thước tiêu đề lớn hơn một chút */
+    font-weight: 700; /* Tiêu đề in đậm rõ ràng */
+    color: var(--heading-color); /* Màu tiêu đề từ biến toàn cục */
+    margin-bottom: 20px; /* Khoảng cách dưới tiêu đề */
+}
+
+.sidebar-filter-group ul {
+    list-style: none; /* Bỏ dấu chấm mặc định của list */
+    padding-left: 0;
+}
+
+.sidebar-filter-group ul li {
+    margin-bottom: 12px; /* Khoảng cách giữa các mục trong list */
+}
+
+.sidebar-filter-group ul li a {
+    color: var(--text-color); /* Màu chữ mặc định từ biến */
+    font-size: 1em; /* Kích thước chữ chuẩn */
+    transition: color 0.3s ease, transform 0.2s ease; /* Hiệu ứng chuyển động mượt mà khi hover */
+    display: inline-block; /* Quan trọng để áp dụng transform */
+    text-decoration: none; /* Bỏ gạch chân mặc định */
+}
+
+.sidebar-filter-group ul li a:hover {
+    color: var(--primary-color); /* Đổi màu sang màu chủ đạo khi hover */
+    transform: translateX(5px); /* Di chuyển nhẹ sang phải khi hover */
+}
+
+/* --- Bộ lọc Checkbox/Radio --- */
+.filter-checkbox-group label {
+    display: flex; /* Sử dụng Flexbox để căn chỉnh checkbox và text */
+    align-items: center; /* Căn giữa theo chiều dọc */
+    margin-bottom: 12px;
+    cursor: pointer; /* Biểu tượng con trỏ tay khi di chuột */
+    font-size: 1em;
+    color: var(--text-color);
+    transition: color 0.3s ease;
+}
+
+.filter-checkbox-group label:hover {
+    color: var(--primary-color); /* Đổi màu text khi hover */
+}
+
+.filter-checkbox-group input[type="checkbox"],
+.filter-checkbox-group input[type="radio"] {
+    margin-right: 10px; /* Khoảng cách giữa checkbox và text */
+    transform: scale(1.2); /* Phóng to checkbox/radio để dễ bấm hơn */
+    accent-color: var(--primary-color); /* Đổi màu mặc định của checkbox sang màu chủ đạo */
+    min-width: 18px; /* Đảm bảo kích thước tối thiểu */
+    min-height: 18px;
+    cursor: pointer;
+}
+
+/* --- Nội dung chính của Khóa học --- */
+/* Lưới hiển thị các thẻ khóa học */
+.course-main-content .courses-grid { /* Sử dụng lại .courses-grid đã có trong HTML */
+    display: grid;
+    /* Tự động điều chỉnh số cột, mỗi cột có chiều rộng tối thiểu 300px (hoặc 280px trên di động) */
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px; /* Khoảng cách giữa các thẻ khóa học */
+    margin-top: 30px; /* Khoảng cách từ thanh sắp xếp */
+}
+
+/* --- Thanh Sắp xếp và Số lượng Kết quả --- */
+.course-top-bar {
+    display: flex; /* Sử dụng Flexbox để sắp xếp các mục */
+    justify-content: space-between; /* Đẩy các mục ra hai phía */
+    align-items: center; /* Căn giữa theo chiều dọc */
+    margin-bottom: 40px; /* Khoảng cách dưới thanh này */
+    padding-bottom: 25px; /* Khoảng cách đệm dưới */
+    border-bottom: 1px solid var(--border-color); /* Đường phân cách */
+    flex-wrap: wrap; /* Cho phép các mục xuống dòng trên màn hình nhỏ */
+    gap: 15px; /* Khoảng cách giữa các mục khi xuống dòng */
+}
+
+.course-top-bar .results-count {
+    font-size: 1.05em; /* Kích thước chữ hơi lớn hơn */
+    color: var(--light-text-color); /* Màu chữ nhẹ nhàng */
+    margin-bottom: 0; /* Đặt lại margin-bottom nếu flex-wrap kích hoạt */
+    font-weight: 500;
+}
+
+.course-top-bar .sort-options {
+    display: flex; /* Dùng Flexbox cho label và select */
+    align-items: center;
+    gap: 10px; /* Khoảng cách giữa label và dropdown */
+}
+
+.course-top-bar .sort-options label {
+    font-size: 1em;
+    color: var(--text-color);
+    font-weight: 500;
+}
+
+.course-top-bar .sort-options select {
+    padding: 10px 15px; /* Tăng padding cho dropdown */
+    border: 1px solid var(--border-color);
+    border-radius: 8px; /* Bo góc mềm mại hơn */
+    font-size: 1em;
+    color: var(--heading-color); /* Màu chữ */
+    background-color: #fff;
+    cursor: pointer;
+    outline: none; /* Bỏ viền focus mặc định */
+    transition: border-color 0.3s ease, box-shadow 0.3s ease; /* Hiệu ứng mượt mà khi focus */
+    /* Tùy chỉnh mũi tên dropdown để trông chuyên nghiệp hơn */
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    background-image: url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%23666666%22%20d%3D%22M287%2069.4a17.6%2017.6%200%200%200-13%205.7L146.2%20202.7%2018.8%2075.1a17.6%2017.6%200%200%200-25.7%2023.1l130.4%20130.4c6.7%206.7%2017.7%206.7%2024.5%200l130.4-130.4a17.6%2017.6%200%200%200-12.9-23.1z%22%2F%3E%3C%2Fsvg%3E');
+    background-repeat: no-repeat;
+    background-position: right 12px center;
+    background-size: 12px;
+    padding-right: 35px; /* Tạo không gian cho mũi tên tùy chỉnh */
+}
+
+.course-top-bar .sort-options select:focus {
+    border-color: var(--primary-color); /* Viền màu chủ đạo khi focus */
+    box-shadow: 0 0 0 3px rgba(var(--primary-rgb), 0.2); /* Hiệu ứng focus nhẹ nhàng */
+}
+
+/* --- Kiểu dáng cho từng thẻ khóa học (course-item) --- */
+/* Giả định bạn đã có hoặc sẽ áp dụng cấu trúc này cho các thẻ khóa học */
+.courses-grid .course-item {
+    background-color: #fff;
+    border-radius: 12px; /* Bo góc */
+    box-shadow: rgba(0, 0, 0, 0.05) 0px 5px 15px; /* Bóng đổ nổi bật hơn */
+    overflow: hidden; /* Đảm bảo nội dung không tràn ra ngoài bo góc */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Hiệu ứng mượt mà khi hover */
+    text-decoration: none; /* Bỏ gạch chân cho link nếu toàn bộ thẻ là link */
+    display: flex; /* Sử dụng flexbox để sắp xếp nội dung trong thẻ */
+    flex-direction: column; /* Sắp xếp theo chiều dọc */
+    height: 100%; /* Đảm bảo các thẻ có cùng chiều cao trong lưới */
+}
+
+.courses-grid .course-item:hover {
+    transform: translateY(-8px); /* Nâng nhẹ thẻ lên khi di chuột */
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 8px 25px; /* Bóng đổ mạnh hơn khi hover */
+}
+
+.course-item .course-thumbnail {
+    position: relative; /* Để .course-category có thể định vị tuyệt đối */
+    overflow: hidden;
+}
+
+.course-item .course-thumbnail img {
+    width: 100%;
+    height: 200px; /* Chiều cao cố định cho ảnh đại diện */
+    object-fit: cover; /* Đảm bảo ảnh không bị méo và lấp đầy khung */
+    border-bottom: 1px solid #eee;
+    display: block; /* Loại bỏ khoảng trắng dưới ảnh */
+}
+
+.course-item .course-category {
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+    background-color: var(--primary-color);
+    color: #fff;
+    padding: 5px 12px;
+    border-radius: 5px;
+    font-size: 0.85em;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+.course-item .course-category a {
+    color: #fff; /* Đảm bảo màu chữ trắng trong category tag */
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+.course-item .course-category a:hover {
+    color: #f0f0f0; /* Hơi xám nhẹ khi hover */
+}
+
+
+.course-item .course-content {
+    padding: 20px;
+    flex-grow: 1; /* Cho phép phần nội dung chiếm không gian còn lại */
+    display: flex;
+    flex-direction: column;
+}
+
+.course-item .course-meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.9em;
+    color: var(--light-text-color);
+    margin-bottom: 15px;
+}
+
+.course-item .course-meta i {
+    margin-right: 5px;
+    color: var(--primary-color); /* Icon màu chủ đạo */
+}
+
+.course-item .course-title {
+    font-size: 1.4em; /* Kích thước tiêu đề khóa học */
+    color: var(--heading-color);
+    margin-bottom: 10px;
+    font-weight: 600;
+    line-height: 1.3;
+}
+.course-item .course-title a {
+    text-decoration: none;
+    color: inherit; /* Kế thừa màu từ parent */
+    transition: color 0.3s ease;
+}
+.course-item .course-title a:hover {
+    color: var(--primary-color); /* Đổi màu khi hover */
+}
+
+.course-item .course-description {
+    font-size: 0.95em;
+    color: var(--text-color);
+    margin-bottom: 20px;
+    flex-grow: 1; /* Cho phép mô tả chiếm không gian còn lại nếu có nhiều dòng */
+    line-height: 1.6;
+}
+
+.course-item .course-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 20px;
+    border-top: 1px solid var(--border-color);
+    background-color: var(--light-bg-color); /* Nền nhẹ cho footer của thẻ khóa học */
+    margin-top: auto; /* Đẩy footer xuống dưới cùng */
+}
+
+.course-item .course-price {
+    font-size: 1.4em; /* Giá lớn và nổi bật */
+    font-weight: 700;
+    color: var(--primary-color); /* Màu chủ đạo cho giá */
+}
+
+/* Nút trong thẻ khóa học */
+.course-item .btn {
+    font-size: 0.9em;
+    padding: 8px 15px;
+    border-radius: 6px; /* Bo góc nút */
+    text-transform: capitalize; /* Chữ thường */
+    font-weight: 500;
+}
+
+.course-item .btn-outline-primary {
+    border: 1px solid var(--primary-color);
+    color: var(--primary-color);
+    background-color: transparent;
+    transition: all 0.3s ease;
+}
+.course-item .btn-outline-primary:hover {
+    background-color: var(--primary-color);
+    color: #fff;
+}
+
+.course-item .btn-success {
+    background-color: var(--secondary-color); /* Màu nhấn khác cho nút "Thêm vào giỏ hàng" */
+    border: 1px solid var(--secondary-color);
+    color: #fff;
+    transition: all 0.3s ease;
+}
+.course-item .btn-success:hover {
+    background-color: #2e8d53; /* Màu đậm hơn khi hover */
+    border-color: #2e8d53;
+}
+
+
+/* --- Phân trang (Pagination) --- */
+.pagination {
+    display: flex;
+    justify-content: center; /* Căn giữa các nút phân trang */
+    align-items: center;
+    margin-top: 80px; /* Khoảng cách trên lớn hơn */
+    gap: 12px; /* Khoảng cách giữa các nút phân trang */
+}
+
+.pagination a,
+.pagination span {
+    display: inline-flex; /* Dùng inline-flex để căn giữa nội dung trong nút */
+    justify-content: center;
+    align-items: center;
+    width: 45px; /* Kích thước nút lớn hơn */
+    height: 45px;
+    border-radius: 8px; /* Bo góc mềm mại */
+    border: 1px solid var(--border-color);
+    color: var(--text-color);
+    font-size: 1.1em; /* Chữ số lớn hơn */
+    font-weight: 500;
+    transition: all 0.3s ease;
+    text-decoration: none; /* Bỏ gạch chân */
+}
+
+.pagination a:hover {
+    background-color: var(--primary-color);
+    color: #fff;
+    border-color: var(--primary-color);
+    box-shadow: 0 4px 8px rgba(var(--primary-rgb), 0.2); /* Thêm bóng đổ khi hover */
+}
+
+.pagination span.current {
+    background-color: var(--primary-color);
+    color: #fff;
+    border-color: var(--primary-color);
+    font-weight: 700; /* Đậm hơn cho trang hiện tại */
+    box-shadow: 0 4px 8px rgba(var(--primary-rgb), 0.3); /* Bóng đổ nổi bật hơn */
+}
+
+.pagination .disabled {
+    opacity: 0.5; /* Giảm độ trong suốt cho nút disabled */
+    cursor: not-allowed; /* Biểu tượng con trỏ không cho phép */
+    background-color: #f8f8f8; /* Nền nhẹ hơn */
+    color: #bbb; /* Màu chữ xám mờ */
+    border-color: #eee;
+    box-shadow: none; /* Bỏ bóng đổ */
+}
+
+/* --- Responsive Adjustments (Điều chỉnh cho màn hình nhỏ hơn) --- */
+/* Đảm bảo các style này được đặt sau cùng trong tệp hoặc trong responsive.css */
+@media (max-width: 992px) {
+    .course-listing-content {
+        grid-template-columns: 1fr; /* Sidebar và nội dung chính sẽ xếp chồng lên nhau */
+        gap: 40px; /* Khoảng cách giữa sidebar và nội dung */
+    }
+
+    .course-sidebar-filter {
+        position: static; /* Bỏ sticky trên thiết bị di động để sidebar cuộn cùng trang */
+        top: auto;
+    }
+}
+
+@media (max-width: 767px) {
+    .course-top-bar {
+        flex-direction: column; /* Xếp dọc các mục trong top bar */
+        align-items: flex-start; /* Căn trái các mục */
+    }
+    .course-top-bar .results-count {
+        margin-bottom: 15px; /* Thêm khoảng cách dưới số kết quả */
+    }
+    .course-main-content .courses-grid {
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Điều chỉnh min-width cho thẻ khóa học trên màn hình nhỏ hơn */
+        gap: 20px;
+    }
+    .course-item .course-price {
+        font-size: 1.3em;
+    }
+    .course-item .btn {
+        padding: 6px 12px;
+        font-size: 0.85em;
+    }
+}
+
+@media (max-width: 480px) {
+    .course-listing-section {
+        padding: 40px 0; /* Giảm padding trên điện thoại */
+    }
+    .course-sidebar-filter {
+        padding: 20px; /* Giảm padding sidebar */
+    }
+    .course-top-bar .sort-options select {
+        width: 100%; /* Dropdown chiếm toàn bộ chiều rộng */
+    }
+    .course-item .course-thumbnail {
+        height: 180px; /* Chiều cao ảnh nhỏ hơn trên di động */
+    }
+    .course-item .course-content {
+        padding: 15px;
+    }
+    .course-item .course-title {
+        font-size: 1.2em;
+    }
+    .course-item .course-description {
+        font-size: 0.9em;
+    }
+    .course-item .course-footer {
+        flex-direction: column; /* Sắp xếp giá và nút dọc */
+        align-items: flex-start;
+        gap: 10px;
+    }
+    .course-item .course-price {
+        margin-bottom: 5px;
+    }
+    .course-item .btn-success {
+        width: 100%;
+        text-align: center;
+    }
+}

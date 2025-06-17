@@ -1,0 +1,199 @@
+/* --- About Section (Trang About Us) --- */
+.about-section {
+    background-color: #fff;
+    padding: 80px 0;
+}
+
+.about-section .container {
+    display: grid;
+    grid-template-columns: 1fr 1.2fr; /* Cột hình ảnh nhỏ hơn cột nội dung */
+    gap: 60px;
+    align-items: center;
+}
+
+.about-image {
+    position: relative;
+}
+
+.about-image img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: var(--shadow-medium);
+}
+
+.about-text {
+    padding-right: 20px; /* Đệm nhẹ bên phải để tách khỏi ảnh */
+}
+
+.about-text .section-tagline {
+    text-align: left; /* Đảm bảo căn trái */
+}
+
+.about-text .section-title {
+    text-align: left; /* Đảm bảo căn trái */
+    margin-bottom: 25px;
+}
+
+.about-text p {
+    margin-bottom: 18px;
+    color: var(--light-text-color);
+    line-height: 1.7;
+}
+
+.about-text ul {
+    margin-top: 20px;
+    margin-bottom: 25px;
+}
+
+.about-text ul li {
+    margin-bottom: 12px;
+    color: #444;
+    font-size: 1.05em;
+    display: flex;
+    align-items: flex-start;
+}
+
+.about-text ul li .fas {
+    color: var(--success-color); /* Màu xanh lá cây cho icon check */
+    margin-right: 12px;
+    font-size: 1.1em;
+    margin-top: 3px;
+}
+
+/* --- Team Section --- */
+.team-section {
+    background-color: var(--light-bg);
+}
+
+.team-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+}
+
+.team-member-card {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: var(--shadow-light);
+    overflow: hidden;
+    text-align: center;
+    padding: 30px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.team-member-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-medium);
+}
+
+.member-photo img {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 20px;
+    border: 3px solid var(--primary-color);
+    box-shadow: 0 0 0 5px rgba(0, 123, 255, 0.1);
+}
+
+.member-name {
+    font-family: var(--font-poppins);
+    font-size: 1.6em;
+    font-weight: 700;
+    color: var(--text-color);
+    margin-bottom: 5px;
+}
+
+.member-title {
+    font-size: 1em;
+    color: var(--primary-color);
+    font-weight: 600;
+    margin-bottom: 15px;
+}
+
+.member-bio {
+    font-size: 0.95em;
+    color: var(--light-text-color);
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+.member-social-links a {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 35px;
+    height: 35px;
+    background-color: #e6f2ff;
+    color: var(--primary-color);
+    border-radius: 50%;
+    margin: 0 5px;
+    font-size: 1.1em;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.member-social-links a:hover {
+    background-color: var(--primary-color);
+    color: #fff;
+}
+
+/* --- Testimonials Section (Phần chứng thực) --- */
+.testimonials-section {
+    background-color: #fff;
+}
+
+.testimonial-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 30px;
+}
+
+.testimonial-card {
+    background-color: var(--light-bg);
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: var(--shadow-light);
+    text-align: center;
+    position: relative;
+    padding-top: 80px; /* Đệm trên để đặt avatar */
+}
+
+.testimonial-avatar img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    object-fit: cover;
+    position: absolute;
+    top: -50px; /* Nâng avatar lên trên card */
+    left: 50%;
+    transform: translateX(-50%);
+    border: 5px solid #fff;
+    box-shadow: var(--shadow-medium);
+}
+
+.testimonial-text {
+    font-style: italic;
+    color: var(--light-text-color);
+    line-height: 1.7;
+    margin-bottom: 20px;
+}
+
+.testimonial-author {
+    font-family: var(--font-poppins);
+    font-weight: 600;
+    color: var(--text-color);
+    font-size: 1.2em;
+    margin-bottom: 5px;
+}
+
+.testimonial-title {
+    font-size: 0.9em;
+    color: var(--primary-color);
+}
+
+.testimonial-stars {
+    color: var(--warning-color);
+    margin-top: 10px;
+    font-size: 1em;
+}

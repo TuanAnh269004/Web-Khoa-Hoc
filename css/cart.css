@@ -1,0 +1,124 @@
+/* css/cart.css */
+
+.cart-items-list {
+    margin-top: 30px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+}
+
+.cart-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 0;
+    border-bottom: 1px dashed #eee;
+}
+
+.cart-item:last-child {
+    border-bottom: none;
+}
+
+.cart-item-info h4 {
+    margin: 0 0 5px 0;
+    color: var(--primary-color);
+    font-size: 1.1em;
+}
+
+.cart-item-info p {
+    margin: 0;
+    color: #666;
+    font-size: 0.95em;
+}
+
+.cart-item-actions {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.cart-item-actions .item-quantity {
+    width: 60px;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    text-align: center;
+}
+
+.cart-summary {
+    margin-top: 30px;
+    padding: 20px;
+    background-color: var(--light-bg-color);
+    border: 1px solid #eee;
+    border-radius: 8px;
+    text-align: right;
+}
+
+.cart-total {
+    font-size: 1.5em;
+    font-weight: 600;
+    color: var(--heading-color);
+    margin-bottom: 15px;
+}
+
+.cart-total span:first-child {
+    color: #555;
+    margin-right: 10px;
+}
+
+#empty-cart-message {
+    color: #888;
+    font-style: italic;
+    padding: 20px;
+}
+
+/* Styling for the cart icon in header */
+.header-actions .cart-icon {
+    position: relative;
+    color: var(--heading-color);
+    font-size: 1.4em;
+    margin-right: 20px; /* Space between cart icon and auth buttons */
+    text-decoration: none;
+}
+
+.header-actions .cart-icon:hover {
+    color: var(--primary-color);
+}
+
+.header-actions .cart-icon .cart-count {
+    position: absolute;
+    top: -8px;
+    right: -8px;
+    background-color: var(--primary-color);
+    color: #fff;
+    font-size: 0.7em;
+    font-weight: bold;
+    border-radius: 50%;
+    padding: 3px 6px;
+    min-width: 18px;
+    text-align: center;
+    line-height: 1;
+    border: 1px solid #fff; /* Optional: border to make it stand out */
+}
+
+/* Ensure buttons and other elements look consistent */
+.btn-success {
+    background-color: #28a745;
+    color: white;
+    border: 1px solid #28a745;
+}
+.btn-success:hover {
+    background-color: #218838;
+    border-color: #1e7e34;
+}
+.btn-danger {
+    background-color: #dc3545;
+    color: white;
+    border: 1px solid #dc3545;
+}
+.btn-danger:hover {
+    background-color: #c82333;
+    border-color: #bd2130;
+}

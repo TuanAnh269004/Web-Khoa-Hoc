@@ -1,0 +1,41 @@
+/* Trong css/base.css hoặc css/policy.css (nếu tạo tệp mới) */
+
+.policy-content {
+    margin-top: 30px;
+    padding: 20px 0;
+    line-height: 1.8;
+    color: #444;
+}
+
+.policy-content h2 {
+    font-size: 1.8em;
+    color: var(--primary-color);
+    margin-top: 30px;
+    margin-bottom: 15px;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 10px;
+}
+
+.policy-content p {
+    margin-bottom: 15px;
+    text-align: justify; /* Căn đều đoạn văn */
+}
+
+.policy-content ul {
+    list-style-type: disc;
+    margin-left: 25px;
+    margin-bottom: 15px;
+}
+
+.policy-content ul li {
+    margin-bottom: 8px;
+}
+
+.policy-content a {
+    color: var(--secondary-color);
+    text-decoration: underline;
+}
+
+.policy-content a:hover {
+    text-decoration: none;
+}
