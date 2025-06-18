@@ -63,6 +63,11 @@ ul {
     font-family: var(--font-poppins);
 }
 
+.popular-courses-section .text-center {
+    width: 100%; /* Đảm bảo div này chiếm toàn bộ chiều rộng */
+    display: block; /* Nếu vì lý do nào đó nó không phải block */
+}
+
 .btn-primary {
     background-color: var(--primary-color); /* Màu xanh dương chủ đạo */
     color: #fff;
