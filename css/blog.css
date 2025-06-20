@@ -1,18 +1,156 @@
 /* --- Blog Listing Section --- */
 .blog-listing-section {
     background-color: #fff;
-    padding: 60px 0;
+    padding: 80px 0; /* Tăng padding để tạo không gian thoáng hơn */
 }
 
-.blog-grid { /* Sử dụng lại class đã có trong index.css */
+.blog-grid {
     display: grid;
+    /* Giữ nguyên responsive grid, có thể tinh chỉnh minmax nếu muốn kích thước item khác */
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 30px;
+    gap: 40px; /* Tăng khoảng cách giữa các item */
 }
 
-/* Các style chung cho blog-item đã có trong index.css, không cần lặp lại ở đây */
+/* --- Blog Item Styling --- */
+/* Các style chung cho blog-item đã có trong index.css sẽ được bổ sung hoặc ghi đè ở đây để tối ưu */
+.blog-item {
+    background-color: #fff;
+    border: 1px solid var(--border-color, #e0e0e0); /* Dùng biến hoặc màu mặc định */
+    border-radius: 8px; /* Bo góc nhẹ nhàng hơn */
+    overflow: hidden; /* Đảm bảo hình ảnh không tràn ra ngoài */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05); /* Thêm đổ bóng nhẹ để tạo chiều sâu */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Thêm hiệu ứng hover */
+    display: flex; /* Dùng flexbox để bố cục nội dung dễ hơn */
+    flex-direction: column; /* Sắp xếp nội dung theo cột */
+}
 
-/* Pagination (có thể sử dụng lại từ courses.css nếu giống nhau) */
+.blog-item:hover {
+    transform: translateY(-5px); /* Nâng nhẹ item khi hover */
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1); /* Đổ bóng rõ hơn khi hover */
+}
+
+.blog-thumbnail {
+    position: relative;
+    width: 100%;
+    /* Tỷ lệ ảnh 16:9, đảm bảo ảnh không bị biến dạng */
+    padding-bottom: 56.25%; /* 9/16 = 0.5625 */
+    overflow: hidden;
+}
+
+.blog-thumbnail img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Đảm bảo ảnh vừa khung mà không bị méo */
+    border-radius: 8px 8px 0 0; /* Bo góc trên cho ảnh */
+    transition: transform 0.5s ease; /* Hiệu ứng zoom nhẹ khi hover */
+}
+
+.blog-item:hover .blog-thumbnail img {
+    transform: scale(1.05); /* Zoom nhẹ ảnh khi hover */
+}
+
+.blog-category {
+    position: absolute;
+    bottom: 15px;
+    left: 15px;
+    background-color: var(--primary-color, #007bff); /* Màu chính hoặc mặc định */
+    color: #fff;
+    padding: 6px 12px;
+    border-radius: 5px;
+    font-size: 0.85em;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    z-index: 1; /* Đảm bảo nằm trên ảnh */
+}
+
+.blog-content {
+    padding: 25px; /* Tăng padding nội dung */
+    flex-grow: 1; /* Đảm bảo nội dung chiếm hết không gian còn lại */
+    display: flex;
+    flex-direction: column;
+}
+
+.blog-meta {
+    display: flex;
+    align-items: center;
+    gap: 20px; /* Khoảng cách giữa ngày và tác giả */
+    margin-bottom: 15px;
+    color: var(--text-light-color, #777); /* Màu chữ nhạt hơn cho meta */
+    font-size: 0.9em;
+}
+
+.blog-meta span {
+    display: flex;
+    align-items: center;
+    gap: 5px; /* Khoảng cách giữa icon và text */
+}
+
+.blog-meta i {
+    color: var(--primary-color, #007bff); /* Màu icon theo màu chính */
+    font-size: 0.95em;
+}
+
+.blog-title {
+    font-size: 1.5em; /* Tăng kích thước tiêu đề */
+    font-weight: 700;
+    margin-bottom: 15px;
+    line-height: 1.3; /* Tăng line-height cho dễ đọc */
+}
+
+.blog-title a {
+    color: var(--heading-color, #333); /* Màu tiêu đề theo màu heading hoặc mặc định */
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.blog-title a:hover {
+    color: var(--primary-color, #007bff); /* Đổi màu khi hover */
+}
+
+.blog-description {
+    color: var(--text-color, #555); /* Màu chữ nội dung */
+    font-size: 1em;
+    line-height: 1.6; /* Tăng line-height cho dễ đọc */
+    margin-bottom: 20px;
+    flex-grow: 1; /* Cho phép mô tả chiếm không gian linh hoạt */
+    /* Giới hạn số dòng để giữ bố cục đồng nhất */
+    display: -webkit-box;
+    -webkit-line-clamp: 3; /* Giới hạn 3 dòng */
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.read-more {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    color: var(--primary-color, #007bff);
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    margin-top: auto; /* Đẩy nút xuống dưới cùng */
+}
+
+.read-more:hover {
+    color: var(--primary-color-dark, #0056b3); /* Màu đậm hơn khi hover */
+    letter-spacing: 1px; /* Hiệu ứng kéo giãn chữ nhẹ */
+}
+
+.read-more i {
+    font-size: 0.9em;
+    transition: transform 0.3s ease;
+}
+
+.read-more:hover i {
+    transform: translateX(5px); /* Di chuyển mũi tên khi hover */
+}
+
+/* Pagination */
 .pagination {
     display: flex;
     justify-content: center;
@@ -26,29 +164,87 @@
     display: inline-flex;
     justify-content: center;
     align-items: center;
-    width: 40px;
-    height: 40px;
-    border-radius: 5px;
-    border: 1px solid var(--border-color);
-    color: var(--text-color);
-    font-size: 1em;
+    width: 45px; /* Tăng kích thước nút */
+    height: 45px; /* Tăng kích thước nút */
+    border-radius: 50%; /* Làm tròn thành hình tròn */
+    border: 1px solid var(--border-color, #e0e0e0);
+    color: var(--text-color, #555);
+    font-size: 1.05em;
+    font-weight: 500;
     transition: all 0.3s ease;
+    text-decoration: none; /* Bỏ gạch chân */
 }
 
 .pagination a:hover {
-    background-color: var(--primary-color);
+    background-color: var(--primary-color, #007bff);
     color: #fff;
-    border-color: var(--primary-color);
+    border-color: var(--primary-color, #007bff);
+    box-shadow: 0 4px 10px rgba(var(--primary-rgb), 0.3); /* Thêm đổ bóng cho nút phân trang */
 }
 
 .pagination span.current {
-    background-color: var(--primary-color);
+    background-color: var(--primary-color, #007bff);
     color: #fff;
-    border-color: var(--primary-color);
+    border-color: var(--primary-color, #007bff);
     font-weight: 600;
+    box-shadow: 0 4px 10px rgba(var(--primary-rgb), 0.3);
+    cursor: default; /* Không có con trỏ khi là trang hiện tại */
 }
 
 .pagination .disabled {
-    opacity: 0.6;
+    opacity: 0.5; /* Giảm opacity thay vì 0.6 */
     cursor: not-allowed;
+    background-color: #f8f8f8; /* Màu nền nhẹ cho nút disabled */
+    color: #aaa;
+    border-color: #e0e0e0;
 }
+
+/* Button "Xem thêm bài viết" */
+.blog-posts-section .btn-primary {
+    padding: 12px 30px; /* Tăng padding cho nút */
+    font-size: 1.1em; /* Tăng kích thước chữ */
+    font-weight: 600;
+    border-radius: 50px; /* Làm tròn nút hơn */
+    box-shadow: 0 5px 15px rgba(var(--primary-rgb), 0.2); /* Thêm đổ bóng */
+    transition: all 0.3s ease;
+}
+
+.blog-posts-section .btn-primary:hover {
+    transform: translateY(-3px); /* Nâng nhẹ nút khi hover */
+    box-shadow: 0 8px 20px rgba(var(--primary-rgb), 0.3); /* Đổ bóng rõ hơn */
+}
+
+/* Điều chỉnh Page Hero Section (nếu muốn) */
+.page-hero-section {
+    padding: 80px 0; /* Tăng khoảng cách trên dưới */
+    /* Có thể thêm background-image hoặc gradient nhẹ để tạo điểm nhấn */
+    /* background: linear-gradient(to right, var(--primary-color-light), #e0f2f7); */
+    /* color: var(--heading-color); */
+}
+
+.page-hero-section .section-title {
+    font-size: 2.8em; /* Tăng kích thước tiêu đề chính */
+    font-weight: 700;
+    color: var(--heading-color, #333);
+}
+
+.page-hero-section .hero-description {
+    font-size: 1.15em;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+    color: var(--text-color, #555);
+}
+
+ /* Đảm bảo các biến màu đã được định nghĩa trong base.css hoặc header-footer.css
+   Ví dụ: */
+   :root {
+       --primary-color: #007bff;
+       --primary-color-dark: #0056b3;
+       --primary-color-light: #e0f7fa;
+       --primary-rgb: 0, 123, 255;  /*RGB của primary-color để dùng cho rgba  */ 
+       --text-color: #444;
+       --text-light-color: #777;
+       --heading-color: #222;
+       --border-color: #ddd;
+   }

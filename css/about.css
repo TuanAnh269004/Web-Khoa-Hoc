@@ -1,199 +1,132 @@
-/* --- About Section (Trang About Us) --- */
+/* --- About Section --- */
 .about-section {
     background-color: #fff;
-    padding: 80px 0;
+    padding: 80px 0; /* Consistent padding with blog-listing-section */
+    text-align: center; /* Center align section heading */
 }
 
-.about-section .container {
+/* --- Section Heading Consistency --- */
+.section-heading {
+    margin-bottom: 50px; /* Space below heading */
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.section-tagline {
+    font-size: 1.1em;
+    font-weight: 600;
+    color: var(--primary-color, #007bff);
+    display: block;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.section-title {
+    font-size: 2.8em; /* Similar to page-hero-section title */
+    font-weight: 700;
+    color: var(--heading-color, #333);
+    line-height: 1.2;
+}
+
+/* --- About Content Grid --- */
+.about-content-grid {
     display: grid;
-    grid-template-columns: 1fr 1.2fr; /* Cột hình ảnh nhỏ hơn cột nội dung */
-    gap: 60px;
-    align-items: center;
+    grid-template-columns: 1fr; /* Default to single column for small screens */
+    gap: 60px; /* Gap between text and image */
+    align-items: center; /* Vertically align content */
+    text-align: left; /* Reset text alignment for content */
 }
 
+@media (min-width: 992px) { /* Adjust breakpoint as needed for your responsive.css */
+    .about-content-grid {
+        grid-template-columns: 1fr 1fr; /* Two columns for larger screens */
+    }
+    .about-image {
+        order: 2; /* Image on the right for desktop */
+    }
+    .about-text {
+        order: 1; /* Text on the left for desktop */
+    }
+}
+
+/* --- About Text Styling --- */
+.about-text p {
+    font-size: 1.05em;
+    line-height: 1.7;
+    color: var(--text-color, #555);
+    margin-bottom: 20px;
+}
+
+.about-text ul {
+    list-style: none;
+    padding: 0;
+    margin-top: 30px;
+    margin-bottom: 30px; /* Space before the button */
+}
+
+.about-text ul li {
+    display: flex;
+    align-items: flex-start; /* Align icon and text at the top */
+    margin-bottom: 15px;
+    font-size: 1.05em;
+    color: var(--text-color, #555);
+    line-height: 1.5;
+}
+
+.about-text ul li i {
+    color: var(--primary-color, #007bff);
+    font-size: 1.2em;
+    margin-right: 10px;
+    flex-shrink: 0; /* Prevent icon from shrinking */
+    margin-top: 3px; /* Adjust for vertical alignment with text */
+}
+
+/* --- About Image Styling --- */
 .about-image {
     position: relative;
+    padding: 20px; /* Add some padding around the image for a subtle border/shadow effect */
 }
 
 .about-image img {
     max-width: 100%;
     height: auto;
-    border-radius: 8px;
-    box-shadow: var(--shadow-medium);
+    border-radius: 12px; /* Slightly more rounded corners for the main image */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1); /* Deeper shadow for prominence */
+    transition: transform 0.4s ease;
 }
 
-.about-text {
-    padding-right: 20px; /* Đệm nhẹ bên phải để tách khỏi ảnh */
+.about-image img:hover {
+    transform: translateY(-5px); /* Subtle lift on hover */
 }
 
-.about-text .section-tagline {
-    text-align: left; /* Đảm bảo căn trái */
-}
-
-.about-text .section-title {
-    text-align: left; /* Đảm bảo căn trái */
-    margin-bottom: 25px;
-}
-
-.about-text p {
-    margin-bottom: 18px;
-    color: var(--light-text-color);
-    line-height: 1.7;
-}
-
-.about-text ul {
-    margin-top: 20px;
-    margin-bottom: 25px;
-}
-
-.about-text ul li {
-    margin-bottom: 12px;
-    color: #444;
-    font-size: 1.05em;
-    display: flex;
-    align-items: flex-start;
-}
-
-.about-text ul li .fas {
-    color: var(--success-color); /* Màu xanh lá cây cho icon check */
-    margin-right: 12px;
+/* --- Button Styling (consistent with blog.css) --- */
+.about-text .btn-primary {
+    display: inline-block; /* Ensure button adheres to text flow */
+    margin-top: 20px; /* Space from the list */
+    padding: 12px 30px;
     font-size: 1.1em;
-    margin-top: 3px;
-}
-
-/* --- Team Section --- */
-.team-section {
-    background-color: var(--light-bg);
-}
-
-.team-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 30px;
-}
-
-.team-member-card {
-    background-color: #fff;
-    border-radius: 8px;
-    box-shadow: var(--shadow-light);
-    overflow: hidden;
-    text-align: center;
-    padding: 30px;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.team-member-card:hover {
-    transform: translateY(-5px);
-    box-shadow: var(--shadow-medium);
-}
-
-.member-photo img {
-    width: 120px;
-    height: 120px;
-    border-radius: 50%;
-    object-fit: cover;
-    margin-bottom: 20px;
-    border: 3px solid var(--primary-color);
-    box-shadow: 0 0 0 5px rgba(0, 123, 255, 0.1);
-}
-
-.member-name {
-    font-family: var(--font-poppins);
-    font-size: 1.6em;
-    font-weight: 700;
-    color: var(--text-color);
-    margin-bottom: 5px;
-}
-
-.member-title {
-    font-size: 1em;
-    color: var(--primary-color);
     font-weight: 600;
-    margin-bottom: 15px;
+    border-radius: 50px;
+    box-shadow: 0 5px 15px rgba(var(--primary-rgb), 0.2);
+    transition: all 0.3s ease;
+    text-decoration: none;
 }
 
-.member-bio {
-    font-size: 0.95em;
-    color: var(--light-text-color);
-    line-height: 1.6;
-    margin-bottom: 20px;
+.about-text .btn-primary:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(var(--primary-rgb), 0.3);
 }
 
-.member-social-links a {
-    display: inline-flex;
-    justify-content: center;
-    align-items: center;
-    width: 35px;
-    height: 35px;
-    background-color: #e6f2ff;
-    color: var(--primary-color);
-    border-radius: 50%;
-    margin: 0 5px;
-    font-size: 1.1em;
-    transition: background-color 0.3s ease, color 0.3s ease;
-}
-
-.member-social-links a:hover {
-    background-color: var(--primary-color);
-    color: #fff;
-}
-
-/* --- Testimonials Section (Phần chứng thực) --- */
-.testimonials-section {
-    background-color: #fff;
-}
-
-.testimonial-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-    gap: 30px;
-}
-
-.testimonial-card {
-    background-color: var(--light-bg);
-    padding: 30px;
-    border-radius: 8px;
-    box-shadow: var(--shadow-light);
-    text-align: center;
-    position: relative;
-    padding-top: 80px; /* Đệm trên để đặt avatar */
-}
-
-.testimonial-avatar img {
-    width: 100px;
-    height: 100px;
-    border-radius: 50%;
-    object-fit: cover;
-    position: absolute;
-    top: -50px; /* Nâng avatar lên trên card */
-    left: 50%;
-    transform: translateX(-50%);
-    border: 5px solid #fff;
-    box-shadow: var(--shadow-medium);
-}
-
-.testimonial-text {
-    font-style: italic;
-    color: var(--light-text-color);
-    line-height: 1.7;
-    margin-bottom: 20px;
-}
-
-.testimonial-author {
-    font-family: var(--font-poppins);
-    font-weight: 600;
-    color: var(--text-color);
-    font-size: 1.2em;
-    margin-bottom: 5px;
-}
-
-.testimonial-title {
-    font-size: 0.9em;
-    color: var(--primary-color);
-}
-
-.testimonial-stars {
-    color: var(--warning-color);
-    margin-top: 10px;
-    font-size: 1em;
+/* --- Ensure color variables are defined (as in your blog.css example) --- */
+:root {
+    --primary-color: #007bff;
+    --primary-color-dark: #0056b3;
+    --primary-color-light: #e0f7fa;
+    --primary-rgb: 0, 123, 255; /* RGB of primary-color for rgba */
+    --text-color: #444;
+    --text-light-color: #777;
+    --heading-color: #222;
+    --border-color: #ddd;
 }
