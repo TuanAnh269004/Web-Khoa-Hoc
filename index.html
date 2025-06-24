@@ -3,26 +3,36 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Xưởng Thực Tập PLT Solutions</title>
+    <title>Xưởng Thực Tập PLT Solutions - Nâng tầm kỹ năng với các khóa học chất lượng</title>
+    <meta name="description" content="Khám phá hàng ngàn khóa học chất lượng cao từ các chuyên gia hàng đầu tại PLT Solutions. Nâng cao kỹ năng, mở rộng cơ hội nghề nghiệp với Kiểm thử phần mềm, Kiểm thử tự động, Tin học văn phòng và nhiều hơn nữa.">
+    <meta name="keywords" content="khóa học trực tuyến, PLT Solutions, kiểm thử phần mềm, kiểm thử tự động, tin học văn phòng, học lập trình, kỹ năng mềm, chứng chỉ trực tuyến">
+
+    <link rel="icon" href="image/favicon.ico" type="image/x-icon">
+
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&family=Poppins:wght@500;600;700&display=swap" rel="stylesheet">
+
     <link rel="stylesheet" href="css/base.css">
     <link rel="stylesheet" href="css/header-footer.css">
     <link rel="stylesheet" href="css/index.css">
     <link rel="stylesheet" href="css/responsive.css">
+
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 </head>
 <body>
 
     <header class="main-header">
         <div class="container">
-            <a href="index.html" class="logo">
-                <img src="image/anh2.png" alt="PLT Logo">
+            <a href="index.html" class="logo" aria-label="PLT Solutions Logo - Về trang chủ">
+                <img src="image/anh2.png" alt="Logo PLT Solutions">
             </a>
-            <nav class="main-nav">
+            <nav class="main-nav" aria-label="Điều hướng chính">
                 <ul class="nav-list">
-                    <li><a href="index.html" class="active">Trang chủ</a></li>
+                    <li><a href="index.html" class="active" aria-current="page">Trang chủ</a></li>
                     <li class="has-dropdown">
-                        <a href="courses.html">Khóa học <i class="fas fa-chevron-down"></i></a>
+                        <a href="courses.html">Khóa học <i class="fas fa-chevron-down" aria-hidden="true"></i></a>
                         <ul class="dropdown-menu">
                             <li><a href="courses.html">Tất cả khóa học</a></li>
                             <li><a href="./courses-detail/software-testing.html">Kiểm Thử Phần Mềm</a></li>
@@ -38,221 +48,695 @@
                 </ul>
             </nav>
             <div class="header-actions">
-                <a href="cart.html" class="cart-icon">
-                    <i class="fas fa-shopping-cart"></i>
-                    <span class="cart-count">0</span> </a>
+                <a href="cart.html" class="cart-icon" aria-label="Giỏ hàng">
+                    <i class="fas fa-shopping-cart" aria-hidden="true"></i>
+                    <span class="cart-count">0</span>
+                </a>
                 <div id="auth-buttons" class="auth-buttons">
-                    <a href="register.html" class="btn btn-primary" id="register-btn">Đăng ký</a> 
+                    <a href="register.html" class="btn btn-primary" id="register-btn">Đăng ký</a>
                     <a href="login.html" class="btn btn-secondary" id="login-btn">Đăng nhập</a>
-                    <a href="#" class="btn btn-primary" id="logout-btn" style="display: none;">Đăng xuất</a> 
+                    <a href="#" class="btn btn-primary" id="logout-btn" style="display: none;">Đăng xuất</a>
                 </div>
-                <button class="menu-toggle" aria-label="Mở Menu">
-                    <i class="fas fa-bars"></i>
+                <button class="menu-toggle" aria-label="Mở Menu Điều Hướng">
+                    <i class="fas fa-bars" aria-hidden="true"></i>
                 </button>
             </div>
         </div>
     </header>
 
-    <section class="hero-section">
-        <div class="container">
-            <div class="hero-content">
-                <span class="hero-tagline">Nâng cao kỹ năng với PLT Solutions</span>
-                <h1 class="hero-title">Tìm kiếm các khóa học & kỹ năng trực tuyến tốt nhất</h1>
-                <p class="hero-description">
-                    Khám phá hàng ngàn khóa học chất lượng cao từ các chuyên gia hàng đầu.
-                    Học hỏi những kiến thức mới và mở rộng cơ hội nghề nghiệp của bạn ngay hôm nay.
-                </p>
-                <div class="hero-buttons">
-                    <a href="courses.html" class="btn btn-primary">Khám phá khóa học</a>
-                    <a href="#" class="btn btn-secondary">Xem video giới thiệu <i class="fas fa-play-circle"></i></a>
-                </div>
-                <div class="hero-stats">
-                    <div class="stat-item">
-                        <h3>29K+</h3>
-                        <p>Học viên đang theo học</p>
-                    </div>
-                    <div class="stat-item">
-                        <h3>4.7/5</h3>
-                        <p>Đánh giá trung bình</p>
-                    </div>
-                    <div class="stat-item">
-                        <h3>250+</h3>
-                        <p>Khóa học có sẵn</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="features-section section-padding">
-        <div class="container">
-            <div class="section-heading">
-                <span class="section-tagline">Chúng tôi cung cấp gì</span>
-                <h2 class="section-title">Lợi ích khi học tại PLT Solutions</h2>
-            </div>
-            <div class="features-grid">
-                <div class="feature-item">
-                    <div class="feature-icon">
-                        <i class="fas fa-book-reader"></i>
-                    </div>
-                    <h3 class="feature-title">Thư viện khóa học phong phú</h3>
-                    <p class="feature-description">
-                        Hàng ngàn khóa học đa dạng chủ đề từ kinh doanh, công nghệ đến sáng tạo.
-                    </p>
-                </div>
-                <div class="feature-item">
-                    <div class="feature-icon">
-                        <i class="fas fa-users-crown"></i>
-                    </div>
-                    <h3 class="feature-title">Giảng viên hàng đầu</h3>
-                    <p class="feature-description">
-                        Học hỏi trực tiếp từ những chuyên gia, giảng viên có kinh nghiệm thực tế.
-                    </p>
-                </div>
-                <div class="feature-item">
-                    <div class="feature-icon">
-                        <i class="fas fa-certificate"></i>
-                    </div>
-                    <h3 class="feature-title">Chứng chỉ uy tín</h3>
-                    <p class="feature-description">
-                        Nhận chứng chỉ hoàn thành khóa học được công nhận để nâng cao hồ sơ của bạn.
-                    </p>
-                </div>
-                <div class="feature-item">
-                    <div class="feature-icon">
-                        <i class="fas fa-laptop-code"></i>
-                    </div>
-                    <h3 class="feature-title">Học mọi lúc mọi nơi</h3>
-                    <p class="feature-description">
-                        Truy cập bài giảng từ bất kỳ thiết bị nào, bất cứ khi nào bạn muốn.
-                    </p>
-                </div>
-                <div class="feature-item">
-                    <div class="feature-icon">
-                        <i class="fas fa-handshake-angle"></i>
-                    </div>
-                    <h3 class="feature-title">Hỗ trợ tận tình</h3>
-                    <p class="feature-description">
-                        Đội ngũ hỗ trợ luôn sẵn sàng giải đáp mọi thắc mắc của học viên.
-                    </p>
-                </div>
-                <div class="feature-item">
-                    <div class="feature-icon">
-                        <i class="fas fa-star-half-stroke"></i>
-                    </div>
-                    <h3 class="feature-title">Đánh giá và phản hồi</h3>
-                    <p class="feature-description">
-                        Hệ thống đánh giá rõ ràng, giúp bạn chọn được khóa học phù hợp nhất.
-                    </p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="popular-courses-section section-padding bg-light">
-        <div class="container">
-            <div class="section-heading">
-                <span class="section-tagline">Khóa học phổ biến</span>
-                <h2 class="section-title">Khám phá các khóa học hàng đầu</h2>
-            </div>
-            <div class="courses-grid">
-                <div class="course-item">
-                    <div class="course-thumbnail">
-                        <img src="image/automated-testing.jpg" alt="Web Development Course">
-                        <div class="course-category">
-                            <a href="./courses-detail/automated-testing.html">Kiểm Thử Tự Động</a>
+    <main>
+        <section class="hero-section">
+            <div class="swiper-container hero-swiper">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide hero-slide-1">
+                        <div class="container">
+                            <div class="hero-content" data-aos="fade-right" data-aos-duration="1000">
+                                <span class="hero-tagline" data-aos="fade-up" data-aos-delay="100">Nâng cao kỹ năng với PLT Solutions</span>
+                                <h1 class="hero-title" data-aos="fade-up" data-aos-delay="200">Tìm kiếm các khóa học & kỹ năng trực tuyến tốt nhất</h1>
+                                <p class="hero-description" data-aos="fade-up" data-aos-delay="300">
+                                    Khám phá hàng ngàn khóa học chất lượng cao từ các chuyên gia hàng đầu.
+                                    Học hỏi những kiến thức mới và mở rộng cơ hội nghề nghiệp của bạn ngay hôm nay.
+                                </p>
+                                <div class="hero-buttons" data-aos="fade-up" data-aos-delay="400">
+                                    <a href="courses.html" class="btn btn-primary">Khám phá khóa học</a>
+                                    <a href="#" class="btn btn-secondary">Xem video giới thiệu <i class="fas fa-play-circle" aria-hidden="true"></i></a>
+                                </div>
+                                <div class="hero-search-bar" data-aos="fade-up" data-aos-delay="450">
+                                    <input type="text" placeholder="Bạn muốn học gì?">
+                                    <button type="button">Tìm kiếm</button>
+                                </div>
+                                <div class="hero-stats" data-aos="fade-up" data-aos-delay="500">
+                                    <div class="stat-item">
+                                        <h3>29K+</h3>
+                                        <p>Học viên đang theo học</p>
+                                    </div>
+                                    <div class="stat-item">
+                                        <h3>4.7/5</h3>
+                                        <p>Đánh giá trung bình</p>
+                                    </div>
+                                    <div class="stat-item">
+                                        <h3>250+</h3>
+                                        <p>Khóa học có sẵn</p>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                    <div class="course-content">
-                        <div class="course-meta">
-                            <span class="course-author"><i class="fas fa-user"></i> Mr PLT</span>
-                            <span class="course-rating">
-                                <i class="fas fa-star"></i> 4.9 (250)
-                            </span>
+
+                    <div class="swiper-slide hero-slide-2">
+                        <div class="container">
+                            <div class="hero-content" data-aos="fade-left" data-aos-duration="1000">
+                                <span class="hero-tagline" data-aos="fade-up" data-aos-delay="100">Cơ hội việc làm rộng mở</span>
+                                <h1 class="hero-title" data-aos="fade-up" data-aos-delay="200">Phát triển sự nghiệp với kiến thức thực tế</h1>
+                                <p class="hero-description" data-aos="fade-up" data-aos-delay="300">
+                                    Các khóa học của chúng tôi được thiết kế để trang bị cho bạn những kỹ năng
+                                    cần thiết, đáp ứng yêu cầu của thị trường lao động hiện đại.
+                                </p>
+                                <div class="hero-buttons" data-aos="fade-up" data-aos-delay="400">
+                                    <a href="about.html" class="btn btn-primary">Về chúng tôi</a>
+                                    <a href="contact.html" class="btn btn-secondary">Liên hệ ngay <i class="fas fa-arrow-right" aria-hidden="true"></i></a>
+                                </div>
+                                <div class="hero-search-bar" data-aos="fade-up" data-aos-delay="450">
+                                    <input type="text" placeholder="Tìm kiếm theo chủ đề...">
+                                    <button type="button">Khám phá</button>
+                                </div>
+                                <div class="hero-stats" data-aos="fade-up" data-aos-delay="500">
+                                    <div class="stat-item">
+                                        <h3>95%</h3>
+                                        <p>Tỷ lệ việc làm sau khóa học</p>
+                                    </div>
+                                    <div class="stat-item">
+                                        <h3>15+</h3>
+                                        <p>Đối tác tuyển dụng</p>
+                                    </div>
+                                    <div class="stat-item">
+                                        <h3>100+</h3>
+                                        <p>Dự án thực tế</p>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
-                        <h3 class="course-title"><a href="./courses-detail/automated-testing.html">Khóa học Kiểm Thử Tự Động Toàn Diện Từ A-Z</a></h3>
-                        <p class="course-description">
-                            Nắm vững các kỹ thuật và vận hành các công cụ kiểm thử hiện đại
+                    </div>
+
+                    <div class="swiper-slide hero-slide-3">
+                        <div class="container">
+                            <div class="hero-content" data-aos="zoom-in" data-aos-duration="1000">
+                                <span class="hero-tagline" data-aos="fade-up" data-aos-delay="100">Học hỏi từ những chuyên gia</span>
+                                <h1 class="hero-title" data-aos="fade-up" data-aos-delay="200">Đội ngũ giảng viên tận tâm, giàu kinh nghiệm</h1>
+                                <p class="hero-description" data-aos="fade-up" data-aos-delay="300">
+                                    Chúng tôi tự hào với đội ngũ giảng viên hàng đầu, luôn sẵn sàng truyền đạt
+                                    kiến thức và kinh nghiệm thực chiến cho từng học viên.
+                                </p>
+                                <div class="hero-buttons" data-aos="fade-up" data-aos-delay="400">
+                                    <a href="blog.html" class="btn btn-primary">Đọc Blog</a>
+                                    <a href="courses.html" class="btn btn-secondary">Tất cả khóa học</a>
+                                </div>
+                                <div class="hero-search-bar" data-aos="fade-up" data-aos-delay="450">
+                                    <input type="text" placeholder="Tìm kiếm giảng viên...">
+                                    <button type="button">Tìm kiếm</button>
+                                </div>
+                                <div class="hero-stats" data-aos="fade-up" data-aos-delay="500">
+                                    <div class="stat-item">
+                                        <h3>50+</h3>
+                                        <p>Giảng viên chuyên nghiệp</p>
+                                    </div>
+                                    <div class="stat-item">
+                                        <h3>10K+</h3>
+                                        <p>Giờ giảng dạy</p>
+                                    </div>
+                                    <div class="stat-item">
+                                        <h3>98%</h3>
+                                        <p>Hài lòng của học viên</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper-pagination"></div>
+                <div class="swiper-button-next"></div>
+                <div class="swiper-button-prev"></div>
+            </div>
+        </section>
+
+        <section class="feature-category-section section-padding">
+            <div class="container">
+                <div class="section-heading" data-aos="fade-down">
+                    <span class="section-tagline">Các tính năng chính</span>
+                    <h2 class="section-title">Những gì chúng tôi cung cấp</h2>
+                    <p class="section-description">
+                        Khám phá các lợi ích và điểm nổi bật khi bạn tham gia học tập cùng PLT Solutions,
+                        từ các khóa học đa dạng đến hỗ trợ tận tình.
+                    </p>
+                </div>
+                <div class="feature-category-grid">
+                    <div class="feature-category-item" data-aos="fade-up" data-aos-delay="100">
+                        <div class="feature-category-icon">
+                            <i class="fas fa-chalkboard-teacher"></i>
+                        </div>
+                        <h3 class="feature-category-title">Giảng viên hàng đầu</h3>
+                        <p class="feature-category-description">
+                            Học hỏi từ các chuyên gia có kinh nghiệm thực chiến và kiến thức chuyên sâu trong ngành.
                         </p>
-                        <div class="course-footer">
-                            <span class="course-price">4.500.000VNĐ</span>
-                            <a href="courses-detail/automated-testing.html" class="btn btn-sm btn-outline-primary">Xem chi tiết</a>
-                        </div>
                     </div>
-                </div>
-
-                <div class="course-item">
-                    <div class="course-thumbnail">
-                        <img src="image/software-testing.jpg" alt="Digital Marketing Course">
-                        <div class="course-category">
-                            <a href="./courses-detail/software-testing.html">Kiểm Thử Phần Mềm</a>
+                    <div class="feature-category-item" data-aos="fade-up" data-aos-delay="200">
+                        <div class="feature-category-icon">
+                            <i class="fas fa-book-open"></i>
                         </div>
-                    </div>
-                    <div class="course-content">
-                        <div class="course-meta">
-                            <span class="course-author"><i class="fas fa-user"></i> Mr PLT</span>
-                            <span class="course-rating">
-                                <i class="fas fa-star"></i> 4.8 (180)
-                            </span>
-                        </div>
-                        <h3 class="course-title"><a href="./courses-detail/software-testing.html">Khóa Học Kiểm Thử Phần Mềm – Dành Cho Người Trái Ngành</a></h3>
-                        <p class="course-description">
-                            Nắm vững các kĩ năng cơ bản về Kiểm Thử Phần Mềm
+                        <h3 class="feature-category-title">Nội dung đa dạng</h3>
+                        <p class="feature-category-description">
+                            Thư viện khóa học phong phú, cập nhật liên tục để đáp ứng mọi nhu cầu học tập.
                         </p>
-                        <div class="course-footer">
-                            <span class="course-price">4.500.000VNĐ</span>
-                            <a href="courses-detail/software-testing.html" class="btn btn-sm btn-outline-primary">Xem chi tiết</a>
-                        </div>
                     </div>
-                </div>
-
-                <div class="course-item">
-                    <div class="course-thumbnail">
-                        <img src="image/office-it.jpg" alt="Graphic Design Course">
-                        <div class="course-category">
-                            <a href="./courses-detail/office-it.html">Tin Học Văn Phòng</a>
+                    <div class="feature-category-item" data-aos="fade-up" data-aos-delay="300">
+                        <div class="feature-category-icon">
+                            <i class="fas fa-hands-helping"></i>
                         </div>
-                    </div>
-                    <div class="course-content">
-                        <div class="course-meta">
-                            <span class="course-author"><i class="fas fa-user"></i> Mr PLT</span>
-                            <span class="course-rating">
-                                <i class="fas fa-star"></i> 4.7 (210)
-                            </span>
-                        </div>
-                        <h3 class="course-title"><a href="./courses-detail/office-it.html">Khoá Học Tin Học Văn Phòng Căn Bản (Word, Excel, Powerpoint)</a></h3>
-                        <p class="course-description">
-                            Nắm vững các kĩ năng tin học văn học cơ bản (Word, Excel, Powerpoint)
+                        <h3 class="feature-category-title">Hỗ trợ 24/7</h3>
+                        <p class="feature-category-description">
+                            Đội ngũ hỗ trợ luôn sẵn sàng giải đáp thắc mắc và giúp đỡ bạn mọi lúc.
                         </p>
-                        <div class="course-footer">
-                            <span class="course-price">4.500.000VNĐ</span>
-                            <a href="courses-detail/office-it.html" class="btn btn-sm btn-outline-primary">Xem chi tiết</a>
+                    </div>
+                    <div class="feature-category-item" data-aos="fade-up" data-aos-delay="400">
+                        <div class="feature-category-icon">
+                            <i class="fas fa-certificate"></i>
                         </div>
+                        <h3 class="feature-category-title">Chứng chỉ uy tín</h3>
+                        <p class="feature-category-description">
+                            Nhận chứng chỉ hoàn thành khóa học được công nhận, nâng cao hồ sơ cá nhân.
+                        </p>
                     </div>
                 </div>
             </div>
-            <div class="text-center mt-5">
-                <a href="courses.html" class="btn btn-primary btn-lg">Xem tất cả khóa học</a>
+        </section>
+
+        <section class="about-section-home section-padding">
+            <div class="container">
+                <div class="about-content-grid-home">
+                    <div class="about-image-home" data-aos="fade-right" data-aos-duration="1000">
+                        <img src="image/about-us-home.jpg" alt="Về chúng tôi - PLT Solutions">
+                    </div>
+                    <div class="about-text-home" data-aos="fade-left" data-aos-duration="1000">
+                        <span class="section-tagline">Về chúng tôi</span>
+                        <h2 class="section-title">Nền tảng giáo dục trực tuyến tốt nhất</h2>
+                        <p>
+                            PLT Solutions là một nền tảng học tập trực tuyến tiên phong, mang sứ mệnh
+                            cung cấp kiến thức và kỹ năng thực tế cho mọi người. Chúng tôi tin rằng
+                            giáo dục là chìa khóa để mở ra cơ hội và phát triển bản thân.
+                        </p>
+                        <p>
+                            Với đội ngũ giảng viên chuyên nghiệp và nội dung khóa học được tuyển chọn kỹ lưỡng,
+                            chúng tôi cam kết mang lại trải nghiệm học tập hiệu quả và thú vị nhất.
+                        </p>
+                        <ul>
+                            <li><i class="fas fa-check-circle" aria-hidden="true"></i> Khóa học đa dạng, cập nhật</li>
+                            <li><i class="fas fa-check-circle" aria-hidden="true"></i> Giảng viên giàu kinh nghiệm</li>
+                            <li><i class="fas fa-check-circle" aria-hidden="true"></i> Cộng đồng học tập năng động</li>
+                            <li><i class="fas fa-check-circle" aria-hidden="true"></i> Hỗ trợ học viên tận tình</li>
+                        </ul>
+                        <a href="about.html" class="btn btn-primary" data-aos="fade-up" data-aos-delay="100">Tìm hiểu thêm</a>
+                    </div>
+                </div>
             </div>
-        </div>
-    </section>
+        </section>
+
+        <section class="popular-courses-section section-padding bg-light">
+            <div class="container">
+                <div class="section-heading" data-aos="fade-down">
+                    <span class="section-tagline">Khóa học phổ biến</span>
+                    <h2 class="section-title">Khám phá các khóa học hàng đầu</h2>
+                    <p class="section-description">
+                        Chúng tôi cung cấp những khóa học được yêu thích nhất, giúp bạn trang bị
+                        kiến thức và kỹ năng cần thiết cho sự nghiệp và phát triển cá nhân.
+                    </p>
+                </div>
+                <div class="courses-grid">
+                    <article class="course-item" data-aos="fade-up" data-aos-delay="100">
+                        <div class="course-thumbnail">
+                            <img src="image/automated-testing.jpg" alt="Ảnh minh họa khóa học Kiểm Thử Tự Động">
+                            <div class="course-category">
+                                <a href="./courses-detail/automated-testing.html">Kiểm Thử Tự Động</a>
+                            </div>
+                        </div>
+                        <div class="course-content">
+                            <div class="course-meta">
+                                <span class="course-author"><i class="fas fa-user" aria-hidden="true"></i> Mr PLT</span>
+                                <span class="course-rating">
+                                    <i class="fas fa-star" aria-hidden="true"></i> 4.9 (250)
+                                </span>
+                            </div>
+                            <h3 class="course-title"><a href="./courses-detail/automated-testing.html">Khóa học Kiểm Thử Tự Động Toàn Diện Từ A-Z</a></h3>
+                            <p class="course-description">
+                                Nắm vững các kỹ thuật và vận hành các công cụ kiểm thử hiện đại, tự động hóa quy trình.
+                            </p>
+                            <div class="course-footer">
+                                <span class="course-price">4.500.000VNĐ</span>
+                                <a href="courses-detail/automated-testing.html" class="btn btn-sm btn-outline-primary">Xem chi tiết</a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="course-item" data-aos="fade-up" data-aos-delay="200">
+                        <div class="course-thumbnail">
+                            <img src="image/software-testing.jpg" alt="Ảnh minh họa khóa học Kiểm Thử Phần Mềm">
+                            <div class="course-category">
+                                <a href="./courses-detail/software-testing.html">Kiểm Thử Phần Mềm</a>
+                            </div>
+                        </div>
+                        <div class="course-content">
+                            <div class="course-meta">
+                                <span class="course-author"><i class="fas fa-user" aria-hidden="true"></i> Mr PLT</span>
+                                <span class="course-rating">
+                                    <i class="fas fa-star" aria-hidden="true"></i> 4.8 (180)
+                                </span>
+                            </div>
+                            <h3 class="course-title"><a href="./courses-detail/software-testing.html">Khóa Học Kiểm Thử Phần Mềm – Dành Cho Người Trái Ngành</a></h3>
+                            <p class="course-description">
+                                Nắm vững các kĩ năng cơ bản về Kiểm Thử Phần Mềm, phù hợp cả cho người mới bắt đầu.
+                            </p>
+                            <div class="course-footer">
+                                <span class="course-price">4.500.000VNĐ</span>
+                                <a href="courses-detail/software-testing.html" class="btn btn-sm btn-outline-primary">Xem chi tiết</a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="course-item" data-aos="fade-up" data-aos-delay="300">
+                        <div class="course-thumbnail">
+                            <img src="image/office-it.jpg" alt="Ảnh minh họa khóa học Tin Học Văn Phòng">
+                            <div class="course-category">
+                                <a href="./courses-detail/office-it.html">Tin Học Văn Phòng</a>
+                            </div>
+                        </div>
+                        <div class="course-content">
+                            <div class="course-meta">
+                                <span class="course-author"><i class="fas fa-user" aria-hidden="true"></i> Mr PLT</span>
+                                <span class="course-rating">
+                                    <i class="fas fa-star" aria-hidden="true"></i> 4.7 (210)
+                                </span>
+                            </div>
+                            <h3 class="course-title"><a href="./courses-detail/office-it.html">Khoá Học Tin Học Văn Phòng Căn Bản (Word, Excel, Powerpoint)</a></h3>
+                            <p class="course-description">
+                                Nắm vững các kĩ năng tin học văn học cơ bản (Word, Excel, Powerpoint) để làm việc hiệu quả.
+                            </p>
+                            <div class="course-footer">
+                                <span class="course-price">4.500.000VNĐ</span>
+                                <a href="courses-detail/office-it.html" class="btn btn-sm btn-outline-primary">Xem chi tiết</a>
+                            </div>
+                        </div>
+                    </article>
+
+                     <article class="course-item" data-aos="fade-up" data-aos-delay="400">
+                        <div class="course-thumbnail">
+                            <img src="image/basic-software-testing.jpg" alt="Ảnh minh họa khóa học Kiểm thử phần mềm căn bản">
+                            <div class="course-category">
+                                <a href="./courses-detail/basic-software-testing.html">Kiểm Thử Căn Bản</a>
+                            </div>
+                        </div>
+                        <div class="course-content">
+                            <div class="course-meta">
+                                <span class="course-author"><i class="fas fa-user" aria-hidden="true"></i> Ms. Yen</span>
+                                <span class="course-rating">
+                                    <i class="fas fa-star" aria-hidden="true"></i> 4.6 (150)
+                                </span>
+                            </div>
+                            <h3 class="course-title"><a href="./courses-detail/basic-software-testing.html">Kiểm Thử Phần Mềm Căn Bản: Nền tảng vững chắc</a></h3>
+                            <p class="course-description">
+                                Khóa học cung cấp kiến thức nền tảng về kiểm thử phần mềm cho người mới bắt đầu.
+                            </p>
+                            <div class="course-footer">
+                                <span class="course-price">2.000.000VNĐ</span>
+                                <a href="courses-detail/basic-software-testing.html" class="btn btn-sm btn-outline-primary">Xem chi tiết</a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="course-item" data-aos="fade-up" data-aos-delay="500">
+                        <div class="course-thumbnail">
+                            <img src="image/web-development.jpg" alt="Ảnh minh họa khóa học Phát triển Web">
+                            <div class="course-category">
+                                <a href="#">Phát triển Web</a>
+                            </div>
+                        </div>
+                        <div class="course-content">
+                            <div class="course-meta">
+                                <span class="course-author"><i class="fas fa-user" aria-hidden="true"></i> Mr. Khanh</span>
+                                <span class="course-rating">
+                                    <i class="fas fa-star" aria-hidden="true"></i> 4.9 (300)
+                                </span>
+                            </div>
+                            <h3 class="course-title"><a href="#">Lập Trình Web Toàn Diện Với HTML, CSS & JavaScript</a></h3>
+                            <p class="course-description">
+                                Xây dựng các trang web đẹp và tương tác cao từ cơ bản đến nâng cao.
+                            </p>
+                            <div class="course-footer">
+                                <span class="course-price">5.000.000VNĐ</span>
+                                <a href="#" class="btn btn-sm btn-outline-primary">Xem chi tiết</a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="course-item" data-aos="fade-up" data-aos-delay="600">
+                        <div class="course-thumbnail">
+                            <img src="image/photography.jpg" alt="Ảnh minh họa khóa học Nhiếp ảnh">
+                            <div class="course-category">
+                                <a href="./courses-detail/photography-detail.html">Nhiếp ảnh</a>
+                            </div>
+                        </div>
+                        <div class="course-content">
+                            <div class="course-meta">
+                                <span class="course-author"><i class="fas fa-user" aria-hidden="true"></i> Ms. Vy</span>
+                                <span class="course-rating">
+                                    <i class="fas fa-star" aria-hidden="true"></i> 4.7 (120)
+                                </span>
+                            </div>
+                            <h3 class="course-title"><a href="./courses-detail/photography-detail.html">Nghệ Thuật Nhiếp Ảnh Từ Cơ Bản Đến Chuyên Nghiệp</a></h3>
+                            <p class="course-description">
+                                Khám phá bí quyết chụp ảnh đẹp, từ bố cục đến chỉnh sửa hậu kỳ.
+                            </p>
+                            <div class="course-footer">
+                                <span class="course-price">3.000.000VNĐ</span>
+                                <a href="courses-detail/photography-detail.html" class="btn btn-sm btn-outline-primary">Xem chi tiết</a>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+                <div class="text-center mt-5" data-aos="fade-up" data-aos-delay="400">
+                    <a href="courses.html" class="btn btn-primary btn-lg">Xem tất cả khóa học</a>
+                </div>
+            </div>
+        </section>
+
+        <section class="why-choose-us-section section-padding">
+            <div class="container">
+                <div class="section-heading is-white" data-aos="fade-down">
+                    <span class="section-tagline">Tại sao chọn chúng tôi</span>
+                    <h2 class="section-title">Lý do bạn nên học cùng PLT Solutions</h2>
+                    <p class="section-description">
+                        Chúng tôi cam kết mang đến trải nghiệm học tập vượt trội với những ưu điểm độc đáo,
+                        giúp bạn đạt được mục tiêu học tập và phát triển sự nghiệp.
+                    </p>
+                </div>
+                <div class="why-choose-us-grid">
+                    <div class="why-choose-us-item" data-aos="fade-up" data-aos-delay="100">
+                        <i class="why-choose-us-icon fas fa-award"></i>
+                        <h3>Chất lượng cao</h3>
+                        <p>
+                            Nội dung khóa học được biên soạn kỹ lưỡng, đảm bảo chất lượng và tính ứng dụng thực tế.
+                        </p>
+                    </div>
+                    <div class="why-choose-us-item" data-aos="fade-up" data-aos-delay="200">
+                        <i class="why-choose-us-icon fas fa-laptop-code"></i>
+                        <h3>Thực hành chuyên sâu</h3>
+                        <p>
+                            Tập trung vào thực hành, dự án thực tế giúp học viên củng cố kiến thức.
+                        </p>
+                    </div>
+                    <div class="why-choose-us-item" data-aos="fade-up" data-aos-delay="300">
+                        <i class="why-choose-us-icon fas fa-users"></i>
+                        <h3>Cộng đồng hỗ trợ</h3>
+                        <p>
+                            Tham gia cộng đồng học viên năng động, dễ dàng trao đổi và học hỏi.
+                        </p>
+                    </div>
+                    <div class="why-choose-us-item" data-aos="fade-up" data-aos-delay="400">
+                        <i class="why-choose-us-icon fas fa-handshake"></i>
+                        <h3>Cơ hội việc làm</h3>
+                        <p>
+                            Kết nối với các doanh nghiệp đối tác, mở rộng cơ hội nghề nghiệp sau khóa học.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="instructors-section section-padding">
+            <div class="container">
+                <div class="section-heading" data-aos="fade-down">
+                    <span class="section-tagline">Đội ngũ giảng viên</span>
+                    <h2 class="section-title">Gặp gỡ các giảng viên của chúng tôi</h2>
+                    <p class="section-description">
+                        Đội ngũ giảng viên tại PLT Solutions đều là những chuyên gia có kinh nghiệm,
+                        tận tâm và nhiệt huyết trong việc truyền đạt kiến thức.
+                    </p>
+                </div>
+                <div class="instructors-grid">
+                    <div class="instructor-item" data-aos="fade-up" data-aos-delay="100">
+                        <div class="instructor-image">
+                            <img src="image/instructor-1.jpg" alt="Giảng viên Mr.PLT">
+                        </div>
+                        <h3 class="instructor-name">Mr. PLT</h3>
+                        <p class="instructor-title">Trưởng phòng Kiểm thử</p>
+                        <p class="instructor-description">
+                            Chuyên gia hàng đầu về Kiểm thử Phần mềm và Tự động hóa.
+                        </p>
+                        <div class="instructor-social-links">
+                            <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                            <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                            <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                        </div>
+                    </div>
+                    <div class="instructor-item" data-aos="fade-up" data-aos-delay="200">
+                        <div class="instructor-image">
+                            <img src="image/instructor-2.jpg" alt="Giảng viên Ms.Yen">
+                        </div>
+                        <h3 class="instructor-name">Ms. Yen</h3>
+                        <p class="instructor-title">Chuyên gia QA</p>
+                        <p class="instructor-description">
+                            Giảng viên Tin học văn phòng và Kiểm thử cơ bản.
+                        </p>
+                        <div class="instructor-social-links">
+                            <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                            <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                            <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        </div>
+                    </div>
+                    <div class="instructor-item" data-aos="fade-up" data-aos-delay="300">
+                        <div class="instructor-image">
+                            <img src="image/instructor-3.jpg" alt="Giảng viên Mr.Khanh">
+                        </div>
+                        <h3 class="instructor-name">Mr. Khanh</h3>
+                        <p class="instructor-title">Chuyên gia Phát triển Web</p>
+                        <p class="instructor-description">
+                            Giảng viên các khóa học về lập trình và phát triển ứng dụng web.
+                        </p>
+                        <div class="instructor-social-links">
+                            <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                            <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                            <a href="#" aria-label="Github"><i class="fab fa-github"></i></a>
+                        </div>
+                    </div>
+                    <div class="instructor-item" data-aos="fade-up" data-aos-delay="400">
+                        <div class="instructor-image">
+                            <img src="image/instructor-4.jpg" alt="Giảng viên Ms.Vy">
+                        </div>
+                        <h3 class="instructor-name">Ms. Vy</h3>
+                        <p class="instructor-title">Nghệ sĩ Nhiếp ảnh</p>
+                        <p class="instructor-description">
+                            Chuyên gia về nhiếp ảnh, nghệ thuật và thiết kế đồ họa.
+                        </p>
+                        <div class="instructor-social-links">
+                            <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                            <a href="#" aria-label="Pinterest"><i class="fab fa-pinterest"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="text-center view-all-instructors-btn" data-aos="fade-up" data-aos-delay="500">
+                    <a href="#" class="btn btn-primary btn-lg">Xem tất cả giảng viên</a>
+                </div>
+            </div>
+        </section>
+
+        <section class="testimonials-section section-padding">
+            <div class="container">
+                <div class="section-heading is-white" data-aos="fade-down">
+                    <span class="section-tagline">Phản hồi từ học viên</span>
+                    <h2 class="section-title">Những gì học viên của chúng tôi nói</h2>
+                    <p class="section-description">
+                        Đọc những lời chia sẻ chân thực từ các học viên đã trải nghiệm và thành công cùng PLT Solutions.
+                    </p>
+                </div>
+                <div class="testimonial-carousel swiper-container" data-aos="fade-up" data-aos-delay="100">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide testimonial-item">
+                            <p class="testimonial-quote">
+                                "Khóa học Kiểm thử Tự động của PLT Solutions đã thay đổi sự nghiệp của tôi.
+                                Nội dung rất thực tế, giảng viên nhiệt tình và kiến thức vô cùng bổ ích.
+                                Tôi đã tìm được công việc mơ ước ngay sau khi tốt nghiệp!"
+                            </p>
+                            <div class="testimonial-author-info">
+                                <div class="testimonial-avatar">
+                                    <img src="image/avatar-1.jpg" alt="Ảnh đại diện học viên Nguyễn Văn A">
+                                </div>
+                                <div class="author-details">
+                                    <h4 class="author-name">Nguyễn Văn A</h4>
+                                    <p class="author-designation">Kỹ sư QA</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="swiper-slide testimonial-item">
+                            <p class="testimonial-quote">
+                                "Tôi là người trái ngành nhưng nhờ khóa học Kiểm thử Phần mềm của PLT Solutions,
+                                tôi đã nắm vững kiến thức từ cơ bản đến nâng cao. Giảng viên rất kiên nhẫn
+                                và luôn hỗ trợ kịp thời. Rất khuyến khích!"
+                            </p>
+                            <div class="testimonial-author-info">
+                                <div class="testimonial-avatar">
+                                    <img src="image/avatar-2.jpg" alt="Ảnh đại diện học viên Trần Thị B">
+                                </div>
+                                <div class="author-details">
+                                    <h4 class="author-name">Trần Thị B</h4>
+                                    <p class="author-designation">Tester</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="swiper-slide testimonial-item">
+                            <p class="testimonial-quote">
+                                "Các khóa học Tin học Văn phòng của PLT Solutions rất thực tế và dễ hiểu.
+                                Tôi đã cải thiện đáng kể kỹ năng sử dụng Word, Excel và Powerpoint, giúp
+                                công việc văn phòng của tôi hiệu quả hơn rất nhiều."
+                            </p>
+                            <div class="testimonial-author-info">
+                                <div class="testimonial-avatar">
+                                    <img src="image/avatar-3.jpg" alt="Ảnh đại diện học viên Lê Văn C">
+                                </div>
+                                <div class="author-details">
+                                    <h4 class="author-name">Lê Văn C</h4>
+                                    <p class="author-designation">Nhân viên Văn phòng</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="swiper-pagination testimonial-nav-dots"></div>
+                </div>
+            </div>
+        </section>
+
+        <section class="cta-section section-padding">
+            <div class="container">
+                <div class="cta-content" data-aos="zoom-in" data-aos-duration="1000">
+                    <h2 class="section-title">Bạn đã sẵn sàng để bắt đầu hành trình học tập?</h2>
+                    <p class="section-description">
+                        Tham gia cùng hàng ngàn học viên khác và mở khóa tiềm năng của bạn với các khóa học chất lượng cao tại PLT Solutions.
+                    </p>
+                    <a href="courses.html" class="btn btn-primary btn-lg" data-aos="fade-up" data-aos-delay="200">Bắt đầu học ngay</a>
+                </div>
+            </div>
+        </section>
+
+        <section class="blog-posts-section-home section-padding">
+            <div class="container">
+                <div class="section-heading" data-aos="fade-down">
+                    <span class="section-tagline">Bài viết mới nhất</span>
+                    <h2 class="section-title">Kiến thức và tin tức từ Blog của chúng tôi</h2>
+                    <p class="section-description">
+                        Cập nhật những bài viết mới nhất về xu hướng công nghệ, mẹo học tập,
+                        và những thông tin hữu ích từ các chuyên gia của chúng tôi.
+                    </p>
+                </div>
+                <div class="blog-grid-home courses-grid">
+                    <article class="blog-item-home course-item" data-aos="fade-up" data-aos-delay="100">
+                        <div class="blog-thumbnail-home course-thumbnail">
+                            <img src="image/blog-1.jpg" alt="Lợi ích của kiểm thử tự động">
+                        </div>
+                        <div class="blog-content-home course-content">
+                            <div class="blog-meta course-meta">
+                                <span class="blog-date"><i class="far fa-calendar-alt" aria-hidden="true"></i> 10 Tháng 6, 2025</span>
+                                <span class="blog-category"><i class="fas fa-tags" aria-hidden="true"></i> Kiểm thử</span>
+                            </div>
+                            <h3 class="blog-title-home course-title"><a href="blog-detail.html">Tối ưu quy trình phát triển phần mềm với kiểm thử tự động</a></h3>
+                            <p class="blog-description course-description">
+                                Khám phá cách kiểm thử tự động giúp tăng tốc độ và chất lượng phần mềm.
+                            </p>
+                            <div class="blog-footer course-footer">
+                                <a href="blog-detail.html" class="btn btn-sm btn-outline-primary">Đọc thêm</a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="blog-item-home course-item" data-aos="fade-up" data-aos-delay="200">
+                        <div class="blog-thumbnail-home course-thumbnail">
+                            <img src="image/blog-2.jpg" alt="Học tin học văn phòng hiệu quả">
+                        </div>
+                        <div class="blog-content-home course-content">
+                            <div class="blog-meta course-meta">
+                                <span class="blog-date"><i class="far fa-calendar-alt" aria-hidden="true"></i> 05 Tháng 6, 2025</span>
+                                <span class="blog-category"><i class="fas fa-tags" aria-hidden="true"></i> Tin học</span>
+                            </div>
+                            <h3 class="blog-title-home course-title"><a href="blog-detail.html">Bí quyết học Tin học Văn phòng hiệu quả cho người mới</a></h3>
+                            <p class="blog-description course-description">
+                                Những mẹo và thủ thuật để bạn nhanh chóng thành thạo Word, Excel, PowerPoint.
+                            </p>
+                            <div class="blog-footer course-footer">
+                                <a href="blog-detail.html" class="btn btn-sm btn-outline-primary">Đọc thêm</a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="blog-item-home course-item" data-aos="fade-up" data-aos-delay="300">
+                        <div class="blog-thumbnail-home course-thumbnail">
+                            <img src="image/blog-3.jpg" alt="Làm thế nào để trở thành tester">
+                        </div>
+                        <div class="blog-content-home course-content">
+                            <div class="blog-meta course-meta">
+                                <span class="blog-date"><i class="far fa-calendar-alt" aria-hidden="true"></i> 01 Tháng 6, 2025</span>
+                                <span class="blog-category"><i class="fas fa-tags" aria-hidden="true"></i> Hướng nghiệp</span>
+                            </div>
+                            <h3 class="blog-title-home course-title"><a href="blog-detail.html">Làm thế nào để bắt đầu sự nghiệp Tester từ con số 0</a></h3>
+                            <p class="blog-description course-description">
+                                Hướng dẫn từng bước cho những ai muốn chuyển mình sang ngành kiểm thử phần mềm.
+                            </p>
+                            <div class="blog-footer course-footer">
+                                <a href="blog-detail.html" class="btn btn-sm btn-outline-primary">Đọc thêm</a>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+                <div class="text-center view-all-blog-btn" data-aos="fade-up" data-aos-delay="400">
+                    <a href="blog.html" class="btn btn-primary btn-lg">Xem tất cả bài viết</a>
+                </div>
+            </div>
+        </section>
+
+        <section class="partners-section section-padding">
+            <div class="container">
+                <div class="section-heading" data-aos="fade-down">
+                    <span class="section-tagline">Đối tác của chúng tôi</span>
+                    <h2 class="section-title">Các công ty tin tưởng chúng tôi</h2>
+                    <p class="section-description">
+                        PLT Solutions tự hào là đối tác của nhiều doanh nghiệp hàng đầu,
+                        đảm bảo chất lượng đào tạo và cơ hội việc làm tốt nhất cho học viên.
+                    </p>
+                </div>
+                <div class="partners-grid">
+                    <img src="image/partner-logo-1.png" alt="Partner Logo 1" class="partner-logo" data-aos="zoom-in" data-aos-delay="100">
+                    <img src="image/partner-logo-2.png" alt="Partner Logo 2" class="partner-logo" data-aos="zoom-in" data-aos-delay="200">
+                    <img src="image/partner-logo-3.png" alt="Partner Logo 3" class="partner-logo" data-aos="zoom-in" data-aos-delay="300">
+                    <img src="image/partner-logo-4.png" alt="Partner Logo 4" class="partner-logo" data-aos="zoom-in" data-aos-delay="400">
+                    <img src="image/partner-logo-5.png" alt="Partner Logo 5" class="partner-logo" data-aos="zoom-in" data-aos-delay="500">
+                </div>
+            </div>
+        </section>
+
+    </main>
 
     <footer class="main-footer">
         <div class="container">
             <div class="footer-grid">
                 <div class="footer-col about-col">
-                    <a href="index.html" class="footer-logo">
-                        <img src="image/anh1.png" alt="PLT Logo"> </a>
+                    <a href="index.html" class="footer-logo" aria-label="PLT Solutions Logo - Về trang chủ">
+                        <img src="image/anh1.png" alt="Logo PLT Solutions Footer">
+                    </a>
                     <p>Chúng tôi là nền tảng học tập trực tuyến hàng đầu, mang đến những khóa học chất lượng cao từ các chuyên gia.</p>
-                    <div class="social-links">
-                        <a href="#"><i class="fab fa-facebook-f"></i></a>
-                        <a href="#"><i class="fab fa-twitter"></i></a>
-                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
-                        <a href="#"><i class="fab fa-instagram"></i></a>
+                    <div class="social-links" aria-label="Liên kết mạng xã hội">
+                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f" aria-hidden="true"></i></a>
+                        <a href="#" aria-label="Twitter"><i class="fab fa-twitter" aria-hidden="true"></i></a>
+                        <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in" aria-hidden="true"></i></a>
+                        <a href="#" aria-label="Instagram"><i class="fab fa-instagram" aria-hidden="true"></i></a>
                     </div>
                 </div>
-                <div class="footer-col links-col">
-                    <h4>Khóa học</h4>
+                <nav class="footer-col links-col" aria-labelledby="footer-courses-heading">
+                    <h4 id="footer-courses-heading">Khóa học</h4>
                     <ul>
                         <li><a href="./courses-detail/automated-testing.html">Kiểm Thử Tự Động</a></li>
                         <li><a href="./courses-detail/software-testing.html">Kiểm Thử Phần Mềm</a></li>
@@ -260,9 +744,9 @@
                         <li><a href="./courses-detail/basic-software-testing.html">Kiểm Thử Phần Mềm Căn Bản</a></li>
                         <li><a href="./courses-detail/photography-detail.html">Nhiếp ảnh</a></li>
                     </ul>
-                </div>
-                <div class="footer-col links-col">
-                    <h4>Liên kết nhanh</h4>
+                </nav>
+                <nav class="footer-col links-col" aria-labelledby="footer-quicklinks-heading">
+                    <h4 id="footer-quicklinks-heading">Liên kết nhanh</h4>
                     <ul>
                         <li><a href="about.html">Về chúng tôi</a></li>
                         <li><a href="courses.html">Khóa học</a></li>
@@ -270,22 +754,80 @@
                         <li><a href="privacy-policy.html">Chính sách bảo mật</a></li>
                         <li><a href="terms-of-service.html">Điều khoản sử dụng</a></li>
                     </ul>
-                </div>
+                </nav>
                 <div class="footer-col contact-col">
                     <h4>Liên hệ</h4>
-                    <p><i class="fas fa-map-marker-alt"></i> 123 Đường ABC, Quận 1, TP.HCM</p>
-                    <p><i class="fas fa-phone-alt"></i> +84 123 456 789</p>
-                    <p><i class="fas fa-envelope"></i> info@edrio.com</p>
+                    <address>
+                        <p><i class="fas fa-map-marker-alt" aria-hidden="true"></i> 123 Đường ABC, Quận 1, TP.HCM</p>
+                        <p><i class="fas fa-phone-alt" aria-hidden="true"></i> <a href="tel:+84123456789">+84 123 456 789</a></p>
+                        <p><i class="fas fa-envelope" aria-hidden="true"></i> <a href="mailto:info@edrio.com">info@edrio.com</a></p>
+                    </address>
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2025 PLT Solutions. Tất cả quyền được bảo lưu.</p>
+                <p>&copy; <span id="current-year">2025</span> PLT Solutions. Tất cả quyền được bảo lưu.</p>
                 <p>Được thiết kế bởi PLT Teams</p>
             </div>
         </div>
     </footer>
 
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({
+            duration: 1200,
+            once: true,
+        });
+    </script>
     <script src="js/script.js"></script>
     <script src="js/cart.js"></script>
+    <script>
+        // Dynamically update the copyright year
+        document.getElementById('current-year').textContent = new Date().getFullYear();
+
+        // Initialize Swiper for Hero Section
+        // Đảm bảo bạn đã thêm script Swiper vào trước khi khởi tạo
+        if (typeof Swiper !== 'undefined') {
+            new Swiper('.hero-swiper', {
+                loop: true,
+                speed: 1000,
+                autoplay: {
+                    delay: 5000,
+                    disableOnInteraction: false,
+                },
+                pagination: {
+                    el: '.swiper-pagination',
+                    clickable: true,
+                },
+                navigation: {
+                    nextEl: '.swiper-button-next',
+                    prevEl: '.swiper-button-prev',
+                },
+                // Optional: Add effects like fade for background images
+                effect: 'fade',
+                fadeEffect: {
+                    crossFade: true
+                },
+            });
+
+            // Initialize Swiper for Testimonials Section
+            new Swiper('.testimonial-carousel', {
+                loop: true,
+                speed: 800,
+                autoplay: {
+                    delay: 7000, // Slightly longer delay for testimonials
+                    disableOnInteraction: false,
+                },
+                pagination: {
+                    el: '.testimonial-nav-dots',
+                    clickable: true,
+                    bulletClass: 'dot', // Use your custom dot class
+                    bulletActiveClass: 'active', // Use your custom active dot class
+                },
+            });
+        }
+    </script>
+
 </body>
 </html>

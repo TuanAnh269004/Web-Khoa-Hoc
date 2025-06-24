@@ -13,6 +13,47 @@ document.addEventListener('DOMContentLoaded', function() {
     const registerForm = document.getElementById('registerForm');
     const loginForm = document.getElementById('loginForm');
 
+    // Khởi tạo Swiper Slider cho Hero Section
+    if (document.querySelector('.hero-swiper')) {
+        new Swiper('.hero-swiper', {
+            // Optional parameters
+            direction: 'horizontal', // hoặc 'vertical'
+            loop: true, // Lặp lại vô hạn slider
+            speed: 1000, // Tốc độ chuyển slide (ms)
+            autoplay: {
+                delay: 5000, // Thời gian giữa các slide (ms)
+                disableOnInteraction: false, // Tiếp tục tự động phát sau khi tương tác
+            },
+            effect: 'fade', // Hiệu ứng chuyển slide: 'slide', 'fade', 'cube', 'coverflow', 'flip'
+            fadeEffect: {
+                crossFade: true, // Quan trọng cho hiệu ứng fade mượt mà
+            },
+
+            // If we need pagination
+            pagination: {
+                el: '.swiper-pagination',
+                clickable: true, // Cho phép nhấp vào chấm để chuyển slide
+            },
+
+            // Navigation arrows
+            navigation: {
+                nextEl: '.swiper-button-next',
+                prevEl: '.swiper-button-prev',
+            },
+
+            // Keyboard control (tùy chọn)
+            keyboard: {
+                enabled: true,
+                onlyInViewport: true,
+            },
+
+            // Mousewheel control (tùy chọn)
+            mousewheel: {
+                invert: true,
+            },
+        });
+    }
+
     // --- HÀM HỖ TRỢ ĐỂ CẬP NHẬT TRẠNG THÁI NÚT ĐĂNG NHẬP/ĐĂNG KÝ/ĐĂNG XUẤT ---
     function updateAuthButtons() {
         const isLoggedIn = localStorage.getItem('isLoggedIn'); // Lấy trạng thái từ LocalStorage

@@ -3,7 +3,7 @@
     --primary-color: #007bff; /* Màu xanh dương chủ đạo */
     --primary-hover-color: #0056b3;
     --primary-rgb: 0, 123, 255;
-    --secondary-color: #28a745; /* Màu xám thứ cấp */
+    --secondary-color: #28a745; /* Màu xám thứ cấp - (Lưu ý: màu này hiện đang là xanh lá) */
     --heading-color: #333;
     --success-color: #28a745; /* Màu xanh lá cây (thành công) */
     --warning-color: #fdd835; /* Màu vàng (cảnh báo/sao) */
@@ -11,13 +11,13 @@
     --dark-bg: #222; /* Nền tối */
     --text-color: #555;
     --light-text-color: #777;
-    --light-bg-color: #f8f9fa;
+    --light-bg-color: #f8f9fa; /* Trùng với --light-bg, có thể cân nhắc gộp */
     --border-color: #dee2e6;
     --shadow-light: 0 2px 5px rgba(0,0,0,0.05);
     --shadow-medium: 0 5px 15px rgba(0, 0, 0, 0.1);
     --shadow-strong: 0 10px 30px rgba(0, 0, 0, 0.1);
 
-    /* Có thể thêm các biến khác như font-family, font-size, v.v. */
+    /* Font variables */
     --font-poppins: 'Poppins', sans-serif;
     --font-open-sans: 'Open Sans', sans-serif;
 }
@@ -26,7 +26,7 @@
 * {
     margin: 0;
     padding: 0;
-    box-sizing: border-box; /* Rất quan trọng để tính toán kích thước phần tử */
+    box-sizing: border-box; /* Quan trọng để tính toán kích thước phần tử */
 }
 
 body {
@@ -34,6 +34,7 @@ body {
     line-height: 1.6;
     color: var(--text-color);
     background-color: var(--light-bg); /* Màu nền nhẹ cho toàn trang */
+    /* Tránh margin-top âm ở đây, để hero section tự điều chỉnh nếu cần */
 }
 
 .container {
@@ -51,11 +52,11 @@ ul {
     list-style: none; /* Bỏ dấu chấm đầu dòng của list */
 }
 
-/* --- 3. Các kiểu nút chung --- */
+/* --- 3. Các kiểu nút chung (Common Button Styles) --- */
 .btn {
     display: inline-block;
     padding: 12px 25px;
-    border-radius: 5px;
+    border-radius: 8px; /* Tăng nhẹ độ bo góc cho các nút chung */
     font-weight: 600;
     text-align: center;
     transition: all 0.3s ease; /* Hiệu ứng chuyển động mượt mà */
@@ -63,13 +64,8 @@ ul {
     font-family: var(--font-poppins);
 }
 
-.popular-courses-section .text-center {
-    width: 100%; /* Đảm bảo div này chiếm toàn bộ chiều rộng */
-    display: block; /* Nếu vì lý do nào đó nó không phải block */
-}
-
 .btn-primary {
-    background-color: var(--primary-color); /* Màu xanh dương chủ đạo */
+    background-color: var(--primary-color);
     color: #fff;
     border: 1px solid var(--primary-color);
 }
@@ -77,29 +73,22 @@ ul {
 .btn-primary:hover {
     background-color: var(--primary-hover-color);
     border-color: var(--primary-hover-color);
+    box-shadow: 0 8px 15px rgba(var(--primary-rgb), 0.2); /* Thêm shadow để nổi bật */
 }
 
+/* Lưu ý: `btn-secondary` của bạn trong `index.css` lại có màu và border của `primary-color`.
+   Nếu bạn muốn nó giống màu secondary đã định nghĩa (`--secondary-color: #28a745;`), hãy chỉnh sửa lại.
+   Ở đây tôi điều chỉnh để nó sử dụng `--secondary-color` và hover effect phù hợp. */
 .btn-secondary {
-    background-color: transparent;
-    color: var(--primary-color); /* Màu chữ primary */
-    border: 1px solid var(--primary-color); /* Viền màu primary */
-    padding: 10px 20px; /* Giữ padding này hoặc đồng bộ với btn-primary */
-    border-radius: 5px;
-    font-weight: 600;
-    transition: all 0.3s ease;
-    display: inline-flex; /* Để căn giữa icon và text nếu có */
-    align-items: center;
-    gap: 10px; /* Khoảng cách giữa icon và text */
+    background-color: var(--secondary-color); /* Sử dụng biến secondary color */
+    color: #fff;
+    border: 1px solid var(--secondary-color);
 }
 
 .btn-secondary:hover {
-    background-color: var(--primary-color);
-    color: #fff;
-}
-
-.btn-sm {
-    padding: 8px 18px;
-    font-size: 0.9em;
+    background-color: #2e8d53; /* Một tông xanh đậm hơn secondary */
+    border-color: #2e8d53;
+    box-shadow: 0 8px 15px rgba(40, 167, 69, 0.2); /* Dùng RGB của secondary cho shadow */
 }
 
 .btn-outline-primary {
@@ -113,9 +102,14 @@ ul {
     color: #fff;
 }
 
-/* --- Các kiểu chung cho Section --- */
+.btn-sm {
+    padding: 8px 18px;
+    font-size: 0.9em;
+}
+
+/* --- Các kiểu chung cho Section (General Section Styles) --- */
 .section-padding {
-    padding: 80px 0; /* Khoảng đệm trên dưới cho các section */
+    padding: 100px 0; /* Khoảng đệm trên dưới lớn hơn cho các section chính */
 }
 
 .section-padding-small {
@@ -130,7 +124,7 @@ ul {
 .section-tagline {
     font-size: 1.1em;
     font-weight: 500;
-    color: var(--primary-color); /* Màu chủ đạo */
+    color: var(--primary-color);
     margin-bottom: 10px;
     display: block;
     font-family: var(--font-poppins);
@@ -138,12 +132,19 @@ ul {
 
 .section-title {
     font-family: var(--font-poppins);
-    font-size: 2.8em;
+    font-size: 2.8em; /* Kích thước tiêu đề lớn hơn cho các section */
     font-weight: 700;
-    color: var(--text-color);
+    color: var(--heading-color); /* Đổi từ text-color sang heading-color cho tiêu đề */
     line-height: 1.2;
     margin-top: 5px;
     margin-bottom: 0;
+}
+
+.section-description { /* Thêm vào đây để các section dùng chung */
+    font-size: 1.1em;
+    color: var(--light-text-color);
+    max-width: 700px;
+    margin: 0 auto;
 }
 
 /* --- Flexbox utilities --- */
@@ -153,9 +154,9 @@ ul {
     align-items: center;
 }
 
-/* --- Tiện ích khác --- */
+/* --- Tiện ích khác (Other Utilities) --- */
 .bg-light {
-    background-color: var(--light-bg); /* Màu nền xám nhẹ */
+    background-color: var(--light-bg);
 }
 
 .text-center {
@@ -166,13 +167,13 @@ ul {
     margin-top: 3rem; /* Khoảng cách trên 3rem (khoảng 48px) */
 }
 
-/* Page Hero (chung cho các trang con) */
+/* Page Hero (chung cho các trang con, không phải Hero Section của trang chủ) */
 .page-hero {
     background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('../img/page-hero-bg.jpg') no-repeat center center/cover;
     color: #fff;
     padding: 80px 0;
     text-align: center;
-    margin-top: -1px; /* Đảm bảo dính vào header */
+    /* margin-top: -1px; */ /* Tránh dùng margin âm cho hero section, điều chỉnh header thay vì hero */
     position: relative;
     z-index: 1; /* Đảm bảo nội dung nằm trên lớp nền ảo */
 }

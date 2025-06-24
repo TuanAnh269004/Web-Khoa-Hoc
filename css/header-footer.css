@@ -1,4 +1,4 @@
-/* --- 4. Phần Header --- */
+/* --- 4. Phần Header (Header Section) --- */
 .main-header {
     background-color: #fff;
     padding: 10px 0;
@@ -19,7 +19,7 @@
     vertical-align: middle; /* Căn chỉnh hình ảnh */
 }
 
-/* Thanh điều hướng chính */
+/* Thanh điều hướng chính (Main Navigation) */
 .main-nav .nav-list {
     display: flex; /* Sử dụng Flexbox cho các mục menu */
     gap: 30px; /* Khoảng cách giữa các mục menu */
@@ -58,7 +58,7 @@
 
 /* Dropdown menu */
 .main-nav .nav-list li.has-dropdown {
-    position: relative; /* Quan trọng để dropdown nằm trong luồng */
+    position: relative;
 }
 
 .main-nav .nav-list li.has-dropdown .dropdown-menu {
@@ -135,7 +135,7 @@ body.login-page #register-btn {
     display: none !important;
 }
 
-/* --- Phần Footer --- */
+/* --- Phần Footer (Footer Section) --- */
 .main-footer {
     background-color: var(--dark-bg); /* Màu nền tối */
     color: #ddd;

@@ -1,442 +1,651 @@
 /* --- Hero Section --- */
 .hero-section {
-    background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('../image/anh3.jpg') no-repeat center center/cover;
+    /* Uses a linear gradient overlay directly on the background image */
+    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('../image/BG1.jpg') no-repeat center center/cover;
     color: #fff;
-    padding: 120px 0; /* Khoảng đệm trên dưới */
+    padding: 160px 0 120px; /* Increased top/bottom padding */
     text-align: center;
     position: relative;
-    overflow: hidden; /* Đảm bảo nội dung không tràn ra ngoài */
+    overflow: hidden; /* Ensures content stays within bounds */
 }
 
-/* Hiệu ứng Parallax (tùy chọn) */
+.hero-section .swiper-slide {
+    /* Đảm bảo mỗi slide có chiều cao và ảnh nền */
+    height: 100%; /* Hoặc một chiều cao cố định nếu bạn muốn */
+    display: flex;
+    align-items: center;
+    justify-content: center; /* Để nội dung hero-content được căn giữa */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    /* Áp dụng overlay trực tiếp cho từng slide */
+    background-blend-mode: multiply; /* Kết hợp gradient với ảnh */
+}
+
+.hero-slide-1 {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('../image/BG1.jpg');
+}
+
+.hero-slide-2 {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('../image/BG2.jpg');
+}
+
+.hero-slide-3 {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('../image/BG3.jpg');
+}
+
+/* Disabling older pseudo-element for parallax if no longer needed */
 .hero-section::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: url('../image/anh3.jpg') no-repeat center center/cover;
-    background-attachment: fixed; /* Đây là dòng tạo hiệu ứng parallax */
-    z-index: -1; /* Đặt lớp hình ảnh nền ở dưới nội dung */
-    opacity: 0.2; /* Tùy chỉnh độ mờ nếu cần */
+    display: none;
 }
 
 .hero-section .container {
-    position: relative; /* Đảm bảo nội dung nằm trên lớp nền ảo */
-    z-index: 1;
+    position: relative;
+    z-index: 1; /* Ensures content is above the background overlay */
 }
 
 .hero-content {
-    max-width: 800px; /* Chiều rộng tối đa của nội dung hero */
-    margin: 0 auto; /* Căn giữa nội dung */
+    max-width: 900px; /* Wider content area */
+    margin: 0 auto;
 }
 
 .hero-tagline {
-    font-size: 1.1em;
-    font-weight: 500;
-    color: var(--warning-color); /* Màu vàng nổi bật */
-    margin-bottom: 10px;
+    font-size: 1.15em;
+    font-weight: 600;
+    color: var(--warning-color); /* Highlight color */
+    margin-bottom: 15px;
     display: block;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
 }
 
 .hero-title {
     font-family: var(--font-poppins);
-    font-size: 3.8em; /* Kích thước chữ lớn */
-    font-weight: 700;
-    margin-bottom: 25px;
-    line-height: 1.2;
+    font-size: 4.5em; /* Significantly larger font size */
+    font-weight: 800; /* Extra bold */
+    margin-bottom: 30px;
+    line-height: 1.15;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3); /* Text shadow for better readability */
 }
 
 .hero-description {
-    font-size: 1.2em;
-    margin-bottom: 40px;
-    max-width: 650px;
+    font-size: 1.3em;
+    margin-bottom: 50px;
+    max-width: 750px;
     margin-left: auto;
     margin-right: auto;
+    line-height: 1.6;
+    opacity: 0.9;
 }
 
-.hero-buttons {
+.hero-search-bar {
     display: flex;
     justify-content: center;
-    gap: 20px; /* Khoảng cách giữa các nút */
-    margin-bottom: 60px;
-    flex-wrap: wrap; /* Cho phép các nút xuống dòng trên màn hình nhỏ */
+    align-items: center;
+    background-color: #fff;
+    border-radius: 50px; /* Fully rounded search bar */
+    padding: 10px 10px 10px 25px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+    max-width: 700px;
+    margin: 0 auto 60px; /* Centered with bottom margin */
+}
+
+.hero-search-bar input {
+    flex-grow: 1;
+    border: none;
+    outline: none;
+    padding: 10px 15px;
+    font-size: 1.1em;
+    color: var(--text-color);
+    background-color: transparent;
+}
+
+.hero-search-bar input::placeholder {
+    color: var(--light-text-color);
+}
+
+.hero-search-bar button {
+    background-color: var(--primary-color);
+    color: #fff;
+    border: none;
+    border-radius: 40px; /* Rounded button */
+    padding: 15px 30px; /* Increased padding */
+    font-size: 1.1em;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.hero-search-bar button:hover {
+    background-color: var(--primary-hover-color);
+    box-shadow: 0 5px 15px rgba(var(--primary-rgb), 0.3);
 }
 
 /* Hero Stats */
 .hero-stats {
     display: flex;
     justify-content: center;
-    gap: 40px; /* Khoảng cách giữa các cột thống kê */
-    margin-top: 50px; /* Khoảng cách từ nút bấm */
-    flex-wrap: wrap; /* Cho phép các mục xuống dòng trên màn hình nhỏ */
+    gap: 50px; /* Larger gap between stat items */
+    margin-top: 80px;
+    flex-wrap: wrap; /* Allows items to wrap on smaller screens */
 }
 
 .stat-item {
-    background-color: rgba(255, 255, 255, 0.15); /* Nền mờ cho mục thống kê */
-    padding: 20px 30px;
-    border-radius: 8px;
-    min-width: 200px; /* Chiều rộng tối thiểu cho mỗi item */
-    flex: 1; /* Cho phép các item co giãn */
-    max-width: 300px;
+    background-color: rgba(255, 255, 255, 0.15);
+    padding: 25px 35px; /* Increased padding */
+    border-radius: 10px;
+    min-width: 220px;
+    flex: 1; /* Allows items to grow */
+    max-width: 350px;
     text-align: center;
+    backdrop-filter: blur(5px); /* Frosted glass effect */
+    border: 1px solid rgba(255, 255, 255, 0.2);
 }
 
 .stat-item h3 {
     font-family: var(--font-poppins);
-    font-size: 2.2em;
+    font-size: 2.8em; /* Larger numbers */
     font-weight: 700;
     color: #fff;
-    margin-bottom: 5px;
+    margin-bottom: 8px;
 }
 
 .stat-item p {
-    font-size: 1em;
-    color: rgba(255, 255, 255, 0.8);
+    font-size: 1.1em;
+    color: rgba(255, 255, 255, 0.9);
 }
 
-/* --- Features Section --- */
-.features-section {
-    background-color: #fff; /* Nền trắng */
+
+/* --- Features / Course Categories Section --- */
+.feature-category-section {
+    background-color: #fff;
+    padding: 100px 0;
 }
 
-.features-grid {
-    display: grid; /* Sử dụng CSS Grid để tạo bố cục lưới */
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* 3 cột trên desktop, tự động co giãn */
-    gap: 30px; /* Khoảng cách giữa các item */
+.feature-category-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
 }
 
-.feature-item {
-    background-color: var(--light-bg); /* Nền nhẹ hơn cho mỗi tính năng */
+.feature-category-item {
+    background-color: var(--light-bg-color);
     padding: 30px;
-    border-radius: 8px;
+    border-radius: 12px;
     text-align: center;
-    box-shadow: var(--shadow-light); /* Đổ bóng nhẹ */
-    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Hiệu ứng hover */
+    box-shadow: var(--shadow-light);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
 }
 
-.feature-item:hover {
-    transform: translateY(-5px); /* Nâng nhẹ lên khi hover */
+.feature-category-item:hover {
+    transform: translateY(-8px);
     box-shadow: var(--shadow-medium);
 }
 
-.feature-icon {
-    font-size: 3em; /* Kích thước icon */
-    color: var(--primary-color); /* Màu icon */
-    margin-bottom: 20px;
+.feature-category-icon {
+    font-size: 3.5em;
+    color: var(--primary-color);
+    margin-bottom: 25px;
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 80px;
-    height: 80px;
-    background-color: #e6f2ff; /* Nền nhẹ cho icon */
-    border-radius: 50%; /* Hình tròn */
+    width: 90px;
+    height: 90px;
+    background-color: rgba(var(--primary-rgb), 0.1);
+    border-radius: 50%;
     margin-left: auto;
     margin-right: auto;
 }
 
-.feature-title {
+.feature-category-title {
     font-family: var(--font-poppins);
-    font-size: 1.5em;
-    font-weight: 600;
-    color: var(--text-color);
-    margin-bottom: 10px;
-}
-
-.feature-description {
-    font-size: 1em;
-    color: var(--light-text-color);
-    line-height: 1.5;
-}
-
-/* --- Popular Courses Section --- */
-.courses-grid {
-    display: grid;
-    /* 3 cột trên desktop, tự động điều chỉnh số lượng cột dựa trên không gian */
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 30px; /* Khoảng cách giữa các khóa học */
-}
-
-.course-item {
-    background-color: #fff;
-    border-radius: 8px;
-    box-shadow: var(--shadow-light);
-    overflow: hidden; /* Đảm bảo hình ảnh không tràn ra ngoài border-radius */
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    display: flex; /* Dùng flexbox để bố trí nội dung dọc */
-    flex-direction: column;
-    height: 100%; /* Đảm bảo các item có chiều cao bằng nhau trong grid */
-}
-
-.course-item:hover {
-    transform: translateY(-5px);
-    box-shadow: var(--shadow-medium);
-}
-
-.course-thumbnail {
-    position: relative;
-    overflow: hidden;
-    height: 200px; /* Chiều cao cố định cho ảnh thumbnail */
-}
-
-.course-thumbnail img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover; /* Cắt ảnh để vừa với khung hình */
-    transition: transform 0.5s ease; /* Hiệu ứng zoom khi hover */
-}
-
-.course-item:hover .course-thumbnail img {
-    transform: scale(1.05); /* Zoom nhẹ ảnh khi hover */
-}
-
-.course-category {
-    position: absolute;
-    top: 15px;
-    right: 15px;
-    background-color: var(--primary-color);
-    color: #fff;
-    padding: 5px 12px;
-    border-radius: 20px;
-    font-size: 0.85em;
-    font-weight: 600;
-    font-family: var(--font-poppins);
-}
-
-.course-category a {
-    color: inherit; /* Kế thừa màu trắng */
-    text-decoration: none;
-}
-
-.course-content {
-    padding: 20px;
-    flex-grow: 1; /* Cho phép nội dung co giãn để chiếm không gian còn lại */
-    display: flex;
-    flex-direction: column;
-}
-
-.course-meta {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    font-size: 0.9em;
-    color: #777;
-    margin-bottom: 15px;
-}
-
-.course-meta .fa-user {
-    margin-right: 5px;
-    color: var(--primary-color);
-}
-
-.course-meta .fa-star {
-    color: var(--warning-color); /* Màu vàng cho sao */
-    margin-right: 3px;
-}
-
-.course-title {
-    font-family: var(--font-poppins);
-    font-size: 1.3em;
-    font-weight: 600;
-    color: var(--text-color);
-    margin-bottom: 10px;
-    line-height: 1.4;
-}
-
-.course-title a {
-    color: inherit;
-    transition: color 0.3s ease;
-}
-
-.course-title a:hover {
-    color: var(--primary-color);
-}
-
-.course-description {
-    font-size: 0.95em;
-    color: var(--light-text-color);
-    line-height: 1.5;
-    margin-bottom: 20px;
-    flex-grow: 1; /* Để mô tả chiếm không gian còn lại, giúp footer cố định */
-}
-
-.course-footer {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding-top: 15px;
-    border-top: 1px solid var(--border-color); /* Đường kẻ phân cách */
-    margin-top: auto; /* Đẩy footer xuống cuối */
-}
-
-.course-price {
-    font-family: var(--font-poppins);
-    font-size: 1.5em;
+    font-size: 1.6em;
     font-weight: 700;
-    color: var(--primary-color);
-}
-
-/* --- About Section (Về chúng tôi) --- */
-.about-section-home { /* Đổi tên để tránh trùng lặp với about.css */
-    background-color: #fff;
-}
-
-.about-content-grid-home { /* Đổi tên */
-    display: grid;
-    grid-template-columns: 1fr 1fr; /* 2 cột bằng nhau */
-    gap: 60px; /* Khoảng cách giữa các cột */
-    align-items: center; /* Căn giữa nội dung theo chiều dọc */
-}
-
-.about-text-home p {
-    margin-bottom: 15px;
-    color: var(--light-text-color);
-    line-height: 1.7;
-}
-
-.about-text-home ul {
-    margin-top: 20px;
-    margin-bottom: 20px;
-}
-
-.about-text-home ul li {
+    color: var(--heading-color);
     margin-bottom: 10px;
-    color: #444;
-    font-size: 1.05em;
 }
 
-.about-text-home ul li .fas {
-    color: var(--success-color); /* Màu xanh lá cây cho icon check */
-    margin-right: 10px;
+.feature-category-description {
+    font-size: 1em;
+    color: var(--text-color);
+    line-height: 1.6;
+}
+
+
+/* --- About Section (Adjusted) --- */
+.about-section-home {
+    background-color: var(--light-bg-color);
+    padding: 100px 0;
+}
+
+.about-content-grid-home {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr; /* Image slightly larger than text */
+    gap: 80px;
+    align-items: center;
+}
+
+.about-image-home {
+    position: relative;
 }
 
 .about-image-home img {
     max-width: 100%;
     height: auto;
-    border-radius: 8px;
+    border-radius: 12px;
     box-shadow: var(--shadow-medium);
+    display: block;
 }
 
-/* --- Blog Posts Section --- */
-.blog-posts-section-home { /* Đổi tên */
-    background-color: var(--light-bg); /* Nền nhẹ hơn cho phần blog */
+.about-text-home .section-title {
+    text-align: left;
+    margin-bottom: 20px;
+    font-size: 2.5em;
 }
 
-.blog-grid-home { /* Đổi tên */
-    display: grid;
-    /* 3 cột trên desktop, tự động điều chỉnh số lượng cột */
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 30px; /* Khoảng cách giữa các bài viết */
+.about-text-home p {
+    margin-bottom: 20px;
+    color: var(--text-color);
+    line-height: 1.7;
+    font-size: 1.05em;
 }
 
-.blog-item-home { /* Đổi tên */
+.about-text-home ul {
+    list-style: none;
+    padding-left: 0;
+    margin-top: 25px;
+    margin-bottom: 30px;
+}
+
+.about-text-home ul li {
+    margin-bottom: 15px;
+    color: var(--heading-color);
+    font-size: 1.1em;
+    display: flex;
+    align-items: flex-start;
+}
+
+.about-text-home ul li .fas {
+    color: var(--success-color);
+    margin-right: 12px;
+    font-size: 1.1em;
+    flex-shrink: 0;
+    margin-top: 2px;
+}
+
+
+/* --- Popular Courses Section (Adjusted) --- */
+.popular-courses-section {
     background-color: #fff;
-    border-radius: 8px;
+    padding: 100px 0;
+}
+
+/* Ensure .courses-grid and .course-item styles are harmonized if courses.css is also used. */
+/* Example: Footer for course card in homepage, if different from courses.css */
+.course-item .course-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 20px;
+    border-top: 1px solid var(--border-color);
+    background-color: var(--light-bg-color);
+    margin-top: auto; /* Pushes footer to the bottom of the flex item */
+}
+
+.course-item .course-price {
+    font-family: var(--font-poppins);
+    font-size: 1.6em;
+    font-weight: 700;
+    color: var(--primary-color);
+}
+
+.course-item .btn {
+    font-size: 0.95em;
+    padding: 10px 20px;
+    border-radius: 6px;
+}
+
+.view-all-courses-btn {
+    text-align: center;
+    margin-top: 60px;
+}
+
+
+/* --- Why Choose Us Section --- */
+.why-choose-us-section {
+    background: url('../image/BG2.jpg') no-repeat center center/cover;
+    background-attachment: fixed; /* Parallax effect */
+    color: #fff;
+    padding: 100px 0;
+    position: relative;
+    z-index: 1; /* Content above overlay */
+}
+
+.why-choose-us-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7); /* Dark overlay */
+    z-index: -1; /* Puts overlay behind content */
+}
+
+.why-choose-us-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 40px;
+}
+
+.why-choose-us-item {
+    text-align: center;
+    padding: 30px;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    backdrop-filter: blur(5px);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.why-choose-us-item:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+    transform: translateY(-5px);
+}
+
+.why-choose-us-icon {
+    font-size: 3.5em;
+    color: var(--warning-color);
+    margin-bottom: 20px;
+    display: block;
+}
+
+.why-choose-us-item h3 {
+    font-family: var(--font-poppins);
+    font-size: 1.8em;
+    font-weight: 700;
+    color: #fff;
+    margin-bottom: 10px;
+}
+
+.why-choose-us-item p {
+    font-size: 1em;
+    color: rgba(255, 255, 255, 0.9);
+    line-height: 1.6;
+}
+
+
+/* --- Instructors Section --- */
+.instructors-section {
+    background-color: var(--light-bg-color);
+    padding: 100px 0;
+}
+
+.instructors-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+}
+
+.instructor-item {
+    background-color: #fff;
+    border-radius: 12px;
     box-shadow: var(--shadow-light);
     overflow: hidden;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
-    display: flex;
-    flex-direction: column;
-    height: 100%; /* Đảm bảo các item có chiều cao bằng nhau */
+    text-align: center;
+    padding-bottom: 25px; /* Space for social icons */
 }
 
-.blog-item-home:hover {
-    transform: translateY(-5px);
+.instructor-item:hover {
+    transform: translateY(-8px);
     box-shadow: var(--shadow-medium);
 }
 
-.blog-thumbnail-home { /* Đổi tên */
-    position: relative;
+.instructor-image {
+    width: 100%;
+    height: 280px; /* Fixed height for consistent image size */
     overflow: hidden;
-    height: 220px; /* Chiều cao cố định cho ảnh thumbnail */
+    border-radius: 12px 12px 0 0; /* Only top corners rounded */
+    margin-bottom: 20px;
 }
 
-.blog-thumbnail-home img {
+.instructor-image img {
     width: 100%;
     height: 100%;
-    object-fit: cover;
+    object-fit: cover; /* Ensures image covers the area without distortion */
     transition: transform 0.5s ease;
 }
 
-.blog-item-home:hover .blog-thumbnail-home img {
-    transform: scale(1.05);
+.instructor-item:hover .instructor-image img {
+    transform: scale(1.08); /* Subtle zoom effect on hover */
 }
 
-.blog-category-home { /* Đổi tên */
-    position: absolute;
-    top: 15px;
-    right: 15px;
-    background-color: var(--success-color); /* Màu xanh lá cây cho category */
-    color: #fff;
-    padding: 5px 12px;
-    border-radius: 20px;
-    font-size: 0.85em;
-    font-weight: 600;
+.instructor-name {
     font-family: var(--font-poppins);
+    font-size: 1.5em;
+    font-weight: 700;
+    color: var(--heading-color);
+    margin-bottom: 5px;
 }
 
-.blog-content-home { /* Đổi tên */
-    padding: 20px;
-    flex-grow: 1;
-    display: flex;
-    flex-direction: column;
-}
-
-.blog-meta-home { /* Đổi tên */
-    display: flex;
-    justify-content: space-between;
-    font-size: 0.9em;
-    color: #777;
+.instructor-title {
+    font-size: 1em;
+    color: var(--primary-color);
+    font-weight: 500;
     margin-bottom: 15px;
 }
 
-.blog-meta-home span .fas {
-    margin-right: 5px;
-    color: var(--primary-color); /* Màu xanh cho icon */
+.instructor-social-links {
+    margin-top: 15px;
 }
 
-.blog-title-home { /* Đổi tên */
-    font-family: var(--font-poppins);
-    font-size: 1.4em;
-    font-weight: 600;
+.instructor-social-links a {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    height: 40px;
+    background-color: var(--light-bg-color);
     color: var(--text-color);
-    margin-bottom: 10px;
-    line-height: 1.4;
+    border-radius: 50%;
+    margin: 0 5px;
+    font-size: 1.1em;
+    transition: all 0.3s ease;
 }
 
-.blog-title-home a {
-    color: inherit;
-    transition: color 0.3s ease;
+.instructor-social-links a:hover {
+    background-color: var(--primary-color);
+    color: #fff;
 }
 
-.blog-title-home a:hover {
-    color: var(--primary-color);
+.view-all-instructors-btn {
+    text-align: center;
+    margin-top: 60px;
 }
 
-.blog-description-home { /* Đổi tên */
-    font-size: 0.95em;
-    color: var(--light-text-color);
-    line-height: 1.6;
+
+/* --- Testimonials Section --- */
+.testimonials-section {
+    background: url('../image/BG3.jpg') no-repeat center center/cover;
+    background-attachment: fixed; /* Parallax */
+    padding: 100px 0;
+    color: #fff;
+    position: relative;
+    z-index: 1;
+}
+
+.testimonials-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.75); /* Darker overlay */
+    z-index: -1;
+}
+
+.testimonial-carousel {
+    /* Basic styling for a single testimonial item, assumes JS handles carousel */
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.testimonial-item {
+    background-color: rgba(255, 255, 255, 0.1);
+    padding: 40px;
+    border-radius: 15px;
+    backdrop-filter: blur(8px); /* Stronger blur effect */
+    border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.testimonial-quote {
+    font-size: 1.3em;
+    line-height: 1.8;
+    margin-bottom: 30px;
+    font-style: italic;
+    color: rgba(255, 255, 255, 0.95);
+}
+
+.testimonial-author-info {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 30px;
+}
+
+.testimonial-avatar {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 4px solid var(--primary-color);
+    margin-right: 20px;
+    flex-shrink: 0;
+}
+
+.testimonial-avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.author-details {
+    text-align: left;
+}
+
+.author-name {
+    font-family: var(--font-poppins);
+    font-size: 1.5em;
+    font-weight: 700;
+    color: #fff;
+    margin-bottom: 5px;
+}
+
+.author-designation {
+    font-size: 1em;
+    color: rgba(255, 255, 255, 0.8);
+}
+
+/* Navigation dots for carousel (if applicable, e.g., Swiper.js pagination) */
+.testimonial-nav-dots {
+    display: flex;
+    justify-content: center;
+    margin-top: 40px;
+    gap: 10px;
+}
+
+.dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.4);
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.dot.active,
+.dot:hover {
+    background-color: var(--primary-color);
+    transform: scale(1.2);
+}
+
+
+/* --- Call To Action Section --- */
+.cta-section {
+    background: linear-gradient(to right, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.6)), url('../image/BG4.jpg') no-repeat center center/cover;
+    padding: 100px 0;
+    color: #fff;
+    text-align: center;
+}
+
+.cta-content {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.cta-content .section-title {
+    color: #fff;
     margin-bottom: 20px;
-    flex-grow: 1;
 }
 
-.read-more-home { /* Đổi tên */
-    display: inline-block;
-    color: var(--primary-color);
-    font-weight: 600;
-    font-size: 0.95em;
-    transition: margin-left 0.3s ease;
-    margin-top: auto; /* Đẩy xuống cuối */
+.cta-content .section-description {
+    color: rgba(255, 255, 255, 0.9);
+    margin-bottom: 40px;
 }
 
-.read-more-home:hover {
-    margin-left: 5px; /* Hiệu ứng dịch chuyển khi hover */
-    color: var(--primary-hover-color);
+
+/* --- Blog Posts Section (Adjusted) --- */
+.blog-posts-section-home {
+    background-color: #fff;
+    padding: 100px 0;
 }
 
-.read-more-home .fas {
-    margin-left: 8px;
-    font-size: 0.8em;
+/* Ensure .blog-grid-home, .blog-item-home, etc., are aligned with overall design. */
+.blog-item-home .blog-thumbnail-home {
+    height: 240px;
+}
+
+.blog-item-home .blog-content-home {
+    padding: 25px;
+}
+
+.blog-item-home .blog-title-home {
+    font-size: 1.5em;
+}
+
+.view-all-blog-btn {
+    text-align: center;
+    margin-top: 60px;
+}
+
+
+/* --- Partners Section --- */
+.partners-section {
+    background-color: var(--light-bg-color);
+    padding: 60px 0; /* Less padding, as it's mainly logos */
+    text-align: center;
+}
+
+.partners-grid {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 40px; /* Space between logos */
+}
+
+.partner-logo {
+    opacity: 0.6; /* Slightly desaturated */
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    max-width: 150px; /* Max size for logos */
+    height: auto;
+}
+
+.partner-logo:hover {
+    opacity: 1; /* Fully visible on hover */
+    transform: scale(1.05);
 }
