@@ -1,81 +1,84 @@
 /* --- Hero Section --- */
 .hero-section {
-    /* Uses a linear gradient overlay directly on the background image */
     background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('../image/BG1.jpg') no-repeat center center/cover;
     color: #fff;
-    padding: 160px 0 120px; /* Increased top/bottom padding */
+    padding: 180px 0 140px; /* Tăng padding trên/dưới để tạo thêm không gian */
     text-align: center;
     position: relative;
-    overflow: hidden; /* Ensures content stays within bounds */
+    overflow: hidden;
 }
 
 .hero-section .swiper-slide {
-    /* Đảm bảo mỗi slide có chiều cao và ảnh nền */
-    height: 100%; /* Hoặc một chiều cao cố định nếu bạn muốn */
+    height: 100vh;
     display: flex;
     align-items: center;
-    justify-content: center; /* Để nội dung hero-content được căn giữa */
+    justify-content: center;
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    /* Áp dụng overlay trực tiếp cho từng slide */
-    background-blend-mode: multiply; /* Kết hợp gradient với ảnh */
+    background-blend-mode: multiply;
 }
 
 .hero-slide-1 {
     background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('../image/BG1.jpg');
 }
-
 .hero-slide-2 {
     background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('../image/BG2.jpg');
 }
-
 .hero-slide-3 {
     background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('../image/BG3.jpg');
 }
 
-/* Disabling older pseudo-element for parallax if no longer needed */
 .hero-section::before {
     display: none;
 }
 
 .hero-section .container {
     position: relative;
-    z-index: 1; /* Ensures content is above the background overlay */
+    z-index: 1;
 }
 
 .hero-content {
-    max-width: 900px; /* Wider content area */
+    max-width: 900px;
     margin: 0 auto;
 }
 
 .hero-tagline {
     font-size: 1.15em;
     font-weight: 600;
-    color: var(--warning-color); /* Highlight color */
-    margin-bottom: 15px;
+    color: var(--warning-color);
+    margin-bottom: 20px; /* Tăng khoảng cách dưới tagline */
     display: block;
     text-transform: uppercase;
     letter-spacing: 1.5px;
+    opacity: 0;
+    animation: fadeInDown 1s ease-out forwards;
+    animation-delay: 0.3s;
 }
 
 .hero-title {
     font-family: var(--font-poppins);
-    font-size: 4.5em; /* Significantly larger font size */
-    font-weight: 800; /* Extra bold */
-    margin-bottom: 30px;
+    font-size: 4.5em;
+    font-weight: 800;
+    margin-bottom: 35px; /* Tăng khoảng cách dưới tiêu đề */
     line-height: 1.15;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3); /* Text shadow for better readability */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    opacity: 0;
+    animation: fadeInUp 1s ease-out forwards;
+    animation-delay: 0.6s;
 }
 
 .hero-description {
     font-size: 1.3em;
-    margin-bottom: 50px;
+    margin-bottom: 60px; /* Tăng khoảng cách dưới mô tả */
     max-width: 750px;
     margin-left: auto;
     margin-right: auto;
     line-height: 1.6;
     opacity: 0.9;
+    opacity: 0;
+    animation: fadeInUp 1s ease-out forwards;
+    animation-delay: 0.9s;
 }
 
 .hero-search-bar {
@@ -83,18 +86,21 @@
     justify-content: center;
     align-items: center;
     background-color: #fff;
-    border-radius: 50px; /* Fully rounded search bar */
-    padding: 10px 10px 10px 25px;
+    border-radius: 50px;
+    padding: 12px 12px 12px 30px; /* Tăng padding tổng thể */
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
     max-width: 700px;
-    margin: 0 auto 60px; /* Centered with bottom margin */
+    margin: 0 auto 70px; /* Tăng margin dưới */
+    opacity: 0;
+    animation: zoomIn 1s ease-out forwards;
+    animation-delay: 1.2s;
 }
 
 .hero-search-bar input {
     flex-grow: 1;
     border: none;
     outline: none;
-    padding: 10px 15px;
+    padding: 10px 15px; /* Giữ nguyên hoặc điều chỉnh nhẹ nếu cần */
     font-size: 1.1em;
     color: var(--text-color);
     background-color: transparent;
@@ -108,46 +114,57 @@
     background-color: var(--primary-color);
     color: #fff;
     border: none;
-    border-radius: 40px; /* Rounded button */
-    padding: 15px 30px; /* Increased padding */
+    border-radius: 40px;
+    padding: 16px 32px; /* Tăng padding button */
     font-size: 1.1em;
     font-weight: 600;
     cursor: pointer;
-    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease, transform 0.2s ease;
 }
 
 .hero-search-bar button:hover {
     background-color: var(--primary-hover-color);
     box-shadow: 0 5px 15px rgba(var(--primary-rgb), 0.3);
+    transform: translateY(-3px);
 }
 
 /* Hero Stats */
 .hero-stats {
     display: flex;
     justify-content: center;
-    gap: 50px; /* Larger gap between stat items */
-    margin-top: 80px;
-    flex-wrap: wrap; /* Allows items to wrap on smaller screens */
+    gap: 60px; /* Tăng khoảng cách giữa các stat item */
+    margin-top: 80px; /* Giữ nguyên hoặc điều chỉnh nếu cần thêm khoảng cách với thanh search */
+    flex-wrap: wrap;
+    opacity: 0;
+    animation: fadeIn 1s ease-out forwards;
+    animation-delay: 1.5s;
 }
 
 .stat-item {
     background-color: rgba(255, 255, 255, 0.15);
-    padding: 25px 35px; /* Increased padding */
+    padding: 30px 40px; /* Tăng padding item */
     border-radius: 10px;
     min-width: 220px;
-    flex: 1; /* Allows items to grow */
+    flex: 1;
     max-width: 350px;
     text-align: center;
-    backdrop-filter: blur(5px); /* Frosted glass effect */
+    backdrop-filter: blur(5px);
     border: 1px solid rgba(255, 255, 255, 0.2);
+    transition: all 0.3s ease;
+}
+
+.stat-item:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+    background-color: rgba(255, 255, 255, 0.25);
 }
 
 .stat-item h3 {
     font-family: var(--font-poppins);
-    font-size: 2.8em; /* Larger numbers */
+    font-size: 2.8em;
     font-weight: 700;
     color: #fff;
-    margin-bottom: 8px;
+    margin-bottom: 10px; /* Tăng khoảng cách dưới số */
 }
 
 .stat-item p {
@@ -159,18 +176,18 @@
 /* --- Features / Course Categories Section --- */
 .feature-category-section {
     background-color: #fff;
-    padding: 100px 0;
+    padding: var(--section-padding); /* Sử dụng biến padding đã định nghĩa */
 }
 
 .feature-category-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 30px;
+    gap: 40px; /* Tăng khoảng cách giữa các item */
 }
 
 .feature-category-item {
     background-color: var(--light-bg-color);
-    padding: 30px;
+    padding: 35px; /* Tăng padding item */
     border-radius: 12px;
     text-align: center;
     box-shadow: var(--shadow-light);
@@ -179,14 +196,14 @@
 }
 
 .feature-category-item:hover {
-    transform: translateY(-8px);
+    transform: translateY(-10px);
     box-shadow: var(--shadow-medium);
 }
 
 .feature-category-icon {
     font-size: 3.5em;
     color: var(--primary-color);
-    margin-bottom: 25px;
+    margin-bottom: 30px; /* Tăng khoảng cách dưới icon */
     display: flex;
     justify-content: center;
     align-items: center;
@@ -196,6 +213,13 @@
     border-radius: 50%;
     margin-left: auto;
     margin-right: auto;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.feature-category-item:hover .feature-category-icon {
+    background-color: var(--primary-color);
+    color: #fff;
+    transform: rotateY(180deg);
 }
 
 .feature-category-title {
@@ -203,7 +227,7 @@
     font-size: 1.6em;
     font-weight: 700;
     color: var(--heading-color);
-    margin-bottom: 10px;
+    margin-bottom: 15px; /* Tăng khoảng cách dưới tiêu đề */
 }
 
 .feature-category-description {
@@ -216,13 +240,13 @@
 /* --- About Section (Adjusted) --- */
 .about-section-home {
     background-color: var(--light-bg-color);
-    padding: 100px 0;
+    padding: var(--section-padding); /* Sử dụng biến padding chung */
 }
 
 .about-content-grid-home {
     display: grid;
-    grid-template-columns: 1.2fr 1fr; /* Image slightly larger than text */
-    gap: 80px;
+    grid-template-columns: 1.2fr 1fr;
+    gap: 100px; /* Tăng khoảng cách giữa ảnh và text */
     align-items: center;
 }
 
@@ -236,16 +260,40 @@
     border-radius: 12px;
     box-shadow: var(--shadow-medium);
     display: block;
+    transition: transform 0.3s ease;
+}
+
+.about-image-home:hover img {
+    transform: scale(1.03);
+}
+
+.about-image-home::before {
+    content: '';
+    position: absolute;
+    top: -20px;
+    left: -20px;
+    width: 100%;
+    height: 100%;
+    border: 5px solid var(--primary-color);
+    border-radius: 12px;
+    z-index: -1;
+    transition: all 0.3s ease;
+}
+
+.about-image-home:hover::before {
+    top: -10px;
+    left: -10px;
+    border-color: var(--primary-hover-color);
 }
 
 .about-text-home .section-title {
     text-align: left;
-    margin-bottom: 20px;
+    margin-bottom: 25px; /* Tăng khoảng cách dưới tiêu đề */
     font-size: 2.5em;
 }
 
 .about-text-home p {
-    margin-bottom: 20px;
+    margin-bottom: 25px; /* Tăng khoảng cách dưới mỗi đoạn văn */
     color: var(--text-color);
     line-height: 1.7;
     font-size: 1.05em;
@@ -254,21 +302,26 @@
 .about-text-home ul {
     list-style: none;
     padding-left: 0;
-    margin-top: 25px;
-    margin-bottom: 30px;
+    margin-top: 30px; /* Tăng khoảng cách trên danh sách */
+    margin-bottom: 40px; /* Tăng khoảng cách dưới danh sách */
 }
 
 .about-text-home ul li {
-    margin-bottom: 15px;
+    margin-bottom: 18px; /* Tăng khoảng cách giữa các list item */
     color: var(--heading-color);
     font-size: 1.1em;
     display: flex;
     align-items: flex-start;
+    transition: transform 0.2s ease;
+}
+
+.about-text-home ul li:hover {
+    transform: translateX(8px);
 }
 
 .about-text-home ul li .fas {
     color: var(--success-color);
-    margin-right: 12px;
+    margin-right: 15px; /* Tăng khoảng cách icon với text */
     font-size: 1.1em;
     flex-shrink: 0;
     margin-top: 2px;
@@ -278,19 +331,99 @@
 /* --- Popular Courses Section (Adjusted) --- */
 .popular-courses-section {
     background-color: #fff;
-    padding: 100px 0;
+    padding: var(--section-padding); /* Sử dụng biến padding chung */
 }
 
-/* Ensure .courses-grid and .course-item styles are harmonized if courses.css is also used. */
-/* Example: Footer for course card in homepage, if different from courses.css */
+.courses-grid { /* Đảm bảo bạn có class này trong HTML */
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Có thể điều chỉnh minmax */
+    gap: 30px; /* Khoảng cách giữa các course item */
+}
+
+.course-item {
+    background-color: #fff;
+    border-radius: 12px;
+    box-shadow: var(--shadow-light);
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column;
+}
+
+.course-item:hover {
+    transform: translateY(-10px);
+    box-shadow: var(--shadow-medium);
+}
+
+.course-item .course-thumbnail {
+    width: 100%;
+    height: 220px; /* Tăng nhẹ chiều cao thumbnail */
+    overflow: hidden;
+    border-radius: 12px 12px 0 0;
+}
+
+.course-item .course-thumbnail img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.course-item:hover .course-thumbnail img {
+    transform: scale(1.1);
+}
+
+.course-item .course-content {
+    padding: 25px; /* Tăng padding nội dung */
+    flex-grow: 1;
+}
+
+.course-item .course-title {
+    font-family: var(--font-poppins);
+    font-size: 1.4em;
+    font-weight: 700;
+    color: var(--heading-color);
+    margin-bottom: 12px; /* Tăng khoảng cách dưới tiêu đề */
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    transition: color 0.3s ease;
+}
+
+.course-item:hover .course-title {
+    color: var(--primary-color);
+}
+
+.course-item .course-meta {
+    font-size: 0.9em;
+    color: var(--light-text-color);
+    margin-bottom: 18px; /* Tăng khoảng cách dưới meta */
+}
+
+.course-item .course-meta span {
+    margin-right: 20px; /* Tăng khoảng cách giữa các meta item */
+}
+
+.course-item .course-description {
+    font-size: 0.95em;
+    color: var(--text-color);
+    line-height: 1.6;
+    margin-bottom: 25px; /* Tăng khoảng cách dưới mô tả */
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
 .course-item .course-footer {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 15px 20px;
+    padding: 15px 25px; /* Cân bằng padding footer */
     border-top: 1px solid var(--border-color);
     background-color: var(--light-bg-color);
-    margin-top: auto; /* Pushes footer to the bottom of the flex item */
+    margin-top: auto;
 }
 
 .course-item .course-price {
@@ -308,18 +441,19 @@
 
 .view-all-courses-btn {
     text-align: center;
-    margin-top: 60px;
+    margin-top: 100px; /* Khoảng cách trên nút */
+    margin-bottom: 60px; /* ĐÃ THÊM: Khoảng cách dưới nút để tách với section tiếp theo */
 }
 
 
 /* --- Why Choose Us Section --- */
 .why-choose-us-section {
     background: url('../image/BG2.jpg') no-repeat center center/cover;
-    background-attachment: fixed; /* Parallax effect */
+    background-attachment: fixed;
     color: #fff;
-    padding: 100px 0;
+    padding: var(--section-padding); /* Sử dụng biến padding chung */
     position: relative;
-    z-index: 1; /* Content above overlay */
+    z-index: 1;
 }
 
 .why-choose-us-section::before {
@@ -329,36 +463,44 @@
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.7); /* Dark overlay */
-    z-index: -1; /* Puts overlay behind content */
+    background-color: rgba(0, 0, 0, 0.7);
+    z-index: -1;
 }
 
 .why-choose-us-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 40px;
+    gap: 40px; /* Giữ nguyên hoặc điều chỉnh nếu cần */
 }
 
 .why-choose-us-item {
     text-align: center;
-    padding: 30px;
+    padding: 35px; /* Tăng padding item */
     background-color: rgba(255, 255, 255, 0.1);
     border-radius: 12px;
     backdrop-filter: blur(5px);
     border: 1px solid rgba(255, 255, 255, 0.15);
-    transition: background-color 0.3s ease, transform 0.3s ease;
+    transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
 }
 
 .why-choose-us-item:hover {
-    background-color: rgba(255, 255, 255, 0.2);
-    transform: translateY(-5px);
+    background-color: rgba(255, 255, 255, 0.25);
+    transform: translateY(-8px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+    border-color: rgba(255, 255, 255, 0.5);
 }
 
 .why-choose-us-icon {
     font-size: 3.5em;
     color: var(--warning-color);
-    margin-bottom: 20px;
+    margin-bottom: 25px; /* Tăng khoảng cách dưới icon */
     display: block;
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.why-choose-us-item:hover .why-choose-us-icon {
+    color: #fff;
+    transform: rotateY(360deg) scale(1.1);
 }
 
 .why-choose-us-item h3 {
@@ -366,7 +508,7 @@
     font-size: 1.8em;
     font-weight: 700;
     color: #fff;
-    margin-bottom: 10px;
+    margin-bottom: 15px; /* Tăng khoảng cách dưới tiêu đề */
 }
 
 .why-choose-us-item p {
@@ -379,13 +521,13 @@
 /* --- Instructors Section --- */
 .instructors-section {
     background-color: var(--light-bg-color);
-    padding: 100px 0;
+    padding: var(--section-padding); /* Sử dụng biến padding chung */
 }
 
 .instructors-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 30px;
+    gap: 30px; /* Giữ nguyên hoặc điều chỉnh nếu cần */
 }
 
 .instructor-item {
@@ -395,31 +537,31 @@
     overflow: hidden;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     text-align: center;
-    padding-bottom: 25px; /* Space for social icons */
+    padding-bottom: 30px; /* Tăng padding dưới */
 }
 
 .instructor-item:hover {
-    transform: translateY(-8px);
+    transform: translateY(-10px);
     box-shadow: var(--shadow-medium);
 }
 
 .instructor-image {
     width: 100%;
-    height: 280px; /* Fixed height for consistent image size */
+    height: 280px;
     overflow: hidden;
-    border-radius: 12px 12px 0 0; /* Only top corners rounded */
-    margin-bottom: 20px;
+    border-radius: 12px 12px 0 0;
+    margin-bottom: 25px; /* Tăng khoảng cách dưới ảnh */
 }
 
 .instructor-image img {
     width: 100%;
     height: 100%;
-    object-fit: cover; /* Ensures image covers the area without distortion */
+    object-fit: cover;
     transition: transform 0.5s ease;
 }
 
 .instructor-item:hover .instructor-image img {
-    transform: scale(1.08); /* Subtle zoom effect on hover */
+    transform: scale(1.1);
 }
 
 .instructor-name {
@@ -427,18 +569,23 @@
     font-size: 1.5em;
     font-weight: 700;
     color: var(--heading-color);
-    margin-bottom: 5px;
+    margin-bottom: 8px; /* Tăng khoảng cách dưới tên */
+    transition: color 0.3s ease;
+}
+
+.instructor-item:hover .instructor-name {
+    color: var(--primary-color);
 }
 
 .instructor-title {
     font-size: 1em;
     color: var(--primary-color);
     font-weight: 500;
-    margin-bottom: 15px;
+    margin-bottom: 20px; /* Tăng khoảng cách dưới chức danh */
 }
 
 .instructor-social-links {
-    margin-top: 15px;
+    margin-top: 20px; /* Tăng khoảng cách trên social links */
 }
 
 .instructor-social-links a {
@@ -450,7 +597,7 @@
     background-color: var(--light-bg-color);
     color: var(--text-color);
     border-radius: 50%;
-    margin: 0 5px;
+    margin: 0 6px; /* Tăng nhẹ khoảng cách giữa các icon */
     font-size: 1.1em;
     transition: all 0.3s ease;
 }
@@ -458,19 +605,21 @@
 .instructor-social-links a:hover {
     background-color: var(--primary-color);
     color: #fff;
+    transform: scale(1.2) rotate(360deg);
 }
 
 .view-all-instructors-btn {
     text-align: center;
-    margin-top: 60px;
+    margin-top: 100px; /* Khoảng cách trên nút */
+    margin-bottom: 40px; /* ĐÃ THÊM: Khoảng cách dưới nút để tách với section tiếp theo */
 }
 
 
 /* --- Testimonials Section --- */
 .testimonials-section {
     background: url('../image/BG3.jpg') no-repeat center center/cover;
-    background-attachment: fixed; /* Parallax */
-    padding: 100px 0;
+    background-attachment: fixed;
+    padding: var(--section-padding); /* Sử dụng biến padding chung */
     color: #fff;
     position: relative;
     z-index: 1;
@@ -483,12 +632,11 @@
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.75); /* Darker overlay */
+    background-color: rgba(0, 0, 0, 0.75);
     z-index: -1;
 }
 
 .testimonial-carousel {
-    /* Basic styling for a single testimonial item, assumes JS handles carousel */
     max-width: 800px;
     margin: 0 auto;
     text-align: center;
@@ -496,25 +644,49 @@
 
 .testimonial-item {
     background-color: rgba(255, 255, 255, 0.1);
-    padding: 40px;
+    padding: 50px; /* Tăng padding item */
     border-radius: 15px;
-    backdrop-filter: blur(8px); /* Stronger blur effect */
+    backdrop-filter: blur(8px);
     border: 1px solid rgba(255, 255, 255, 0.15);
+    transition: all 0.3s ease;
+    cursor: grab;
+}
+
+.testimonial-item:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+.testimonial-item:active {
+    cursor: grabbing;
 }
 
 .testimonial-quote {
     font-size: 1.3em;
     line-height: 1.8;
-    margin-bottom: 30px;
+    margin-bottom: 40px; /* Tăng khoảng cách dưới quote */
     font-style: italic;
     color: rgba(255, 255, 255, 0.95);
+    position: relative;
+}
+
+.testimonial-quote::before {
+    content: "\f10d";
+    font-family: 'Font Awesome 5 Free';
+    font-weight: 900;
+    position: absolute;
+    top: -20px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 3em;
+    color: rgba(255, 255, 255, 0.3);
 }
 
 .testimonial-author-info {
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-top: 30px;
+    margin-top: 40px; /* Tăng khoảng cách trên info tác giả */
 }
 
 .testimonial-avatar {
@@ -523,8 +695,14 @@
     border-radius: 50%;
     overflow: hidden;
     border: 4px solid var(--primary-color);
-    margin-right: 20px;
+    margin-right: 25px; /* Tăng khoảng cách avatar với text */
     flex-shrink: 0;
+    transition: border-color 0.3s ease, transform 0.3s ease;
+}
+
+.testimonial-item:hover .testimonial-avatar {
+    border-color: var(--warning-color);
+    transform: scale(1.05);
 }
 
 .testimonial-avatar img {
@@ -542,7 +720,7 @@
     font-size: 1.5em;
     font-weight: 700;
     color: #fff;
-    margin-bottom: 5px;
+    margin-bottom: 8px; /* Tăng khoảng cách dưới tên tác giả */
 }
 
 .author-designation {
@@ -550,12 +728,11 @@
     color: rgba(255, 255, 255, 0.8);
 }
 
-/* Navigation dots for carousel (if applicable, e.g., Swiper.js pagination) */
 .testimonial-nav-dots {
     display: flex;
     justify-content: center;
-    margin-top: 40px;
-    gap: 10px;
+    margin-top: 50px; /* Tăng khoảng cách trên nav dots */
+    gap: 12px; /* Tăng khoảng cách giữa các chấm */
 }
 
 .dot {
@@ -570,16 +747,17 @@
 .dot.active,
 .dot:hover {
     background-color: var(--primary-color);
-    transform: scale(1.2);
+    transform: scale(1.3);
 }
 
 
 /* --- Call To Action Section --- */
 .cta-section {
     background: linear-gradient(to right, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.6)), url('../image/BG4.jpg') no-repeat center center/cover;
-    padding: 100px 0;
+    padding: 150px 0 150px; /* Đã điều chỉnh padding-top và padding-bottom */
     color: #fff;
     text-align: center;
+    background-attachment: fixed;
 }
 
 .cta-content {
@@ -589,44 +767,140 @@
 
 .cta-content .section-title {
     color: #fff;
-    margin-bottom: 20px;
+    margin-bottom: 25px;
 }
 
 .cta-content .section-description {
     color: rgba(255, 255, 255, 0.9);
-    margin-bottom: 40px;
+    margin-bottom: 50px;
+}
+
+/* Style cho dòng "Bài viết mới nhất" và các dòng giới thiệu section tương tự */
+/* Bạn cần áp dụng class này vào thẻ HTML chứa dòng "Bài viết mới nhất" và "Đối tác của chúng tôi" */
+.section-intro-text {
+    text-align: center;
+    font-size: 1.1em;
+    font-weight: 600;
+    color: var(--text-color); /* Sử dụng màu văn bản chính hoặc màu phù hợp */
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    margin-top: 100px; /* Khoảng cách phía trên dòng chữ */
+    margin-bottom: 40px; /* Khoảng cách phía dưới dòng chữ */
+    display: block; /* Đảm bảo nó chiếm đủ chiều rộng để căn giữa */
 }
 
 
 /* --- Blog Posts Section (Adjusted) --- */
 .blog-posts-section-home {
     background-color: #fff;
-    padding: 100px 0;
+    padding: var(--section-padding) 0; /* Giữ nguyên padding của section này */
 }
 
-/* Ensure .blog-grid-home, .blog-item-home, etc., are aligned with overall design. */
+.blog-grid-home { /* Đảm bảo bạn có class này trong HTML */
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px; /* Khoảng cách giữa các blog item */
+}
+
+.blog-item-home {
+    background-color: #fff;
+    border-radius: 12px;
+    box-shadow: var(--shadow-light);
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column;
+}
+
+.blog-item-home:hover {
+    transform: translateY(-10px);
+    box-shadow: var(--shadow-medium);
+}
+
 .blog-item-home .blog-thumbnail-home {
     height: 240px;
+    overflow: hidden;
+    border-radius: 12px 12px 0 0;
+}
+
+.blog-item-home .blog-thumbnail-home img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.blog-item-home:hover .blog-thumbnail-home img {
+    transform: scale(1.1);
 }
 
 .blog-item-home .blog-content-home {
-    padding: 25px;
+    padding: 25px; /* Tăng padding nội dung */
+    flex-grow: 1;
+}
+
+.blog-item-home .blog-meta-home {
+    font-size: 0.9em;
+    color: var(--light-text-color);
+    margin-bottom: 12px; /* Tăng khoảng cách dưới meta */
+}
+
+.blog-item-home .blog-meta-home span {
+    margin-right: 18px; /* Tăng khoảng cách giữa các meta item */
 }
 
 .blog-item-home .blog-title-home {
+    font-family: var(--font-poppins);
     font-size: 1.5em;
+    font-weight: 700;
+    color: var(--heading-color);
+    margin-bottom: 18px; /* Tăng khoảng cách dưới tiêu đề */
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    transition: color 0.3s ease;
+}
+
+.blog-item-home:hover .blog-title-home {
+    color: var(--primary-color);
+}
+
+.blog-item-home .blog-description-home {
+    font-size: 1em;
+    color: var(--text-color);
+    line-height: 1.6;
+    margin-bottom: 25px; /* Tăng khoảng cách dưới mô tả */
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.blog-item-home .read-more-btn {
+    display: inline-block;
+    color: var(--primary-color);
+    font-weight: 600;
+    margin-top: 15px; /* Tăng khoảng cách trên button */
+    transition: all 0.3s ease;
+}
+
+.blog-item-home .read-more-btn:hover {
+    color: var(--primary-hover-color);
+    transform: translateX(5px);
 }
 
 .view-all-blog-btn {
     text-align: center;
-    margin-top: 60px;
+    margin-top: 80px; /* Khoảng cách trên nút */
+    margin-bottom: 60px; /* ĐÃ THÊM: Khoảng cách dưới nút để tách với section tiếp theo */
 }
 
 
 /* --- Partners Section --- */
 .partners-section {
     background-color: var(--light-bg-color);
-    padding: 60px 0; /* Less padding, as it's mainly logos */
+    padding: var(--section-padding-small); /* Sử dụng biến padding nhỏ hơn */
     text-align: center;
 }
 
@@ -635,17 +909,19 @@
     justify-content: center;
     align-items: center;
     flex-wrap: wrap;
-    gap: 40px; /* Space between logos */
+    gap: 50px; /* Tăng khoảng cách giữa các logo */
 }
 
 .partner-logo {
-    opacity: 0.6; /* Slightly desaturated */
+    opacity: 0.6;
     transition: opacity 0.3s ease, transform 0.3s ease;
-    max-width: 150px; /* Max size for logos */
+    max-width: 150px;
     height: auto;
+    filter: grayscale(100%);
 }
 
 .partner-logo:hover {
-    opacity: 1; /* Fully visible on hover */
-    transform: scale(1.05);
+    opacity: 1;
+    transform: scale(1.1);
+    filter: grayscale(0%);
 }
