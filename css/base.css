@@ -16,6 +16,7 @@
     --shadow-light: 0 2px 5px rgba(0,0,0,0.05);
     --shadow-medium: 0 5px 15px rgba(0, 0, 0, 0.1);
     --shadow-strong: 0 10px 30px rgba(0, 0, 0, 0.1);
+    --shadow-large: 0 10px 25px rgba(0,0,0,0.2);
 
     /* Font variables */
     --font-poppins: 'Poppins', sans-serif;
@@ -128,6 +129,7 @@ ul {
     margin-bottom: 10px;
     display: block;
     font-family: var(--font-poppins);
+    padding-top: 40px;
 }
 
 .section-title {
@@ -161,6 +163,7 @@ ul {
 
 .text-center {
     text-align: center;
+    padding:0 0 20px;
 }
 
 .mt-5 {

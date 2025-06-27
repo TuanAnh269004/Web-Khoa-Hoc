@@ -1,22 +1,23 @@
 /* --- Hero Section --- */
 .hero-section {
-    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('../image/BG1.jpg') no-repeat center center/cover;
-    color: #fff;
-    padding: 180px 0 140px; /* Tăng padding trên/dưới để tạo thêm không gian */
+    height: 100%;
+    color: #ffffff;
     text-align: center;
     position: relative;
     overflow: hidden;
 }
 
 .hero-section .swiper-slide {
-    height: 100vh;
+    height: 100%;
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
     background-blend-mode: multiply;
+    padding: 100px 0 140px;
 }
 
 .hero-slide-1 {
@@ -85,7 +86,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: #fff;
+    background-color: #060404;
     border-radius: 50px;
     padding: 12px 12px 12px 30px; /* Tăng padding tổng thể */
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
@@ -248,10 +249,12 @@
     grid-template-columns: 1.2fr 1fr;
     gap: 100px; /* Tăng khoảng cách giữa ảnh và text */
     align-items: center;
+    padding:20px 0 50px;
 }
 
 .about-image-home {
     position: relative;
+    overflow: hidden;
 }
 
 .about-image-home img {
@@ -260,11 +263,12 @@
     border-radius: 12px;
     box-shadow: var(--shadow-medium);
     display: block;
-    transition: transform 0.3s ease;
+    transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94), box-shadow 0.4s ease;
 }
 
 .about-image-home:hover img {
-    transform: scale(1.03);
+    transform: scale(0.97); 
+    box-shadow: var(--shadow-large);
 }
 
 .about-image-home::before {
@@ -274,16 +278,22 @@
     left: -20px;
     width: 100%;
     height: 100%;
-    border: 5px solid var(--primary-color);
+    border: 5px solid var(--heading-color);
     border-radius: 12px;
     z-index: -1;
-    transition: all 0.3s ease;
+    opacity: 0.7;
+    transform: translate(0, 0) scale(1);
+    box-shadow: 0 0 15px rgba(var(--primary-rgb), 0.3);
+    transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 
 .about-image-home:hover::before {
-    top: -10px;
-    left: -10px;
-    border-color: var(--primary-hover-color);
+    top: -5px;
+    left: -5px;
+    border-color: var(--heading-color);
+    opacity: 1;
+    transform: translate(10px, 10px) scale(0.95);
+    box-shadow: 0 0 25px rgba(var(--primary-rgb), 0.5);
 }
 
 .about-text-home .section-title {
@@ -418,19 +428,23 @@
 
 .course-item .course-footer {
     display: flex;
+    flex-direction: column;
     justify-content: space-between;
     align-items: center;
+    gap: 10px;
     padding: 15px 25px; /* Cân bằng padding footer */
     border-top: 1px solid var(--border-color);
     background-color: var(--light-bg-color);
-    margin-top: auto;
+    margin-top: 20px;
 }
 
 .course-item .course-price {
+    display: block;
     font-family: var(--font-poppins);
     font-size: 1.6em;
     font-weight: 700;
     color: var(--primary-color);
+    margin-bottom: 0;
 }
 
 .course-item .btn {
@@ -448,7 +462,7 @@
 
 /* --- Why Choose Us Section --- */
 .why-choose-us-section {
-    background: url('../image/BG2.jpg') no-repeat center center/cover;
+    background: url('../image/anh3.jpg') no-repeat center center/cover;
     background-attachment: fixed;
     color: #fff;
     padding: var(--section-padding); /* Sử dụng biến padding chung */
@@ -617,7 +631,7 @@
 
 /* --- Testimonials Section --- */
 .testimonials-section {
-    background: url('../image/BG3.jpg') no-repeat center center/cover;
+    background: url('../image/anh3.jpg') no-repeat center center/cover;
     background-attachment: fixed;
     padding: var(--section-padding); /* Sử dụng biến padding chung */
     color: #fff;
@@ -753,7 +767,7 @@
 
 /* --- Call To Action Section --- */
 .cta-section {
-    background: linear-gradient(to right, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.6)), url('../image/BG4.jpg') no-repeat center center/cover;
+    background: linear-gradient(to right, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.6)), url('../image/BG5.jpg') no-repeat center center/cover;
     padding: 150px 0 150px; /* Đã điều chỉnh padding-top và padding-bottom */
     color: #fff;
     text-align: center;
