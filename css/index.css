@@ -764,6 +764,9 @@
     transform: scale(1.3);
 }
 
+.is-white .section-title {
+    color:#ffffff;
+}
 
 /* --- Call To Action Section --- */
 .cta-section {
