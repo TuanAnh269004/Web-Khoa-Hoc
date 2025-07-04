@@ -21,6 +21,14 @@
     /* Font variables */
     --font-poppins: 'Poppins', sans-serif;
     --font-open-sans: 'Open Sans', sans-serif;
+
+    --button-hover-color-light: #A8DADC; /* Màu nhạt hơn khi hover */
+    --button-hover-color-dark: #ffffff;  /* Màu đậm hơn khi hover */
+
+    --button-effect-color-1: #E0E0CE; /* Màu be nhạt */
+    --button-effect-color-2: #B3C1A2; /* Màu xanh lá nhạt hơn */
+    --button-effect-color-3: #41604B; /* Màu xanh đậm hơn */
+    --button-effect-color-4: #28372C; /* Màu xanh đen */
 }
 
 /* --- 2. Thiết lập CSS cơ bản và Reset --- */
@@ -56,34 +64,35 @@ ul {
 /* --- 3. Các kiểu nút chung (Common Button Styles) --- */
 .btn {
     display: inline-block;
-    padding: 12px 25px;
+    padding: 0;
     border-radius: 8px; /* Tăng nhẹ độ bo góc cho các nút chung */
     font-weight: 600;
     text-align: center;
-    transition: all 0.3s ease; /* Hiệu ứng chuyển động mượt mà */
     cursor: pointer;
     font-family: var(--font-poppins);
+    overflow: hidden; 
+    position: relative; 
+    z-index: 1; 
 }
 
 .btn-primary {
     background-color: var(--primary-color);
     color: #fff;
     border: 1px solid var(--primary-color);
+    padding: 12px 25px;
 }
 
 .btn-primary:hover {
     background-color: var(--primary-hover-color);
     border-color: var(--primary-hover-color);
-    box-shadow: 0 8px 15px rgba(var(--primary-rgb), 0.2); /* Thêm shadow để nổi bật */
+    box-shadow: 0 8px 15px rgba(var(--primary-rgb), 0.2);
 }
 
-/* Lưu ý: `btn-secondary` của bạn trong `index.css` lại có màu và border của `primary-color`.
-   Nếu bạn muốn nó giống màu secondary đã định nghĩa (`--secondary-color: #28a745;`), hãy chỉnh sửa lại.
-   Ở đây tôi điều chỉnh để nó sử dụng `--secondary-color` và hover effect phù hợp. */
 .btn-secondary {
-    background-color: var(--secondary-color); /* Sử dụng biến secondary color */
+    background-color: var(--secondary-color);
     color: #fff;
     border: 1px solid var(--secondary-color);
+    padding: 12px 25px;
 }
 
 .btn-secondary:hover {
@@ -92,20 +101,106 @@ ul {
     box-shadow: 0 8px 15px rgba(40, 167, 69, 0.2); /* Dùng RGB của secondary cho shadow */
 }
 
-.btn-outline-primary {
+.btn .btn-text {
+    display: block;
+    padding: 12px 25px;
+    position: relative;
+    z-index: 3;
+    color: #fff;
+    transition: color 0.4s ease;
+}
+
+.btn.custom-hover-effect {
+    background-color: var(--primary-color);
+    border: 1px solid var(--primary-color);
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+.btn.custom-hover-effect .btn-bg-left,
+.btn.custom-hover-effect .btn-bg-right {
+    content: '';
+    position: absolute;
+    top: 0;
+    width: 50%; /* Mỗi phần chiếm 50% chiều rộng */
+    height: 100%;
+    transition: transform 0.4s ease; /* Hiệu ứng trượt */
+    z-index: 2; /* Nằm giữa text và nền nút chính */
+}
+
+.btn.custom-hover-effect .btn-bg-left {
+    left: 0;
+    background-color: var(--button-effect-color-1); /* Màu cho phần bên trái */
+    transform: translateX(-100%); /* Ban đầu ẩn sang trái */
+    border-top-left-radius: 8px;
+    border-bottom-left-radius: 8px;
+}
+
+.btn.custom-hover-effect .btn-bg-right {
+    right: 0;
+    background-color: var(--button-effect-color-2); /* Màu cho phần bên phải */
+    transform: translateX(100%); /* Ban đầu ẩn sang phải */
+    border-top-right-radius: 8px;
+    border-bottom-right-radius: 8px;
+}
+
+
+/* HIỆU ỨNG KHI HOVER */
+.btn.custom-hover-effect:hover .btn-bg-left {
+    transform: translateX(0); /* Trượt vào từ trái */
+}
+
+.btn.custom-hover-effect:hover .btn-bg-right {
+    transform: translateX(0); /* Trượt vào từ phải */
+}
+
+.btn.custom-hover-effect:hover .btn-text {
+    /* Có thể thay đổi màu chữ khi hover nếu cần */
+    color: var(--dark-bg);
+}
+
+/* --- btn-outline-primary --- */
+.btn-outline-primary.custom-hover-effect {
     background-color: transparent;
-    color: var(--primary-color);
+    color: var(--primary-color); /* Màu chữ mặc định */
     border: 1px solid var(--primary-color);
 }
 
-.btn-outline-primary:hover {
-    background-color: var(--primary-color);
-    color: #fff;
+.btn-outline-primary.custom-hover-effect .btn-text {
+    color: var(--primary-color); /* Màu chữ ban đầu của outline button */
 }
 
-.btn-sm {
-    padding: 8px 18px;
-    font-size: 0.9em;
+.btn-outline-primary.custom-hover-effect:hover .btn-text {
+    color: var(--button-hover-color-dark); /* Đổi màu chữ khi hover */
+}
+
+.btn-outline-primary.custom-hover-effect .btn-bg-left {
+    background-color: var(--primary-hover-color);
+}
+.btn-outline-primary.custom-hover-effect .btn-bg-right {
+    background-color: var(--primary-hover-color);
+}
+
+.course-item .course-footer .btn-sm.custom-hover-effect {
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(20px);
+    transition: opacity 0.3s ease, transform 0.3s ease, visibility 0.3s ease;
+
+    width: calc(100% - 50px);
+    position: absolute;
+    left: 25px;
+    top: 50%;
+    transform: translateY(calc(-50% + 20px)); 
+    z-index: 2; 
+
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.course-item:hover .course-footer .btn-sm.custom-hover-effect {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(-50%);
 }
 
 /* --- Các kiểu chung cho Section (General Section Styles) --- */
