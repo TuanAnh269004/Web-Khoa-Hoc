@@ -29,6 +29,9 @@
     --button-effect-color-2: #B3C1A2; /* Màu xanh lá nhạt hơn */
     --button-effect-color-3: #41604B; /* Màu xanh đậm hơn */
     --button-effect-color-4: #28372C; /* Màu xanh đen */
+
+    --overlay-color: rgba(0, 123, 255, 0.4);
+    --overlay-hover-color: rgba(0, 123, 255, 0.6);
 }
 
 /* --- 2. Thiết lập CSS cơ bản và Reset --- */
@@ -79,7 +82,7 @@ ul {
     background-color: var(--primary-color);
     color: #fff;
     border: 1px solid var(--primary-color);
-    padding: 12px 25px;
+    padding: 12px 20px;
 }
 
 .btn-primary:hover {
@@ -267,7 +270,7 @@ ul {
 
 /* Page Hero (chung cho các trang con, không phải Hero Section của trang chủ) */
 .page-hero {
-    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('../img/page-hero-bg.jpg') no-repeat center center/cover;
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('../image/BG6.jpg') no-repeat center center/cover;
     color: #fff;
     padding: 80px 0;
     text-align: center;

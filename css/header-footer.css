@@ -3,9 +3,16 @@
     background-color: #fff;
     padding: 10px 0;
     box-shadow: var(--shadow-light); /* Đổ bóng nhẹ cho header */
-    position: sticky; /* Giúp header dính khi cuộn trang */
+    position: fixed; /* Giúp header dính khi cuộn trang */
     top: 0;
-    z-index: 1000; /* Đảm bảo header nằm trên các phần tử khác */
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    transition: transform 0.4s ease-in-out;
+}
+
+.main-header.header-hidden {
+    transform: translateY(-100%); /* Đẩy header lên trên, ẩn hoàn toàn */
 }
 
 .main-header .container {
@@ -120,6 +127,10 @@
     font-size: 24px;
     cursor: pointer;
     color: var(--text-color);
+}
+
+body {
+    padding-top: 100px;
 }
 
 /* --- Ẩn nút Đăng ký/Đăng nhập trên trang Auth (được kích hoạt bởi class trên body) --- */

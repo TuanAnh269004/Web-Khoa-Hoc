@@ -254,23 +254,31 @@
 
 .about-image-home {
     position: relative;
-    overflow: hidden;
+    overflow: hidden; /* Quan trọng để cắt phần zoom tràn ra */
+    border-radius: 12px; /* Đảm bảo cả container bo góc */
+    cursor: pointer; /* Thêm con trỏ dạng pointer để gợi ý có thể click/tương tác */
 }
 
 .about-image-home img {
     max-width: 100%;
     height: auto;
-    border-radius: 12px;
+    border-radius: 12px; /* Giữ bo góc cho ảnh */
     box-shadow: var(--shadow-medium);
     display: block;
-    transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94), box-shadow 0.4s ease;
+    /* Điều chỉnh transition để bao gồm filter cho overlay */
+    transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94), 
+                box-shadow 0.4s ease,
+                filter 0.4s ease; /* Thêm filter cho ảnh để làm mờ nhẹ/tối đi */
 }
 
+/* Hiệu ứng zoom và shadow khi hover trên ảnh */
 .about-image-home:hover img {
-    transform: scale(0.97); 
+    transform: scale(1.03); /* Tăng nhẹ zoom để nổi bật hơn */
     box-shadow: var(--shadow-large);
+    filter: brightness(0.8) grayscale(0.2); /* Làm ảnh tối và xám nhẹ đi để overlay nổi bật */
 }
 
+/* Pseudo-element ::before tạo khung */
 .about-image-home::before {
     content: '';
     position: absolute;
@@ -290,10 +298,30 @@
 .about-image-home:hover::before {
     top: -5px;
     left: -5px;
-    border-color: var(--heading-color);
+    border-color: var(--primary-color); /* Đổi màu viền sang primary color khi hover */
     opacity: 1;
     transform: translate(10px, 10px) scale(0.95);
     box-shadow: 0 0 25px rgba(var(--primary-rgb), 0.5);
+}
+
+/* HIỆU ỨNG OVERLAY MÀU MỚI */
+.about-image-home::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: var(--overlay-color); /* Màu overlay ban đầu (hơi trong suốt) */
+    border-radius: 12px;
+    opacity: 0; /* Ẩn overlay ban đầu */
+    transition: opacity 0.4s ease, background-color 0.4s ease; /* Thêm transition cho opacity và màu nền */
+    z-index: 1; /* Đảm bảo overlay nằm trên ảnh nhưng dưới bất kỳ text/nút nào */
+}
+
+.about-image-home:hover::after {
+    opacity: 1; /* Hiển thị overlay khi hover */
+    background-color: var(--overlay-hover-color); /* Đổi màu overlay khi hover (có thể là màu đậm hơn) */
 }
 
 .about-text-home .section-title {

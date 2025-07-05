@@ -4,6 +4,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const mainNav = document.querySelector('.main-nav');
     const dropdownToggles = document.querySelectorAll('.has-dropdown > a');
     const accordionHeaders = document.querySelectorAll('.accordion-header');
+    const header = document.querySelector('.main-header'); // Lấy phần tử header
 
     // Thêm các biến cho nút đăng ký, đăng nhập, đăng xuất
     const registerBtn = document.getElementById('register-btn');
@@ -54,7 +55,7 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    // --- HÀM HỖ TRỢ ĐỂ CẬP NHẬT TRẠNG THÁI NÚT ĐĂNG NHẬP/ĐĂNG KÝ/ĐĂNG XUẤT ---
+    // --- HÀM HỖ TRỢ ĐỂ CẬP NHẬT TRẠNG THÁT NÚT ĐĂNG NHẬP/ĐĂNG KÝ/ĐĂNG XUẤT ---
     function updateAuthButtons() {
         const isLoggedIn = localStorage.getItem('isLoggedIn'); // Lấy trạng thái từ LocalStorage
 
@@ -72,8 +73,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     // --- GỌI HÀM CẬP NHẬT NÚT KHI TRANG TẢI LẠI ---
-    // Điều này đảm bảo trạng thái nút được cập nhật ngay khi người dùng mở bất kỳ trang nào.
-    updateAuthButtons(); 
+    updateAuthButtons();
 
     // --- THÊM CHỨC NĂNG ĐĂNG XUẤT ---
     if (logoutBtn) {
@@ -82,11 +82,11 @@ document.addEventListener('DOMContentLoaded', function() {
             localStorage.removeItem('isLoggedIn'); // Xóa trạng thái đăng nhập
             localStorage.removeItem('registeredUser'); // Xóa luôn thông tin người dùng giả lập
             alert('Bạn đã đăng xuất thành công!');
-            
+
             // Cập nhật lại trạng thái nút ngay lập tức
-            updateAuthButtons(); 
+            updateAuthButtons();
             // Chuyển hướng về trang chủ sau khi đăng xuất
-            window.location.href = 'index.html'; 
+            window.location.href = 'index.html';
         });
     }
 
@@ -110,9 +110,9 @@ document.addEventListener('DOMContentLoaded', function() {
             dropdownToggles.forEach(toggle => {
                 toggle.addEventListener('click', function(e) {
                     if (window.innerWidth <= 992) {
-                        e.preventDefault(); 
-                        const parentLi = this.parentElement; 
-                        parentLi.classList.toggle('open'); 
+                        e.preventDefault();
+                        const parentLi = this.parentElement;
+                        parentLi.classList.toggle('open');
 
                         const dropdownMenu = parentLi.querySelector('.dropdown-menu');
                         if (dropdownMenu) {
@@ -145,12 +145,12 @@ document.addEventListener('DOMContentLoaded', function() {
         window.addEventListener('resize', function() {
             if (window.innerWidth > 992 && mainNav && mainNav.classList.contains('active')) {
                 mainNav.classList.remove('active');
-                if (menuToggle) { 
+                if (menuToggle) {
                     menuToggle.querySelector('i').classList.remove('fa-times');
                     menuToggle.querySelector('i').classList.add('fa-bars');
                 }
                 document.querySelectorAll('.dropdown-menu').forEach(menu => {
-                    menu.style.display = ''; 
+                    menu.style.display = '';
                 });
                 document.querySelectorAll('.has-dropdown.open').forEach(li => {
                     li.classList.remove('open');
@@ -242,7 +242,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 }
 
                 const storedUserString = localStorage.getItem('registeredUser');
-                
+
                 if (storedUserString) {
                     const storedUser = JSON.parse(storedUserString);
 
@@ -259,6 +259,31 @@ document.addEventListener('DOMContentLoaded', function() {
                 }
             });
         }
+    }
+
+    // --- CHỨC NĂNG ẨN/HIỆN HEADER KHI CUỘN TRANG ---
+    if (header) { // Đảm bảo header tồn tại
+        let lastScrollY = window.scrollY; // Vị trí cuộn cuối cùng
+        let headerHeight = header.offsetHeight; // Chiều cao của header
+
+        document.body.style.paddingTop = headerHeight + 'px';
+
+        window.addEventListener('scroll', () => {
+            // Nếu cuộn đủ xa để vượt qua chiều cao của header, mới bắt đầu kiểm tra ẩn/hiện
+            if (window.scrollY > headerHeight) {
+                if (window.scrollY > lastScrollY) {
+                    // Cuộn xuống
+                    header.classList.add('header-hidden');
+                } else {
+                    // Cuộn lên
+                    header.classList.remove('header-hidden');
+                }
+            } else {
+                // Khi ở gần đầu trang (cuộn ít hơn chiều cao header), luôn hiển thị header
+                header.classList.remove('header-hidden');
+            }
+            lastScrollY = window.scrollY; // Cập nhật vị trí cuộn
+        });
     }
 
     // --- GỌI CÁC CHỨC NĂNG KHI DOM ĐƯỢC TẢI XONG ---
