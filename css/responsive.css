@@ -43,7 +43,7 @@
     }
 
     .main-header .header-actions .auth-buttons {
-        display: none; /* Ẩn nút đăng nhập/đăng ký trên mobile, có thể chuyển vào menu toggle */
+        display: none; /* Ẩn nút đăng nhập/đăng ký trên mobile */
     }
 
     .hero-section {
@@ -64,7 +64,7 @@
     }
 
     .stat-item {
-        max-width: 100%; /* Cho phép item chiếm toàn bộ chiều rộng */
+        max-width: 100%;
     }
 
     .section-padding {
@@ -75,32 +75,140 @@
         font-size: 2.2em;
     }
 
-    .about-content-grid-home,
-    .about-section .container,
-    .contact-content-grid {
-        grid-template-columns: 1fr; /* Chuyển sang 1 cột */
+    /* --- Responsive cho ABOUT SECTION (TẮT HIỆU ỨNG TRƯỢT TRÊN MOBILE/TABLET) --- */
+    .about-content-grid-home.custom-wrap {
+        flex-direction: column; /* Xếp chồng ảnh và text */
+        height: auto; /* Chiều cao tự động để nội dung không bị cắt */
+        width: 100%; /* Chiếm toàn bộ chiều rộng */
+        border: none; /* Bỏ border */
+        border-radius: 0; /* Bỏ bo góc */
+        overflow: visible; /* Cho phép nội dung tràn nếu cần (nhưng chúng ta sẽ cố gắng tránh) */
     }
 
-    .about-image-home,
+    .about-overlay-effect.custom-overlay {
+        position: relative; /* Trở về relative */
+        width: 100%; /* Chiếm toàn bộ chiều rộng */
+        height: auto; /* Chiều cao tự động */
+        padding: 1rem;
+        transform: none !important; /* Loại bỏ hiệu ứng trượt */
+        background: transparent; /* Bỏ màu nền overlay */
+        flex-direction: column; /* Xếp chồng tagline/title và ảnh */
+    }
+
+    .about-overlay-content.custom-overlay-content {
+        width: 100%; /* Chiếm toàn bộ chiều rộng trong overlay */
+        padding: 0.5rem;
+        border: none; /* Bỏ border */
+        color: var(--heading-color); /* Đổi màu chữ cho dễ nhìn trên nền sáng */
+        text-align: center; /* Căn giữa tiêu đề */
+        transform: none !important; /* Loại bỏ hiệu ứng trượt */
+        opacity: 1 !important; /* Luôn hiển thị */
+        visibility: visible !important; /* Luôn hiển thị */
+    }
+
+    .about-overlay-content.custom-overlay-content .section-title {
+        color: var(--heading-color); /* Đảm bảo màu tiêu đề đúng */
+        text-align: center; /* Căn giữa tiêu đề */
+    }
+    .about-overlay-content.custom-overlay-content .section-tagline {
+        text-align: center; /* Căn giữa tagline */
+    }
+
+
+    .about-image-home.custom-image-content {
+        position: relative; /* Trở về relative */
+        width: 100%; /* Chiếm toàn bộ chiều rộng */
+        height: 250px; /* Chiều cao cố định cho ảnh trên tablet */
+        background-position: center;
+        background-size: cover;
+        transform: none !important; /* Loại bỏ hiệu ứng trượt */
+        margin-top: 15px; /* Thêm khoảng cách */
+    }
+    .about-image-home.custom-image-content img {
+        display: block !important; /* Hiển thị lại thẻ img gốc trên mobile */
+        max-width: 100%;
+        height: auto;
+        border-radius: 12px;
+        box-shadow: var(--shadow-medium);
+        filter: none !important; /* Bỏ filter hover */
+        transition: none !important; /* Bỏ transition hover */
+    }
+    /* Bỏ các pseudo-elements trên mobile nếu không cần */
+    .about-image-home.custom-image-content::before,
+    .about-image-home.custom-image-content::after {
+        display: none !important;
+        content: none !important;
+    }
+
+
+    .about-dots.custom-dots {
+        position: relative; /* Trở về relative */
+        bottom: auto;
+        right: auto;
+        justify-content: center; /* Căn giữa các chấm */
+        margin-top: 15px; /* Thêm khoảng cách */
+        transform: none !important; /* Loại bỏ hiệu ứng trượt */
+    }
+
+    .about-text-home.custom-text {
+        position: relative; /* Trở về relative */
+        width: 100%; /* Chiếm toàn bộ chiều rộng */
+        height: auto; /* Chiều cao tự động */
+        padding: 20px;
+        box-shadow: none; /* Bỏ shadow */
+        overflow: visible; /* Quan trọng: loại bỏ thanh cuộn dọc */
+        opacity: 1 !important; /* Luôn hiển thị */
+        visibility: visible !important; /* Luôn hiển thị */
+        transform: none !important; /* Loại bỏ hiệu ứng trượt */
+        text-align: left; /* Đảm bảo text căn trái */
+        z-index: auto; /* Đặt lại z-index */
+        margin-top: 20px; /* Khoảng cách giữa ảnh và text */
+    }
+
+    /* Đảm bảo hiệu ứng hover không kích hoạt trên màn hình nhỏ */
+    .about-content-grid-home.custom-wrap:hover .about-overlay-effect.custom-overlay,
+    .about-content-grid-home.custom-wrap:hover .about-image-home.custom-image-content,
+    .about-content-grid-home.custom-wrap:hover .about-overlay-content.custom-overlay-content,
+    .about-content-grid-home.custom-wrap:hover .about-dots.custom-dots,
+    .about-content-grid-home.custom-wrap:hover .about-text-home.custom-text {
+        transform: none !important;
+        opacity: 1 !important;
+        visibility: visible !important;
+        width: auto !important;
+        height: auto !important;
+        left: auto !important;
+        right: auto !important;
+        background: transparent !important;
+        border: none !important;
+        border-image: none !important;
+    }
+
+    /* Các phần responsive khác mà bạn đã cung cấp */
+    .about-section .container,
+    .contact-content-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .about-image-home, /* Điều chỉnh riêng cho thẻ img nếu có */
     .about-image {
-        order: 2; /* Đặt hình ảnh xuống dưới nội dung trên mobile */
+        order: 2;
         text-align: center;
     }
 
     .about-text-home,
     .about-text {
-        order: 1; /* Đặt nội dung lên trên hình ảnh */
+        order: 1;
         padding-right: 0;
     }
 
     .course-listing-content,
     .course-detail-grid {
-        grid-template-columns: 1fr; /* Chuyển sang 1 cột */
+        grid-template-columns: 1fr;
     }
 
     .course-sidebar-filter,
     .course-sidebar {
-        position: static; /* Bỏ sticky trên mobile */
+        position: static;
         margin-bottom: 30px;
     }
 
@@ -109,7 +217,7 @@
     }
 
     .social-login .btn {
-        max-width: none; /* Cho phép nút chiếm toàn bộ chiều rộng */
+        max-width: none;
     }
 }
 
@@ -137,11 +245,11 @@
     }
 
     .btn {
-        width: 100%; /* Nút chiếm toàn bộ chiều rộng */
+        width: 100%;
     }
 
     .footer-grid {
-        grid-template-columns: 1fr; /* Chuyển footer thành 1 cột */
+        grid-template-columns: 1fr;
         text-align: center;
     }
 
@@ -165,7 +273,7 @@
     }
 
     .learn-list {
-        grid-template-columns: 1fr; /* Danh sách học được chuyển thành 1 cột */
+        grid-template-columns: 1fr;
     }
 
     .instructor-card {
@@ -200,6 +308,11 @@
 
     .contact-info-item .icon {
         margin-bottom: 10px;
+    }
+
+    /* Điều chỉnh cho About Section trên 768px */
+    .about-image-home.custom-image-content {
+        height: 200px; /* Điều chỉnh chiều cao ảnh trên mobile nhỏ hơn */
     }
 }
 
@@ -244,5 +357,10 @@
 
     .social-login .btn {
         max-width: none;
+    }
+
+    /* Điều chỉnh cho About Section trên 576px */
+    .about-image-home.custom-image-content {
+        height: 150px; /* Chiều cao ảnh nhỏ nhất */
     }
 }

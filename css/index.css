@@ -45,17 +45,77 @@
 }
 
 .hero-tagline {
+    font-family: var(--font-poppins);
     font-size: 1.15em;
     font-weight: 600;
     color: var(--warning-color);
     margin-bottom: 20px; /* Tăng khoảng cách dưới tagline */
-    display: block;
+    display: block; /* Đảm bảo nó vẫn là một khối */
     text-transform: uppercase;
     letter-spacing: 1.5px;
-    opacity: 0;
-    animation: fadeInDown 1s ease-out forwards;
-    animation-delay: 0.3s;
 }
+
+/* Kiểu cho từng chữ cái trong hero-tagline */
+.hero-tagline span {
+    display: inline-block; /* Quan trọng để mỗi chữ cái là một khối riêng biệt có thể animate */
+    opacity: 0; /* Bắt đầu ẩn */
+    transform: translate(200px, -100px) scale(2); /* Trạng thái ban đầu của animation ballDrop */
+    animation: ballDrop 0.3s forwards; /* Áp dụng animation ballDrop với thời lượng 0.3s và giữ trạng thái cuối */
+    color: inherit; /* Kế thừa màu từ .hero-tagline, tức là var(--warning-color) */
+    white-space: pre;
+}
+
+/* Điều chỉnh độ trễ cho từng chữ cái để tạo hiệu ứng rơi tuần tự */
+/* "Nâng cao kỹ năng với PLT Solutions" có tổng cộng 34 ký tự (bao gồm cả khoảng trắng) */
+.hero-tagline span:nth-of-type(1) { animation-delay: .0s; }
+.hero-tagline span:nth-of-type(2) { animation-delay: .05s; }
+.hero-tagline span:nth-of-type(3) { animation-delay: .1s; }
+.hero-tagline span:nth-of-type(4) { animation-delay: .15s; }
+.hero-tagline span:nth-of-type(5) { animation-delay: .2s; } /* Khoảng trắng */
+.hero-tagline span:nth-of-type(6) { animation-delay: .25s; }
+.hero-tagline span:nth-of-type(7) { animation-delay: .3s; }
+.hero-tagline span:nth-of-type(8) { animation-delay: .35s; }
+.hero-tagline span:nth-of-type(9) { animation-delay: .4s; } /* Khoảng trắng */
+.hero-tagline span:nth-of-type(10) { animation-delay: .45s; }
+.hero-tagline span:nth-of-type(11) { animation-delay: .5s; }
+.hero-tagline span:nth-of-type(12) { animation-delay: .55s; } /* Khoảng trắng */
+.hero-tagline span:nth-of-type(13) { animation-delay: .6s; }
+.hero-tagline span:nth-of-type(14) { animation-delay: .65s; }
+.hero-tagline span:nth-of-type(15) { animation-delay: .7s; }
+.hero-tagline span:nth-of-type(16) { animation-delay: .75s; }
+.hero-tagline span:nth-of-type(17) { animation-delay: .8s; } /* Khoảng trắng */
+.hero-tagline span:nth-of-type(18) { animation-delay: .85s; }
+.hero-tagline span:nth-of-type(19) { animation-delay: .9s; }
+.hero-tagline span:nth-of-type(20) { animation-delay: .95s; }
+.hero-tagline span:nth-of-type(21) { animation-delay: 1.0s; } /* Khoảng trắng */
+.hero-tagline span:nth-of-type(22) { animation-delay: 1.05s; }
+.hero-tagline span:nth-of-type(23) { animation-delay: 1.1s; }
+.hero-tagline span:nth-of-type(24) { animation-delay: 1.15s; }
+.hero-tagline span:nth-of-type(25) { animation-delay: 1.2s; } /* Khoảng trắng */
+.hero-tagline span:nth-of-type(26) { animation-delay: 1.25s; }
+.hero-tagline span:nth-of-type(27) { animation-delay: 1.3s; }
+.hero-tagline span:nth-of-type(28) { animation-delay: 1.35s; }
+.hero-tagline span:nth-of-type(29) { animation-delay: 1.4s; }
+.hero-tagline span:nth-of-type(30) { animation-delay: 1.45s; }
+.hero-tagline span:nth-of-type(31) { animation-delay: 1.5s; }
+.hero-tagline span:nth-of-type(32) { animation-delay: 1.55s; }
+.hero-tagline span:nth-of-type(33) { animation-delay: 1.6s; }
+.hero-tagline span:nth-of-type(34) { animation-delay: 1.65s; }
+
+/* Đảm bảo keyframes ballDrop vẫn tồn tại trong CSS của bạn */
+
+@keyframes ballDrop {
+	60% {
+		transform: translate(0, 20px) rotate(-180deg) scale(.5);
+	}
+
+	100% {
+		transform: translate(0) rotate(0deg) scale(1);
+		opacity: 1;
+	}
+}
+
+
 
 .hero-title {
     font-family: var(--font-poppins);
@@ -238,133 +298,257 @@
 }
 
 
-/* --- About Section (Adjusted) --- */
+/* --- About Section (Với hiệu ứng trượt - Đã điều chỉnh không viền, không nền) --- */
 .about-section-home {
     background-color: var(--light-bg-color);
-    padding: var(--section-padding); /* Sử dụng biến padding chung */
+    padding: var(--section-padding);
 }
 
-.about-content-grid-home {
-    display: grid;
-    grid-template-columns: 1.2fr 1fr;
-    gap: 100px; /* Tăng khoảng cách giữa ảnh và text */
-    align-items: center;
-    padding:20px 0 50px;
-}
-
-.about-image-home {
+.about-content-grid-home.custom-wrap {
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    /* Tăng chiều rộng lên một chút, sử dụng 95% của container hoặc 1300px */
+    max-width: var(--container-max-width, 1300px); /* Tăng max-width */
+    width: 95%; /* Chiếm 95% chiều rộng của container cha */
+    height: 550px;
+    margin: 2rem auto;
+    border: none; /* Đã loại bỏ border */
+    transition: 0.3s ease-in-out;
     position: relative;
-    overflow: hidden; /* Quan trọng để cắt phần zoom tràn ra */
-    border-radius: 12px; /* Đảm bảo cả container bo góc */
-    cursor: pointer; /* Thêm con trỏ dạng pointer để gợi ý có thể click/tương tác */
+    overflow: hidden;
+    border-radius: 12px;
+    box-shadow: var(--shadow-medium); /* Giữ shadow nhẹ nhàng */
 }
 
-.about-image-home img {
-    max-width: 100%;
-    height: auto;
-    border-radius: 12px; /* Giữ bo góc cho ảnh */
-    box-shadow: var(--shadow-medium);
-    display: block;
-    /* Điều chỉnh transition để bao gồm filter cho overlay */
-    transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94), 
-                box-shadow 0.4s ease,
-                filter 0.4s ease; /* Thêm filter cho ảnh để làm mờ nhẹ/tối đi */
-}
-
-/* Hiệu ứng zoom và shadow khi hover trên ảnh */
-.about-image-home:hover img {
-    transform: scale(1.03); /* Tăng nhẹ zoom để nổi bật hơn */
+/* Hiệu ứng hover cho khối wrap */
+.about-content-grid-home.custom-wrap:hover {
     box-shadow: var(--shadow-large);
-    filter: brightness(0.8) grayscale(0.2); /* Làm ảnh tối và xám nhẹ đi để overlay nổi bật */
+    /* border-color: var(--warning-color); */ /* Không có border để đổi màu */
 }
 
-/* Pseudo-element ::before tạo khung */
-.about-image-home::before {
-    content: '';
-    position: absolute;
-    top: -20px;
-    left: -20px;
+
+.about-overlay-effect.custom-overlay {
+    position: relative;
+    display: flex;
     width: 100%;
     height: 100%;
-    border: 5px solid var(--heading-color);
-    border-radius: 12px;
-    z-index: -1;
-    opacity: 0.7;
-    transform: translate(0, 0) scale(1);
-    box-shadow: 0 0 15px rgba(var(--primary-rgb), 0.3);
-    transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    padding: 1rem 0.75rem;
+    background: transparent; /* Đã loại bỏ màu nền xanh dương, làm trong suốt */
+    transition: 0.4s ease-in-out;
+    z-index: 1;
 }
 
-.about-image-home:hover::before {
-    top: -5px;
-    left: -5px;
-    border-color: var(--primary-color); /* Đổi màu viền sang primary color khi hover */
-    opacity: 1;
-    transform: translate(10px, 10px) scale(0.95);
-    box-shadow: 0 0 25px rgba(var(--primary-rgb), 0.5);
+.about-overlay-content.custom-overlay-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    width: 30%;
+    height: 100%;
+    padding: 0 1rem;
+    border: 2px solid;
+    border-image: linear-gradient(
+                                to bottom,
+                                var(--border-color) 5%,
+                                var(--primary-hover-color) 50%,
+                                var(--border-color) 95%
+                            )
+                            0 0 0 100%; /* Giữ border-image này nếu bạn muốn hiệu ứng border màu ở phần tagline/title */
+    transition: 0.3s ease-in-out 0.2s;
+    z-index: 1;
+    color: var(--heading-color); /* Đổi màu chữ cho phù hợp với nền trong suốt */
 }
 
-/* HIỆU ỨNG OVERLAY MÀU MỚI */
-.about-image-home::after {
-    content: '';
+.about-overlay-content.custom-overlay-content .section-tagline {
+    font-size: 1.1em;
+    margin-bottom: 10px;
+}
+
+.about-overlay-content.custom-overlay-content .section-title {
+    font-size: 2.2em;
+    margin-bottom: 0;
+    text-align: left;
+    line-height: 1.3;
+}
+
+
+.about-image-home.custom-image-content {
     position: absolute;
     top: 0;
-    left: 0;
-    width: 100%;
+    right: 0;
+    width: 70%;
     height: 100%;
-    background-color: var(--overlay-color); /* Màu overlay ban đầu (hơi trong suốt) */
-    border-radius: 12px;
-    opacity: 0; /* Ẩn overlay ban đầu */
-    transition: opacity 0.4s ease, background-color 0.4s ease; /* Thêm transition cho opacity và màu nền */
-    z-index: 1; /* Đảm bảo overlay nằm trên ảnh nhưng dưới bất kỳ text/nút nào */
+    max-height: 100%;
+    background-image: url("../image/about1.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    transition: 0.3s ease-in-out;
 }
 
-.about-image-home:hover::after {
-    opacity: 1; /* Hiển thị overlay khi hover */
-    background-color: var(--overlay-hover-color); /* Đổi màu overlay khi hover (có thể là màu đậm hơn) */
+.about-image-home.custom-image-content img {
+    display: none;
 }
 
+.about-dots.custom-dots {
+    position: absolute;
+    bottom: 1.5rem;
+    right: 2.5rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    width: 90px;
+    height: 15px;
+    transition: 0.3s ease-in-out 0.3s;
+    z-index: 2;
+}
+
+.about-dots.custom-dots .dot {
+    width: 15px;
+    height: 15px;
+    background: var(--warning-color);
+    border: 2px solid var(--light-bg-color);
+    border-radius: 50%;
+    transition: 0.3s ease-in-out 0.3s;
+}
+
+/* .about-text-home: PHẦN NỘI DUNG CHÍNH SẼ HIỆN RA */
+.about-text-home.custom-text {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 70%;
+    height: 100%;
+    padding: 30px 40px;
+    background: #fff;
+    box-shadow: inset 1px 1px 15px 0 rgba(0 0 0 / 0.1);
+    overflow-y: auto;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.4s ease, visibility 0.4s ease, transform 0.4s ease;
+    transform: translateX(100%);
+    z-index: 0;
+}
+
+/* HIỆU ỨNG HOVER */
+.about-content-grid-home.custom-wrap:hover .about-overlay-effect.custom-overlay {
+    transform: translateX(-70%);
+}
+.about-content-grid-home.custom-wrap:hover .about-image-home.custom-image-content {
+    width: 30%;
+}
+.about-content-grid-home.custom-wrap:hover .about-overlay-content.custom-overlay-content {
+    border-image: none;
+    transition-delay: 0.2s;
+    transform: translateX(70%);
+    color: var(--heading-color); /* Giữ nguyên màu chữ, vì nền overlay giờ trong suốt */
+}
+.about-content-grid-home.custom-wrap:hover .about-dots.custom-dots {
+    transform: translateX(1.5rem);
+}
+.about-content-grid-home.custom-wrap:hover .about-dots.custom-dots .dot {
+    background: var(--primary-color);
+    border-color: var(--light-bg-color); /* Đổi màu border chấm về màu nền nhẹ */
+}
+
+.about-content-grid-home.custom-wrap:hover .about-text-home.custom-text {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(0);
+    transition-delay: 0.3s;
+    z-index: 2;
+}
+
+/* Styles cho các phần tử bên trong .about-text-home */
 .about-text-home .section-title {
     text-align: left;
-    margin-bottom: 25px; /* Tăng khoảng cách dưới tiêu đề */
-    font-size: 2.5em;
+    margin-bottom: 20px;
+    font-size: 2em;
+    color: var(--heading-color);
 }
 
 .about-text-home p {
-    margin-bottom: 25px; /* Tăng khoảng cách dưới mỗi đoạn văn */
+    margin-bottom: 20px;
     color: var(--text-color);
     line-height: 1.7;
-    font-size: 1.05em;
+    font-size: 1em;
 }
 
 .about-text-home ul {
     list-style: none;
     padding-left: 0;
-    margin-top: 30px; /* Tăng khoảng cách trên danh sách */
-    margin-bottom: 40px; /* Tăng khoảng cách dưới danh sách */
+    margin-top: 20px;
+    margin-bottom: 30px;
 }
 
 .about-text-home ul li {
-    margin-bottom: 18px; /* Tăng khoảng cách giữa các list item */
+    margin-bottom: 12px;
     color: var(--heading-color);
-    font-size: 1.1em;
+    font-size: 1em;
     display: flex;
     align-items: flex-start;
     transition: transform 0.2s ease;
 }
 
 .about-text-home ul li:hover {
-    transform: translateX(8px);
+    transform: translateX(5px);
 }
 
 .about-text-home ul li .fas {
     color: var(--success-color);
-    margin-right: 15px; /* Tăng khoảng cách icon với text */
-    font-size: 1.1em;
+    margin-right: 10px;
+    font-size: 1em;
     flex-shrink: 0;
     margin-top: 2px;
 }
 
+/* Animations and timing delays (GIỮ NGUYÊN) */
+.animate {
+    animation-duration: 0.7s;
+    animation-timing-function: cubic-bezier(0.26, 0.53, 0.74, 1.48);
+    animation-fill-mode: backwards;
+}
+.pop {
+    animation-name: pop;
+}
+@keyframes pop {
+    0% { opacity: 0; transform: scale(0.5, 0.5); }
+    100% { opacity: 1; transform: scale(1, 1); }
+}
+.slide {
+    animation-name: slide;
+}
+@keyframes slide {
+    0% { opacity: 0; transform: translate(4em, 0); }
+    100% { opacity: 1; transform: translate(0, 0); }
+}
+.slide-left {
+    animation-name: slide-left;
+}
+@keyframes slide-left {
+    0% { opacity: 0; transform: translate(-40px, 0); }
+    100% { opacity: 1; transform: translate(0, 0); }
+}
+.slide-up {
+    animation-name: slide-up;
+}
+@keyframes slide-up {
+    0% { opacity: 0; transform: translateY(3em); }
+    100% { opacity: 1; transform: translateY(0); }
+}
+.delay-1 { animation-delay: 0.3s; }
+.delay-2 { animation-delay: 0.6s; }
+.delay-3 { animation-delay: 0.9s; }
+.delay-4 { animation-delay: 1.2s; }
+.delay-5 { animation-delay: 1.5s; }
+.delay-6 { animation-delay: 1.8s; }
+.delay-7 { animation-delay: 2.1s; }
+.delay-8 { animation-delay: 2.4s; }
 
 /* --- Popular Courses Section (Adjusted) --- */
 .popular-courses-section {

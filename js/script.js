@@ -286,9 +286,36 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
+    // --- CHỨC NĂNG ĐỂ CHUYỂN ĐỔI TEXT THÀNH SPAN CHO ANIMATION TỪ YÊU CẦU TRƯỚC ---
+    function animateTextByLetters(selector) {
+        $(selector).each(function() {
+            var $this = $(this);
+            var text = $this.text(); // Lấy nội dung text hiện tại
+            var newHtml = '';
+            // Chia từng chữ cái thành một <span> riêng
+            for (var i = 0; i < text.length; i++) {
+                newHtml += '<span>' + text[i] + '</span>';
+            }
+            $this.html(newHtml); // Thay thế nội dung text bằng các <span> đã tạo
+        });
+    }
+
     // --- GỌI CÁC CHỨC NĂNG KHI DOM ĐƯỢC TẢI XONG ---
     setupMobileMenu();
     setupAccordion();
     setupRegisterForm();
     setupLoginForm();
+
+    animateTextByLetters('.hero-tagline');
+
+    if (typeof $ !== 'undefined') { // Kiểm tra jQuery đã được tải
+        $('.repeat').click(function(){
+            var classes = $(this).parent().attr('class');
+            $(this).parent().attr('class', 'animate'); // Xóa tất cả các class animation để reset
+            var indicator = $(this);
+            setTimeout(function(){ 
+                $(indicator).parent().addClass(classes); // Thêm lại các class để kích hoạt animation
+            }, 20); // Một độ trễ nhỏ để đảm bảo CSS reset trước khi thêm lại class
+        });
+    }
 });
