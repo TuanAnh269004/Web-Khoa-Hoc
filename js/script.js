@@ -14,79 +14,62 @@ document.addEventListener('DOMContentLoaded', function() {
     const registerForm = document.getElementById('registerForm');
     const loginForm = document.getElementById('loginForm');
 
-    // Khởi tạo Swiper Slider cho Hero Section
-    if (document.querySelector('.hero-swiper')) {
-        new Swiper('.hero-swiper', {
-            // Optional parameters
-            direction: 'horizontal', // hoặc 'vertical'
-            loop: true, // Lặp lại vô hạn slider
-            speed: 1000, // Tốc độ chuyển slide (ms)
-            autoplay: {
-                delay: 5000, // Thời gian giữa các slide (ms)
-                disableOnInteraction: false, // Tiếp tục tự động phát sau khi tương tác
-            },
-            effect: 'fade', // Hiệu ứng chuyển slide: 'slide', 'fade', 'cube', 'coverflow', 'flip'
-            fadeEffect: {
-                crossFade: true, // Quan trọng cho hiệu ứng fade mượt mà
-            },
+    // Biến để lưu trữ đối tượng Swiper
+    let heroSwiperInstance = null;
 
-            // If we need pagination
-            pagination: {
-                el: '.swiper-pagination',
-                clickable: true, // Cho phép nhấp vào chấm để chuyển slide
-            },
-
-            // Navigation arrows
-            navigation: {
-                nextEl: '.swiper-button-next',
-                prevEl: '.swiper-button-prev',
-            },
-
-            // Keyboard control (tùy chọn)
-            keyboard: {
-                enabled: true,
-                onlyInViewport: true,
-            },
-
-            // Mousewheel control (tùy chọn)
-            mousewheel: {
-                invert: true,
-            },
-        });
-    }
-
-    // --- HÀM HỖ TRỢ ĐỂ CẬP NHẬT TRẠNG THÁT NÚT ĐĂNG NHẬP/ĐĂNG KÝ/ĐĂNG XUẤT ---
+    // --- HÀM HỖ TRỢ ĐỂ CẬP NHẬT TRẠNG THÁI NÚT ĐĂNG NHẬP/ĐĂNG KÝ/ĐĂNG XUẤT ---
     function updateAuthButtons() {
         const isLoggedIn = localStorage.getItem('isLoggedIn'); // Lấy trạng thái từ LocalStorage
 
+        // Console log để debug:
+        console.log('updateAuthButtons called. isLoggedIn:', isLoggedIn);
+
         if (isLoggedIn === 'true') {
             // Nếu đã đăng nhập: ẩn Đăng ký/Đăng nhập, hiện Đăng xuất
-            if (registerBtn) registerBtn.style.display = 'none';
-            if (loginBtn) loginBtn.style.display = 'none';
-            if (logoutBtn) logoutBtn.style.display = 'block';
+            if (registerBtn) {
+                registerBtn.style.display = 'none';
+                console.log('Register button hidden.');
+            }
+            if (loginBtn) {
+                loginBtn.style.display = 'none';
+                console.log('Login button hidden.');
+            }
+            if (logoutBtn) {
+                logoutBtn.style.display = 'block';
+                console.log('Logout button shown.');
+            }
         } else {
             // Nếu chưa đăng nhập: hiện Đăng ký/Đăng nhập, ẩn Đăng xuất
-            if (registerBtn) registerBtn.style.display = 'block';
-            if (loginBtn) loginBtn.style.display = 'block';
-            if (logoutBtn) logoutBtn.style.display = 'none';
+            if (registerBtn) {
+                registerBtn.style.display = 'block';
+                console.log('Register button shown.');
+            }
+            if (loginBtn) {
+                loginBtn.style.display = 'block';
+                console.log('Login button shown.');
+            }
+            if (logoutBtn) {
+                logoutBtn.style.display = 'none';
+                console.log('Logout button hidden.');
+            }
         }
     }
 
-    // --- GỌI HÀM CẬP NHẬT NÚT KHI TRANG TẢI LẠI ---
+    // --- GỌI HÀM CẬP NHẬT NÚT KHI TRANG TẢI LẠI (QUAN TRỌNG) ---
+    // Hàm này sẽ chạy ngay khi DOM của trang được tải, đọc localStorage và cập nhật UI.
     updateAuthButtons();
 
     // --- THÊM CHỨC NĂNG ĐĂNG XUẤT ---
     if (logoutBtn) {
         logoutBtn.addEventListener('click', function(event) {
-            event.preventDefault(); // Ngăn chặn hành vi mặc định của thẻ <a> (chuyển đến #)
+            event.preventDefault(); // Ngăn chặn hành vi mặc định của thẻ <a>
             localStorage.removeItem('isLoggedIn'); // Xóa trạng thái đăng nhập
-            localStorage.removeItem('registeredUser'); // Xóa luôn thông tin người dùng giả lập
+            localStorage.removeItem('registeredUser'); // Xóa thông tin người dùng giả lập (nếu cần)
             alert('Bạn đã đăng xuất thành công!');
 
-            // Cập nhật lại trạng thái nút ngay lập tức
-            updateAuthButtons();
-            // Chuyển hướng về trang chủ sau khi đăng xuất
-            window.location.href = 'index.html';
+            // Không cần gọi updateAuthButtons() ở đây nếu bạn chuyển hướng
+            // vì trang sẽ tải lại và hàm đó sẽ chạy tự động.
+            window.location.href = 'index.html'; // Chuyển hướng về trang chủ
         });
     }
 
@@ -221,8 +204,8 @@ document.addEventListener('DOMContentLoaded', function() {
 
                 localStorage.setItem('isLoggedIn', 'true'); // Đánh dấu là đã đăng nhập ngay sau đăng ký
                 alert('Đăng ký thành công! Bạn sẽ được chuyển hướng qua trang đăng nhập.');
-                updateAuthButtons(); // Cập nhật trạng thái nút
-                window.location.href = 'login.html'; // Chuyển hướng về trang chủ
+                // KHÔNG GỌI updateAuthButtons() Ở ĐÂY NỮA, vì nó sẽ được gọi lại trên trang login.html hoặc index.html
+                window.location.href = 'login.html'; // Chuyển hướng về trang đăng nhập
             });
         }
     }
@@ -249,7 +232,9 @@ document.addEventListener('DOMContentLoaded', function() {
                     if ((loginEmailUsername === storedUser.email || loginEmailUsername === storedUser.username) && loginPassword === storedUser.password) {
                         localStorage.setItem('isLoggedIn', 'true'); // Đánh dấu là đã đăng nhập
                         alert('Đăng nhập thành công! Chuyển hướng về trang chủ.');
-                        updateAuthButtons(); // Cập nhật trạng thái nút
+                        // Rất quan trọng: Bỏ updateAuthButtons() ở đây.
+                        // Hàm này sẽ được gọi lại khi index.html (trang đích) tải xong.
+                        // updateAuthButtons(); // Bỏ dòng này đi!
                         window.location.href = 'index.html'; // Chuyển hướng về trang chủ
                     } else {
                         alert('Email/Tên người dùng hoặc mật khẩu không đúng. Vui lòng thử lại.');
@@ -262,41 +247,51 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     // --- CHỨC NĂNG ẨN/HIỆN HEADER KHI CUỘN TRANG ---
-    if (header) { // Đảm bảo header tồn tại
-        let lastScrollY = window.scrollY; // Vị trí cuộn cuối cùng
-        let headerHeight = header.offsetHeight; // Chiều cao của header
+    if (header) {
+        let lastScrollY = window.scrollY;
+        let headerHeight = header.offsetHeight;
 
         document.body.style.paddingTop = headerHeight + 'px';
 
         window.addEventListener('scroll', () => {
-            // Nếu cuộn đủ xa để vượt qua chiều cao của header, mới bắt đầu kiểm tra ẩn/hiện
             if (window.scrollY > headerHeight) {
                 if (window.scrollY > lastScrollY) {
-                    // Cuộn xuống
                     header.classList.add('header-hidden');
                 } else {
-                    // Cuộn lên
                     header.classList.remove('header-hidden');
                 }
             } else {
-                // Khi ở gần đầu trang (cuộn ít hơn chiều cao header), luôn hiển thị header
                 header.classList.remove('header-hidden');
             }
-            lastScrollY = window.scrollY; // Cập nhật vị trí cuộn
+            lastScrollY = window.scrollY;
         });
     }
 
-    // --- CHỨC NĂNG ĐỂ CHUYỂN ĐỔI TEXT THÀNH SPAN CHO ANIMATION TỪ YÊU CẦU TRƯỚC ---
+    // --- CHỨC NĂNG ĐỂ CHUYỂN ĐỔI TEXT THÀNH SPAN CHO ANIMATION ---
     function animateTextByLetters(selector) {
+        if (typeof $ === 'undefined') {
+            console.error("jQuery is not loaded. animateTextByLetters cannot run.");
+            return;
+        }
+
         $(selector).each(function() {
             var $this = $(this);
-            var text = $this.text(); // Lấy nội dung text hiện tại
+            if ($this.data('animated-by-letters')) {
+                return;
+            }
+
+            var text = $this.text().trim();
+            if (text.length === 0) {
+                $this.data('animated-by-letters', true);
+                return;
+            }
+
             var newHtml = '';
-            // Chia từng chữ cái thành một <span> riêng
             for (var i = 0; i < text.length; i++) {
                 newHtml += '<span>' + text[i] + '</span>';
             }
-            $this.html(newHtml); // Thay thế nội dung text bằng các <span> đã tạo
+            $this.html(newHtml);
+            $this.data('animated-by-letters', true);
         });
     }
 
@@ -306,16 +301,76 @@ document.addEventListener('DOMContentLoaded', function() {
     setupRegisterForm();
     setupLoginForm();
 
-    animateTextByLetters('.hero-tagline');
+    // Khởi tạo Swiper Slider cho Hero Section
+    if (document.querySelector('.hero-swiper')) {
+        heroSwiperInstance = new Swiper('.hero-swiper', {
+            direction: 'horizontal',
+            loop: true,
+            speed: 1000,
+            autoplay: {
+                delay: 5000,
+                disableOnInteraction: false,
+            },
+            effect: 'fade',
+            fadeEffect: {
+                crossFade: true,
+            },
+            pagination: {
+                el: '.swiper-pagination',
+                clickable: true,
+            },
+            navigation: {
+                nextEl: '.swiper-button-next',
+                prevEl: '.swiper-button-prev',
+            },
+            keyboard: {
+                enabled: true,
+                onlyInViewport: true,
+            },
+            mousewheel: {
+                invert: true,
+            },
+            on: {
+                init: function() {
+                    console.log('Swiper initialized. Animating active hero-tagline.');
+                    animateTextByLetters('.swiper-slide-active .hero-tagline');
+                },
+                slideChangeTransitionEnd: function() {
+                    // Để đảm bảo animation luôn chạy trên slide mới khi thay đổi,
+                    // bạn cần "reset" lại trạng thái của hero-tagline trên slide đó.
+                    // Tuy nhiên, với hiệu ứng fade và animation chữ, việc này có thể gây giật.
+                    // Nếu bạn chỉ muốn animate lần đầu khi load trang, không cần code trong đây.
+                    // Nếu muốn animate mỗi khi slide thay đổi, hãy cân nhắc kỹ hiệu ứng:
+                    var currentActiveTagline = heroSwiperInstance.slides[heroSwiperInstance.activeIndex].querySelector('.hero-tagline');
+                    if (currentActiveTagline) {
+                        $(currentActiveTagline).removeData('animated-by-letters'); // Xóa cờ
+                        var originalText = $(currentActiveTagline).text(); // Giả định text gốc đã được lưu
+                        $(currentActiveTagline).text(originalText); // Đặt lại text gốc
+                        animateTextByLetters(currentActiveTagline); // Chạy lại animation
+                    }
+                }
+            }
+        });
 
-    if (typeof $ !== 'undefined') { // Kiểm tra jQuery đã được tải
+        if (heroSwiperInstance && heroSwiperInstance.initialized) {
+            console.log('Swiper already initialized. Animating active hero-tagline.');
+            animateTextByLetters('.swiper-slide-active .hero-tagline');
+        }
+    } else {
+        if (typeof $ !== 'undefined') {
+             animateTextByLetters('.hero-tagline');
+        }
+    }
+
+    // --- CHỨC NĂNG REPEAT CHO ANIMATION (Sử dụng jQuery) ---
+    if (typeof $ !== 'undefined') {
         $('.repeat').click(function(){
             var classes = $(this).parent().attr('class');
-            $(this).parent().attr('class', 'animate'); // Xóa tất cả các class animation để reset
+            $(this).parent().attr('class', 'animate');
             var indicator = $(this);
-            setTimeout(function(){ 
-                $(indicator).parent().addClass(classes); // Thêm lại các class để kích hoạt animation
-            }, 20); // Một độ trễ nhỏ để đảm bảo CSS reset trước khi thêm lại class
+            setTimeout(function(){
+                $(indicator).parent().addClass(classes);
+            }, 20);
         });
     }
 });

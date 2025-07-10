@@ -408,7 +408,7 @@
 .about-dots.custom-dots .dot {
     width: 15px;
     height: 15px;
-    background: var(--warning-color);
+    background: var(--border-color);
     border: 2px solid var(--light-bg-color);
     border-radius: 50%;
     transition: 0.3s ease-in-out 0.3s;
