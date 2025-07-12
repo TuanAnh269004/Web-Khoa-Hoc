@@ -28,30 +28,42 @@
 
 /* Thanh điều hướng chính (Main Navigation) */
 .main-nav .nav-list {
-    display: flex; /* Sử dụng Flexbox cho các mục menu */
-    gap: 30px; /* Khoảng cách giữa các mục menu */
-    font-family: var(--font-poppins); /* Font chữ cho menu */
+    display: flex;
+    gap: 30px;
+    font-family: var(--font-poppins);
     font-weight: 500;
 }
 
+.main-nav .nav-list li {
+    position: relative; /* Rất quan trọng: Giữ lại để dropdown có thể định vị tuyệt đối */
+    display: block;
+    cursor: pointer; /* Cho biết nó có thể tương tác */
+    /* LOẠI BỎ CÁC THUỘC TÍNH KHÔNG CẦN THIẾT Ở ĐÂY NẾU CHÚNG TẠO HIỆU ỨNG TRƯỢT XUỐNG KHÔNG MONG MUỐN */
+}
+
+/* Các link menu chung (TẤT CẢ CÁC MỤC KHÁC NGOẠI TRỪ HAS-DROPDOWN) */
 .main-nav .nav-list li a {
     color: var(--text-color);
-    padding: 5px 0;
-    position: relative; /* Để tạo hiệu ứng gạch chân */
+    padding: 5px 0; /* Padding mặc định */
+    position: relative;
     transition: color 0.3s ease;
+    display: block; /* Đảm bảo link chiếm hết không gian LI */
+    height: auto; /* Đảm bảo chiều cao linh hoạt, không cố định như "menu-title" */
+    min-width: auto; /* Không giới hạn min-width cho link thường */
 }
 
 .main-nav .nav-list li a:hover,
 .main-nav .nav-list li a.active {
-    color: var(--primary-color); /* Màu khi hover hoặc active */
+    color: var(--primary-color);
 }
 
-/* Hiệu ứng gạch chân dưới cho menu item */
+/* Hiệu ứng gạch chân dưới cho menu item (cho TẤT CẢ các mục, bao gồm cả mục cha của dropdown) */
+/* Cần đảm bảo rằng pseudo-elements này không xung đột với pseudo-elements của dropdown */
 .main-nav .nav-list li a::after {
     content: '';
     position: absolute;
     left: 0;
-    bottom: 0; /* Đặt gạch chân ở dưới */
+    bottom: 0;
     width: 0;
     height: 2px;
     background-color: var(--primary-color);
@@ -60,53 +72,167 @@
 
 .main-nav .nav-list li a:hover::after,
 .main-nav .nav-list li a.active::after {
-    width: 100%; /* Kéo dài gạch chân khi hover/active */
+    width: 100%;
 }
 
-/* Dropdown menu */
+
+/* --- CÁC QUY TẮC CHỈ ÁP DỤNG CHO MỤC HAS-DROPDOWN ("KHÓA HỌC") --- */
+
+/* Mục cha của Dropdown (.has-dropdown) */
 .main-nav .nav-list li.has-dropdown {
-    position: relative;
+    /* Giữ lại position: relative và display: block */
+    /* Đảm bảo không có padding hay height cố định ảnh hưởng đến hành vi "trượt" */
 }
 
-.main-nav .nav-list li.has-dropdown .dropdown-menu {
-    display: none; /* Ẩn mặc định */
+/* Link của mục cha dropdown (ví dụ: "Khóa học") */
+.main-nav .nav-list li.has-dropdown > a {
+    padding: 5px 0; /* Giữ padding mặc định hoặc điều chỉnh theo thiết kế của bạn */
+    min-width: 150px; /* Đặt min-width cho thẻ a này để chứa tam giác nếu cần */
+    display: flex; /* Để icon mũi tên và text nằm cạnh nhau */
+    align-items: center; /* Căn giữa dọc */
+    justify-content: center; /* Căn giữa ngang nếu muốn text và icon nằm ở giữa */
+    position: relative; /* Rất quan trọng cho pseudo-elements của nó */
+    z-index: 102; /* Đảm bảo nó nằm trên các pseudo-elements của nó */
+    /* Bỏ chiều cao cố định để nó không kéo toàn bộ LI xuống */
+    height: auto; /* Hoặc bỏ hoàn toàn */
+}
+
+/* Ẩn gạch chân mặc định của a::after cho mục dropdown để tránh xung đột */
+.main-nav .nav-list li.has-dropdown > a::after {
+    display: none;
+}
+
+
+/* Pseudo-element :before cho tam giác trên của dropdown (tùy chọn) */
+.main-nav .nav-list li.has-dropdown > a::before {
+    content: "";
+    display: block;
+    height: 0;
+    border-top: 5px solid var(--primary-color); /* Màu của tam giác khi xuất hiện */
+    border-left: 75px solid transparent; /* (min-width của a / 2) */
+    border-right: 75px solid transparent; /* (min-width của a / 2) */
     position: absolute;
-    top: 100%; /* Xuất hiện ngay dưới mục cha */
-    left: 0;
-    background-color: #fff;
+    top: 100%; /* Ngay dưới link */
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 101; /* Dưới link nhưng trên dropdown */
+    transition: 0.2s 0.2s border-top ease-out, 0.3s border-top-color;
+    opacity: 0; /* Ban đầu ẩn */
+}
+
+/* Khi hover vào LI cha, tam giác hiện ra và màu */
+.main-nav .nav-list li.has-dropdown:hover > a::before {
+    border-top-width: 5px; /* Chiều rộng của tam giác */
+    border-top-color: #ebebeb; /* Màu nền của dropdown */
+    opacity: 1; /* Hiện ra */
+    transition: 0.2s border-top-width ease-in, 0.3s border-top-color, 0.2s opacity ease-in;
+}
+
+.main-nav .nav-list li.has-dropdown > a.active-link-indicator::after { 
+    display: none; 
+}
+
+/* Dropdown menu (.dropdown-menu) */
+.main-nav .nav-list li.has-dropdown .dropdown-menu {
+    display: block; /* Luôn hiển thị block để transition hoạt động */
+    position: absolute;
+    top: 100%; /* Ngay dưới link cha */
+    left: 50%; /* Căn giữa với mục cha */
+    transform: translateX(-50%) translateY(10px); /* Dịch chuyển để căn giữa và ẩn đi */
+    background-color: #ebebeb;
     box-shadow: var(--shadow-medium);
-    min-width: 200px;
+    min-width: 180px; 
+    width: max-content; 
     border-radius: 5px;
-    padding: 10px 0;
+    padding: 10px 5px;
     z-index: 999;
-    opacity: 0; /* Ẩn ban đầu */
-    visibility: hidden; /* Ẩn khỏi cây DOM để không tương tác */
-    transform: translateY(10px); /* Dịch chuyển nhẹ xuống */
-    transition: opacity 0.3s ease, transform 0.3s ease, visibility 0.3s ease;
+    opacity: 0; /* Ban đầu ẩn */
+    visibility: hidden;
+    transition: opacity 0.3s ease, transform 0.3s ease, visibility 0.3s ease, 0.5s padding, 0.5s background; /* Thêm các transition này */
 }
 
+/* Pseudo-element :after cho tam giác dưới cùng của dropdown (thêm cho đẹp) */
+.main-nav .nav-list li.has-dropdown .dropdown-menu::after {
+    content: "";
+    display: block;
+    height: 0;
+    border-top: 5px solid #ebebeb; /* Màu nền của dropdown */
+    border-left: 75px solid transparent; /* Phải khớp với min-width của a / 2 */
+    border-right: 75px solid transparent; /* Phải khớp với min-width của a / 2 */
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 101;
+    transition: 0.5s border-top;
+}
+
+/* Khi KHÔNG hover vào LI cha, dropdown bị ẩn đi */
+.main-nav .nav-list li.has-dropdown:not(:hover) .dropdown-menu {
+    padding: 4px 0; /* Padding khi ẩn */
+    background: #dddddd; /* Màu nền khi ẩn */
+    z-index: 99;
+}
+
+.main-nav .nav-list li.has-dropdown:not(:hover) .dropdown-menu::after {
+    border-top-color: #dddddd; /* Màu tam giác khi ẩn */
+}
+
+/* HIỆN DROPDOWN KHI HOVER VÀO LI CHA */
 .main-nav .nav-list li.has-dropdown:hover .dropdown-menu {
-    display: block; /* Hiển thị khi hover */
-    opacity: 1; /* Hiển thị hoàn toàn */
-    visibility: visible; /* Cho phép tương tác */
-    transform: translateY(0); /* Trở về vị trí ban đầu */
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(-50%) translateY(0); /* Trở về vị trí gốc */
 }
 
+
+/* Các mục con của Dropdown (.dropdown-menu li a) */
 .main-nav .nav-list li.has-dropdown .dropdown-menu li a {
-    padding: 10px 20px;
-    display: block; /* Để mỗi mục dropdown chiếm toàn bộ chiều rộng */
+    padding: 10px 20px; /* Padding bình thường khi hiển thị */
+    padding-bottom: 25px;
+    display: block;
     color: var(--light-text-color);
+    /* Các thuộc tính này sẽ tạo hiệu ứng "rơi" cho từng mục con */
+    overflow: hidden;
+    height: 30px; /* Chiều cao mỗi mục khi hiện */
+    white-space: nowrap;
+    transition:
+        0.5s height cubic-bezier(.73,.32,.34,1.5),
+        0.5s padding cubic-bezier(.73,.32,.34,1.5),
+        0.5s margin cubic-bezier(.73,.32,.34,1.5),
+        0.5s 0.2s color,
+        0.2s background-color;
 }
 
 .main-nav .nav-list li.has-dropdown .dropdown-menu li a:hover {
-    background-color: #f0f0f0;
+    background-color: #e0e0e0;
     color: var(--primary-color);
+    transform: scale(1.03);
+    font-weight: bold;
+    transition: background-color 0.2s ease, color 0.2s ease, transform 0.2s ease, font-weight 0.2s ease;
+    padding-bottom: 25px;
 }
 
 .main-nav .nav-list li.has-dropdown .dropdown-menu li a::after {
-    display: none; /* Bỏ gạch chân cho các mục dropdown */
+    display: none; /* Bỏ gạch chân cho các mục dropdown con */
 }
 
+/* Khi KHÔNG hover vào LI cha, các mục con của dropdown bị ẩn/thu gọn */
+.main-nav .nav-list li.has-dropdown:not(:hover) .dropdown-menu > li > a {
+    visibility: hidden;
+    height: 0;
+    padding-top: 0;
+    padding-bottom: 0;
+    margin: 0;
+    color: rgba(25,25,25,0); /* Làm mờ chữ */
+    transition:
+        0.5s 0.1s height,
+        0.5s 0.1s padding,
+        0.5s 0.1s margin,
+        0.3s color,
+        0.6s visibility;
+    z-index: 99;
+}
 /* Các hành động ở Header (nút Đăng ký, menu toggle) */
 .header-actions {
     display: flex;
