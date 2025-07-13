@@ -29,9 +29,9 @@
     /* Font variables */
     --font-poppins: 'Poppins', sans-serif;
     --font-open-sans: 'Open Sans', sans-serif;
-    --font-heading: 'Montserrat', sans-serif; 
+    --font-heading: 'Montserrat', sans-serif;
     --font-body: 'Roboto', sans-serif;
-    --font-size: 1rem;
+    --font-size: 1rem; /* Kích thước font cơ bản cho nút */
 
     --button-hover-color-light: #A8DADC; /* Màu nhạt hơn khi hover */
     --button-hover-color-dark: #ffffff;  /* Màu đậm hơn khi hover */
@@ -59,7 +59,6 @@ body {
     line-height: 1.6;
     color: var(--text-color);
     background-color: var(--light-bg); /* Màu nền nhẹ cho toàn trang */
-    /* Tránh margin-top âm ở đây, để hero section tự điều chỉnh nếu cần */
 }
 
 .container {
@@ -85,13 +84,15 @@ ul {
     font-weight: 600;
     text-align: center;
     cursor: pointer;
-    overflow: hidden; 
-    position: relative; 
-    z-index: 1; 
+    overflow: hidden;
+    position: relative;
+    z-index: 1;
     /* Animation specific variables for the button */
     --hover: 0.4;
     --pos: 0;
     transition: background 0.2s; /* For hover background */
+    font-size: var(--font-size); /* Kế thừa từ biến CSS */
+    line-height: 1.2; /* Tùy chỉnh line-height cho nút */
 }
 
 .btn-primary {
@@ -99,6 +100,7 @@ ul {
     color: #fff; /* Base text color for the button */
     border: 1px solid var(--primary-color);
     padding: 12px 20px; /* Base padding for the button content area */
+    border-radius: 5rem;
 }
 
 .btn-primary:hover {
@@ -117,7 +119,6 @@ ul {
 /* Text inside the button for animation */
 .btn-primary span {
     display: inline-block;
-    /* font-size: calc(var(--font-size) * 1.5); */ /* Remove this line to use the button's font size */
     font-size: inherit; /* Use the font size inherited from .btn-primary */
     font-weight: var(--font-weight-9); /* Using a very bold font for the effect */
     transition: all 0.2s;
@@ -130,13 +131,12 @@ ul {
         calc(var(--hover) * (var(--font-size) * -0.08)) calc(var(--hover) * (var(--font-size) * 0.08)) var(--shadow),
         calc(var(--hover) * (var(--font-size) * -0.10)) calc(var(--hover) * (var(--font-size) * 0.10)) var(--shadow);
     transform: translate(calc(var(--hover) * (var(--font-size) * 0.10)), calc(var(--hover) * (var(--font-size) * -0.10)));
-    /* Ensure padding is removed from spans to avoid double padding */
-    padding: 0; 
+    padding: 0;
 }
 
 .btn-primary span:last-of-type {
     position: absolute;
-    inset: 0; /* Use inset: 0 to cover the entire button content area */
+    inset: 0;
     background: linear-gradient(
         108deg,
         transparent 0 55%,
@@ -199,28 +199,175 @@ ul {
 .btn-primary svg:nth-of-type(4) { --x: 75; --y: 60; --s: 0.9; --d: 2; }
 .btn-primary svg:nth-of-type(5) { --x: 100; --y: 30; --s: 0.8; --d: 4; }
 
+/* --- Base Button Styles for secondary button --- */
 .btn-secondary {
-    background-color: var(--secondary-color);
     color: #fff;
-    border: 1px solid var(--secondary-color);
     padding: 12px 25px;
+    position: relative;
+    z-index: 1;
+    overflow: hidden;
+    border-radius: 8px; /* Đồng bộ với các nút khác */
+    font-size: var(--font-size); /* Đồng bộ font-size với .btn chung */
+    font-weight: 600; /* Đồng bộ font-weight với .btn chung */
+    line-height: 1.2; /* Đồng bộ line-height với .btn chung */
+    display: inline-block;
+    text-decoration: none;
+    transition: background 0.3s, border-color 0.3s, box-shadow 0.3s;
 }
 
-.btn-secondary:hover {
-    background-color: #2e8d53; /* Một tông xanh đậm hơn secondary */
+/* .btn-secondary:hover {
+    background-color: #2e8d53;
     border-color: #2e8d53;
-    box-shadow: 0 8px 15px rgba(40, 167, 69, 0.2); /* Dùng RGB của secondary cho shadow */
-}
+    box-shadow: 0 8px 15px rgba(40, 167, 69, 0.2);
+} */
 
 .btn .btn-text {
-    display: block;
-    padding: 12px 25px;
+    display: inline-block;
+    padding: 0;
     position: relative;
     z-index: 3;
     color: #fff;
     transition: color 0.4s ease;
+    white-space: nowrap;
 }
 
+/* --- Voltage Button Specific Styles (áp dụng trực tiếp cho thẻ <a>) --- */
+.btn-secondary.voltage-button {
+    /* Điều chỉnh các thuộc tính này để khớp với .btn-primary */
+    border-radius: 5rem; /* Giữ bo góc tròn cho hiệu ứng voltage */
+    font-size: var(--font-size); /* **Đồng bộ font-size với .btn-primary** */
+    line-height: 1.2; /* Đồng bộ line-height với .btn-primary */
+    letter-spacing: 0.075em; /* Giữ nguyên nếu muốn hiệu ứng voltage có độ giãn chữ đặc trưng */
+
+    /* **Điều chỉnh padding để khớp với .btn-primary** */
+    /* Nút primary là 12px 20px. Để có hiệu ứng voltage đẹp, chúng ta cần padding lớn hơn một chút
+       để đường viền SVG có không gian, và sau đó điều chỉnh vị trí SVG */
+    padding: 12px 20px; /* Base padding giống btn-primary */
+    background-color: #0D1127; /* Nền tối của hiệu ứng voltage */
+    color: white; /* Màu chữ trắng */
+}
+
+.btn-secondary.voltage-button:hover {
+    background: #0F1C53;
+    border-color: #5978F3;
+    box-shadow: none;
+}
+
+.btn-secondary.voltage-button:hover svg,
+.btn-secondary.voltage-button:hover .dots {
+    opacity: 1;
+}
+
+/* --- SVG Styles --- */
+.btn-secondary.voltage-button svg {
+    display: block;
+    position: absolute;
+    /* Điều chỉnh top và left để SVG bao quanh đúng kích thước nút mới */
+    top: -5px; /* bằng với độ dày border */
+    left: -5px; /* bằng với độ dày border */
+    width: calc(100% + 10px); /* Bằng 100% + 2*border-width */
+    height: calc(100% + 10px); /* Bằng 100% + 2*border-width */
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.4s;
+    transition-delay: 0.1s;
+    z-index: 2;
+}
+
+.btn-secondary.voltage-button svg path {
+    stroke-dasharray: 100;
+    filter: url('#glow');
+}
+
+.btn-secondary.voltage-button svg path.line-1 {
+    stroke: #f6de8d;
+    stroke-dashoffset: 0;
+    animation: spark-1 3s linear infinite;
+}
+
+.btn-secondary.voltage-button svg path.line-2 {
+    stroke: #6bfeff;
+    stroke-dashoffset: 500;
+    animation: spark-2 3s linear infinite;
+}
+
+/* --- Dots Styles --- */
+.btn-secondary.voltage-button .dots {
+    opacity: 0;
+    transition: opacity 0.3s;
+    transition-delay: 0.4s;
+}
+
+.btn-secondary.voltage-button .dots .dot {
+    width: 1rem;
+    height: 1rem;
+    background: white;
+    border-radius: 100%;
+    position: absolute;
+    opacity: 0;
+    z-index: 4;
+}
+
+.btn-secondary.voltage-button .dots .dot-1 {
+    top: 0;
+    left: 20%;
+    animation: fly-up 3s linear infinite;
+}
+
+.btn-secondary.voltage-button .dots .dot-2 {
+    top: 0;
+    left: 55%;
+    animation: fly-up 3s linear infinite;
+    animation-delay: 0.5s;
+}
+
+.btn-secondary.voltage-button .dots .dot-3 {
+    top: 0;
+    left: 80%;
+    animation: fly-up 3s linear infinite;
+    animation-delay: 1s;
+}
+
+.btn-secondary.voltage-button .dots .dot-4 {
+    bottom: 0;
+    left: 30%;
+    animation: fly-down 3s linear infinite;
+    animation-delay: 2.5s;
+}
+
+.btn-secondary.voltage-button .dots .dot-5 {
+    bottom: 0;
+    left: 65%;
+    animation: fly-down 3s linear infinite;
+    animation-delay: 1.5s;
+}
+
+/* --- Keyframe Animations (giữ nguyên) --- */
+@keyframes spark-1 {
+    to {
+        stroke-dashoffset: -1000;
+    }
+}
+
+@keyframes spark-2 {
+    to {
+        stroke-dashoffset: -500;
+    }
+}
+
+@keyframes fly-up {
+    0% { opacity: 0; transform: translateY(0) scale(0.2); }
+    5% { opacity: 1; transform: translateY(-1.5rem) scale(0.4); }
+    10%, 100% { opacity: 0; transform: translateY(-3rem) scale(0.2); }
+}
+
+@keyframes fly-down {
+    0% { opacity: 0; transform: translateY(0) scale(0.2); }
+    5% { opacity: 1; transform: translateY(1.5rem) scale(0.4); }
+    10%, 100% { opacity: 0; transform: translateY(3rem) scale(0.2); }
+}
+
+/* --- Custom Hover Effect (giữ nguyên nếu bạn vẫn muốn kết hợp) --- */
 .btn.custom-hover-effect {
     background-color: var(--primary-color);
     border: 1px solid var(--primary-color);
@@ -232,28 +379,27 @@ ul {
     content: '';
     position: absolute;
     top: 0;
-    width: 50%; /* Mỗi phần chiếm 50% chiều rộng */
+    width: 50%;
     height: 100%;
-    transition: transform 0.4s ease; /* Hiệu ứng trượt */
-    z-index: 2; /* Nằm giữa text và nền nút chính */
+    transition: transform 0.4s ease;
+    z-index: 2;
 }
 
 .btn.custom-hover-effect .btn-bg-left {
     left: 0;
-    background-color: var(--button-effect-color-1); /* Màu cho phần bên trái */
-    transform: translateX(-100%); /* Ban đầu ẩn sang trái */
+    background-color: var(--button-effect-color-1);
+    transform: translateX(-100%);
     border-top-left-radius: 8px;
     border-bottom-left-radius: 8px;
 }
 
 .btn.custom-hover-effect .btn-bg-right {
     right: 0;
-    background-color: var(--button-effect-color-2); /* Màu cho phần bên phải */
-    transform: translateX(100%); /* Ban đầu ẩn sang phải */
+    background-color: var(--button-effect-color-2);
+    transform: translateX(100%);
     border-top-right-radius: 8px;
     border-bottom-right-radius: 8px;
 }
-
 
 /* HIỆU ỨNG KHI HOVER */
 .btn.custom-hover-effect:hover .btn-bg-left {
@@ -301,8 +447,8 @@ ul {
     position: absolute;
     left: 25px;
     top: 50%;
-    transform: translateY(calc(-50% + 20px)); 
-    z-index: 2; 
+    transform: translateY(calc(-50% + 20px));
+    z-index: 2;
 
     text-transform: uppercase;
     letter-spacing: 0.5px;
@@ -382,9 +528,8 @@ ul {
     color: #fff;
     padding: 80px 0;
     text-align: center;
-    /* margin-top: -1px; */ /* Tránh dùng margin âm cho hero section, điều chỉnh header thay vì hero */
     position: relative;
-    z-index: 1; /* Đảm bảo nội dung nằm trên lớp nền ảo */
+    z-index: 1;
 }
 
 .page-hero-title {
