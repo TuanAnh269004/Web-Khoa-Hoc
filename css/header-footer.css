@@ -271,6 +271,49 @@ body.register-page #login-btn,
 body.login-page #register-btn {
     display: none !important;
 }
+/* Styling for the cart icon in header */
+.header-actions .cart-icon {
+    position: relative;
+    color: var(--heading-color);
+    font-size: 1.4em; /* Kích thước ban đầu của icon */
+    margin-right: 20px;
+    text-decoration: none;
+    cursor: pointer;
+    /* Thêm transition cho hiệu ứng xoay hover */
+    transition: transform 0.3s ease-out, color 0.3s ease; /* Chuyển đổi màu và transform */
+    display: inline-flex; /* Đảm bảo căn chỉnh tốt */
+    align-items: center;
+    justify-content: center;
+}
+
+/* Hiệu ứng HOVER: Xoay cho biểu tượng */
+.header-actions .cart-icon:hover {
+    color: var(--primary-color); /* Giữ nguyên hiệu ứng đổi màu hover của bạn */
+    transform: rotate(360deg); /* Xoay 360 độ */
+}
+
+/* Styling cho số lượng sản phẩm trong giỏ */
+.header-actions .cart-icon .cart-count {
+    position: absolute;
+    top: -8px;
+    right: -8px;
+    background-color: var(--primary-color);
+    color: #fff;
+    font-size: 0.7em;
+    font-weight: bold;
+    border-radius: 50%;
+    padding: 3px 6px;
+    min-width: 18px;
+    height: 18px; /* Đảm bảo hình tròn */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    line-height: 1;
+    border: 1px solid #fff; /* Optional: border to make it stand out */
+    box-shadow: 0 1px 3px rgba(0,0,0,0.2); /* Đổ bóng nhẹ cho badge */
+    z-index: 2; /* Đảm bảo badge nằm trên cùng */
+}
 
 /* --- Phần Footer (Footer Section) --- */
 .main-footer {
