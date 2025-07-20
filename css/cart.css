@@ -74,35 +74,6 @@
     padding: 20px;
 }
 
-/* Styling for the cart icon in header */
-.header-actions .cart-icon {
-    position: relative;
-    color: var(--heading-color);
-    font-size: 1.4em;
-    margin-right: 20px; /* Space between cart icon and auth buttons */
-    text-decoration: none;
-}
-
-.header-actions .cart-icon:hover {
-    color: var(--primary-color);
-}
-
-.header-actions .cart-icon .cart-count {
-    position: absolute;
-    top: -8px;
-    right: -8px;
-    background-color: var(--primary-color);
-    color: #fff;
-    font-size: 0.7em;
-    font-weight: bold;
-    border-radius: 50%;
-    padding: 3px 6px;
-    min-width: 18px;
-    text-align: center;
-    line-height: 1;
-    border: 1px solid #fff; /* Optional: border to make it stand out */
-}
-
 /* Ensure buttons and other elements look consistent */
 .btn-success {
     background-color: #28a745;

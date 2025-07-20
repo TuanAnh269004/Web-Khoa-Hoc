@@ -99,7 +99,7 @@ ul {
     background-color: var(--primary-color);
     color: #fff; /* Base text color for the button */
     border: 1px solid var(--primary-color);
-    padding: 12px 20px; /* Base padding for the button content area */
+    padding: 12px 15px; /* Base padding for the button content area */
     border-radius: 5rem;
 }
 
