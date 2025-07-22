@@ -86,7 +86,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 cartItemElement.innerHTML = `
                     <div class="cart-item-info">
                         <h4>${item.name}</h4>
-                        <p>Giá: $${item.price.toFixed(2)}</p>
+                        <p>Giá: ${item.price.toFixed(0)}VNĐ</p>
                     </div>
                     <div class="cart-item-actions">
                         <input type="number" min="1" value="${item.quantity}" class="item-quantity" data-item-id="${item.id}">
@@ -96,7 +96,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 cartItemsContainer.appendChild(cartItemElement);
             });
         }
-        cartTotalPriceElement.textContent = `$${total.toFixed(2)}`;
+        cartTotalPriceElement.textContent = `${total.toFixed(0)}VNĐ`;
     }
 
     // 8. Chức năng cập nhật số lượng trên biểu tượng giỏ hàng ở header
